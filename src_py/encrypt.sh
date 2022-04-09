@@ -169,20 +169,9 @@ global_runner() {
 # param 2 secret_value
 # param 3 p_value or c_value
 
-#echo $1
-#echo $2
-#echo $3
-
-#echo 1 $1
-#echo 2 $2
-#echo 3 $3
-#
-#echo 4 $4
-#echo 5 $5
-
-# Absolute path to this script, e.g. /home/user/bin/foo.sh
+# Absolute path to this script
 SCRIPT=$(readlink -f "$0")
-# Absolute path this script is in, thus /home/user/bin
+# Absolute path to this script parent directory
 SCRIPTPATH=$(dirname "$SCRIPT")
 #echo $SCRIPTPATH
 
@@ -204,10 +193,9 @@ current_path=$tmp
 #echo tmp $tmp
 
 #echo "current path: $current_path"
-dir="$current_path"
+#dir="$current_path"
 #echo "dir: $dir"
 export PYTHONUNBUFFERED=1
-#here was dir before instead of curr_path
 python_path="$(dirname "$current_path")"
 #    echo "pyhton path: $python_path"
 
@@ -220,38 +208,15 @@ if [ $# -eq 0 ]
 
     if [ $1 = "-e" ]
       then
-#        global_runner -e -s $2 -p $3
          $python_path/venv/bin/python "$SCRIPTPATH/main.py" -e -s $2 -p $3
-#        encrypt -e -s $2 -p $3
-#        echo encrypt
     elif [ $1 = "-d" ]
       then
-#        global_runner -d -s $2 -c $3
         $python_path/venv/bin/python "$SCRIPTPATH/main.py" -d -s $2 -c $3
-#        echo decrypt
     else
       echo err
 
-
     fi
-
-#    main $1 $2
-
 fi
-
-#    parser.add_argument('--encrypt', '-e', default=False,
- #                        help='encrypt flag', action='store_true')
- #
- #    parser.add_argument('--decrypt', '-d', default=False,
- #                        help='decrypt flag', action="store_true")
- #
- #    parser.add_argument('--secret', '-s', default=None,help='secret configuration, minimal: {"master_password": str}', type=json.loads)
- #
- #    parser.add_argument('--plaintext', '-p', default=None, help='plaintext',
- #                        type=str)
- #
- #    parser.add_argument('--ciphertext', '-c', default=None, help='ciphertext, minimal {"nonce": str, "ciphertext": str, "tag": str, "salt": str}',type=json.loads)
-
 
 #  /bin/sh /home/tmp/Documents/github/marin-jovanovic/pet-care-app/src_py/encrypt.sh -e '{"master_password":"vD15<>$%dmqw"}' "tmp"
 # /bin/sh /home/tmp/Documents/github/marin-jovanovic/pet-care-app/src_py/encrypt.sh -d '{"master_password":"vD15<>$%dmqw"}' '{"nonce":"9EUW2ZaPvJK4olxudvQdWw==","ciphertext":"wDDd","tag":"/enBi6rZ+k8alWpKTrpPsQ==","salt":"Ar9YAhFEknSTksLhibN6vw=="}'
