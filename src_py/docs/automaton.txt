@@ -1,0 +1,56 @@
+start_state: start
+end_state: exit
+
+start
+    check: if file(log.txt) is present
+        case: file is not present
+            enter_new_pass
+                check: is pass strong (more than 8 chars, contains ? or ! or ...)
+                    case: pass ok
+                        goto: main_menu
+
+                    case: pass not ok
+                        goto: enter_new_pass
+
+        case: file is present
+            check: enter_pass
+                case: entered "r"
+                    reset pass
+                        goto: enter_new_pass
+
+                case: entered "x"
+                    exit
+
+                case: entered pass
+                    check: integrity and decrypt
+                        case: integrity and decrypt ok
+                                goto: main_menu
+
+                        case: integrity or decrypt failed
+                            goto: enter_pass
+
+main_menu
+    check: options
+        case: change master password
+            goto: enter_new_pass
+
+        case: show password for website
+            enter website
+                show pass
+
+            goto: main_menu
+
+        case: add new website and password
+            enter website and pass
+
+            goto: main_menu
+
+        case: show all websites
+            shows all websited
+
+            goto: main_menu
+
+        case: save and exit
+            save
+
+            exit
