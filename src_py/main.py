@@ -80,12 +80,25 @@ def get_decrypted(params, json_input):
         plaintext = cipher.decrypt_and_verify(jv['ciphertext'], jv['tag'])
         t = plaintext.decode("utf-8")
 
+        # json_k = ['plaintext', 'is_decrypted_successfully']
+        # json_v = [b64encode(x).decode('utf-8') for x in
+        #           (t, "True")]
+        # result = json.dumps(dict(zip(json_k, json_v)))
+        # return result
         return json.dumps({"plaintext": t, "is_decrypted_successfully": True})
+        # result = json.dumps(dict(zip(json_k, json_v)))
 
     except ValueError as e:
 
         if len(e.args) > 0 and e.args[0] == 'MAC check failed':
-            return json.dumps({"is_decrypted_successfully": False})
+
+            json_k = ['is_decrypted_successfully']
+            json_v = [b64encode(x).decode('utf-8') for x in
+                      ("False",)]
+            result = json.dumps(dict(zip(json_k, json_v)))
+            return result
+
+            # return json.dumps({"is_decrypted_successfully": False})
         else:
             raise e
 

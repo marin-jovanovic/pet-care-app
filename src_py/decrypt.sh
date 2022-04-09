@@ -9,7 +9,7 @@ script_name=`basename "$0"`
 script_name_len=${#script_name}
 current_path=${script_full_path: :-$script_name_len}
 dir="$current_path"
-
+export PYTHONUNBUFFERED=1
 export PYTHONPATH="$(dirname "$dir")"
 
 $PYTHONPATH/venv/bin/python "$current_path/main.py" -d -s '{"master_password": "vdadddddddddj!?<~~<>$%moawer@@f,.<~>\"12868"}' -c '{"nonce": "rOQ2d2EXzMq33PGi0h2gWg==", "ciphertext": "StbXRit4PVWAd/Se/64oneKkNfEUZwr0wVcTY668yEusE28z", "tag": "RjDCzZAyoyESZg24h0bDsw==", "salt": "gXQwvIs/5IX+0NaKJqbpsA=="}'
