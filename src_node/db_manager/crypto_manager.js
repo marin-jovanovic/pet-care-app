@@ -7,7 +7,7 @@ async function encrypt_data(password, content) {
 
     password = {"master_password":password}
 
-    let encrypt_script = path.resolve(__dirname, "..", "..", "src_py", "encrypt.sh")
+    let encrypt_script = path.resolve(__dirname, "..", "..", "runners", "aes_gcm.sh")
 
     // chmod +x on this script
     let p = child_process.execSync(
@@ -25,7 +25,7 @@ async function encrypt_data(password, content) {
 async function decrypt_data(password, content) {
     password = {"master_password":password}
     
-    let encrypt_script = path.resolve(__dirname, "..", "..", "src_py", "encrypt.sh")
+    let encrypt_script = path.resolve(__dirname, "..", "..", "runners", "aes_gcm.sh")
 
     // chmod +x on this script
     let p = child_process.execSync(
