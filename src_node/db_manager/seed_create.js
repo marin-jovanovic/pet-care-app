@@ -88,7 +88,6 @@ CREATE TABLE IF NOT EXISTS APPUSER (
   userName VARCHAR(5000) NOT NULL,
   PRIMARY KEY (userName),
   FOREIGN KEY (userName) REFERENCES PERSON(userName),
-  FOREIGN KEY (userName) REFERENCES ADMIN(userName),
   UNIQUE (OIB)
 );
 `;
@@ -121,7 +120,7 @@ CREATE TABLE IF NOT EXISTS ADLISTING (
   description VARCHAR(60000) NOT NULL,
   price FLOAT NOT NULL,
   idAdListing SERIAL NOT NULL,
-  idDescriptable INT NOT NULL,
+  idDescriptable SERIAL NOT NULL,
   userName VARCHAR(5000) NOT NULL,
   idLocation SERIAL NOT NULL,
   idPeriod SERIAL NOT NULL,
@@ -140,7 +139,7 @@ CREATE TABLE IF NOT EXISTS PET (
   age INT NOT NULL,
   name VARCHAR(1000) NOT NULL,
   description VARCHAR(10000) NOT NULL,
-  idDescriptable INT NOT NULL,
+  idDescriptable SERIAL NOT NULL,
   userName VARCHAR(5000) NOT NULL,
   idPetType SERIAL NOT NULL,
   PRIMARY KEY (idDescriptable),
@@ -156,8 +155,8 @@ CREATE TABLE IF NOT EXISTS MESSAGES (
   idmessages SERIAL NOT NULL,
   body VARCHAR(65000) NOT NULL,
   timestamp DATE NOT NULL,
-  idPersonFrom VARCHAR(1000) NOT NULL,
-  idPersonTo VARCHAR(1000) NOT NULL,
+  idPersonFrom SERIAL NOT NULL,
+  idPersonTo SERIAL NOT NULL,
   userName VARCHAR(5000) NOT NULL,
   PRIMARY KEY (idmessages),
   FOREIGN KEY (userName) REFERENCES PERSON(userName)
@@ -214,6 +213,7 @@ CREATE TABLE IF NOT EXISTS recive (
   FOREIGN KEY (userName) REFERENCES PERSON(userName),
   FOREIGN KEY (idmessages) REFERENCES MESSAGES(idmessages)
 );
+
 `;
 module.exports = {	create_table_location,
 create_table_session,

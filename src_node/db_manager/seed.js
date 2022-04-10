@@ -1,46 +1,6 @@
-// const sql_create_inventory = `CREATE TABLE inventory (
-//     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-//     name text NOT NULL UNIQUE,
-//     price numeric NOT NULL,
-//     categoryId int NOT NULL,
-//     imageUrl text NOT NULL,
-//     colors text NOT NULL
-// )`;
-
-// const sql_create_categories = `CREATE TABLE categories (
-//     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-//     name text NOT NULL UNIQUE,
-//     description text NOT NULL,
-//     seasonal text NOT NULL
-// )`;
-
-// const sql_insert_inventory = `INSERT INTO inventory (
-//     name, price, categoryId, imageUrl, colors)
-//     VALUES 
-//     ('Tulip', 10, 1, 'https://i.imgur.com/Ttir6mp.jpg', 'white, red, yellow'),
-//     ('Lavender', 15, 1, 'https://i.imgur.com/gH33WyT.jpg', 'blue'),
-//     ('Fuchsia', 50, 1, 'https://i.imgur.com/s27QJBL.jpg', 'red-purple, white-purple, white-pink'),
-//     ('Daisy', 30, 1, 'https://i.imgur.com/Agarl4v.jpg', 'white'),
-//     ('Orchid', 90, 2, 'https://i.imgur.com/Dx4q8uE.jpg', 'green, white, purple'),
-//     ('Fittonia', 80, 2, 'https://i.imgur.com/G9JfR3S.jpg', 'green, red'),
-//     ('Showel', 150, 3, 'https://i.imgur.com/BcjgzeT.jpg', 'metal'),
-//     ('Small showel', 50, 3, 'https://i.imgur.com/L80eL1e.jpg', 'metal'),
-//     ('Rake', 100, 3, 'https://i.imgur.com/I5ctUan.jpg', 'metal'),
-//     ('Tulip (1 kg)', 200, 4, 'https://i.imgur.com/WUYYzBG.jpg', 'white, red, yellow');
-// `;
-
-// const sql_insert_category = `INSERT INTO categories (name, description, seasonal) VALUES 
-//     ('Flowers', 'Flowers make us smile', 'Yes'),
-//     ('Indoor plants', 'Bring nature inside', 'No'),
-//     ('Tools', 'Every gardener needs good tools', 'No'),
-//     ('Seeds', 'Grow your own plants', 'No'),
-//     ('Pots', 'Many sizes and styles', 'No'),
-//     ('Fertilizers', 'Essential nutrients', 'No');
-// `;
-
-
 const db_index = require('./db_executor');
 const seed_create = require('./seed_create');
+const seed_insert = require('./seed_insert');
 
 (async () => {
     let query;
@@ -67,7 +27,42 @@ const seed_create = require('./seed_create');
     query = await db_index.query(seed_create.create_table_report, [])
     query = await db_index.query(seed_create.create_table_recive, [])
     
+    // query = await db_index.query(seed_insert.insert_into_location, [])
+    // query = await db_index.query(seed_insert.insert_into_session, [])
+    // query = await db_index.query(seed_insert.insert_into_period, [])
+    // query = await db_index.query(seed_insert.insert_into_pettype, [])
+    // query = await db_index.query(seed_insert.insert_into_breed, [])
+    // query = await db_index.query(seed_insert.insert_into_cipher, [])
+    // query = await db_index.query(seed_insert.insert_into_person, [])
+    // query = await db_index.query(seed_insert.insert_into_public_admin, [])
+    // query = await db_index.query(seed_insert.insert_into_appuser, [])
+    // query = await db_index.query(seed_insert.insert_into_descriptable, [])
+    // query = await db_index.query(seed_insert.insert_into_review, [])
+    // query = await db_index.query(seed_insert.insert_into_adlisting, [])
+    // query = await db_index.query(seed_insert.insert_into_pet, [])
+    // query = await db_index.query(seed_insert.insert_into_messages, [])
+    // query = await db_index.query(seed_insert.insert_into_card, [])
+    // query = await db_index.query(seed_insert.insert_into_give, [])
+    // query = await db_index.query(seed_insert.insert_into_contains, [])
+    // query = await db_index.query(seed_insert.insert_into_report, [])
+    // query = await db_index.query(seed_insert.insert_into_recive, [])    
+
+
+
+
+
+    // query = await db_index.crypto_query_wrapper(
+    //     'INSERT INTO recive (userName, idmessages) VALUES ( $1, $2);', 
+    //     [["username",  "PeroPeric"], ["idmessages", 0]],
+    //     {
+    //         "__username": "PeroPeric",
+    //         "__table": "recive",
+    //         "__key": "ovoSeNekakoPamti!"
+    //     }
+    // )
+
 })();
+
 
 
 // class DefaultDict {

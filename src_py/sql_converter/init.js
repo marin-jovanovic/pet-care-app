@@ -88,7 +88,6 @@ const create_table_appuser = `
 	  userName VARCHAR(5000) NOT NULL,
 	  PRIMARY KEY (userName),
 	  FOREIGN KEY (userName) REFERENCES PERSON(userName),
-	  FOREIGN KEY (userName) REFERENCES ADMIN(userName),
 	  UNIQUE (OIB)
 	);
 `;
@@ -121,8 +120,7 @@ const create_table_adlisting = `
 	  description VARCHAR(60000) NOT NULL,
 	  price FLOAT NOT NULL,
 	  idAdListing SERIAL NOT NULL,
-	  New_Column INT NOT NULL,
-	  idDescriptable INT NOT NULL,
+	  idDescriptable SERIAL NOT NULL,
 	  userName VARCHAR(5000) NOT NULL,
 	  idLocation SERIAL NOT NULL,
 	  idPeriod SERIAL NOT NULL,
@@ -141,7 +139,7 @@ const create_table_pet = `
 	  age INT NOT NULL,
 	  name VARCHAR(1000) NOT NULL,
 	  description VARCHAR(10000) NOT NULL,
-	  idDescriptable INT NOT NULL,
+	  idDescriptable SERIAL NOT NULL,
 	  userName VARCHAR(5000) NOT NULL,
 	  idPetType SERIAL NOT NULL,
 	  PRIMARY KEY (idDescriptable),
@@ -157,8 +155,8 @@ const create_table_messages = `
 	  idmessages SERIAL NOT NULL,
 	  body VARCHAR(65000) NOT NULL,
 	  timestamp DATE NOT NULL,
-	  idPersonFrom VARCHAR(1000) NOT NULL,
-	  idPersonTo VARCHAR(1000) NOT NULL,
+	  idPersonFrom SERIAL NOT NULL,
+	  idPersonTo SERIAL NOT NULL,
 	  userName VARCHAR(5000) NOT NULL,
 	  PRIMARY KEY (idmessages),
 	  FOREIGN KEY (userName) REFERENCES PERSON(userName)
@@ -191,8 +189,7 @@ const create_table_give = `
 const create_table_contains = `
 	CREATE TABLE IF NOT EXISTS contains (
 	  idDescriptable SERIAL NOT NULL,
-	  idDescriptable SERIAL NOT NULL,
-	  PRIMARY KEY (idDescriptable, idDescriptable),
+	  PRIMARY KEY (idDescriptable),
 	  FOREIGN KEY (idDescriptable) REFERENCES ADLISTING(idDescriptable),
 	  FOREIGN KEY (idDescriptable) REFERENCES PET(idDescriptable)
 	);
@@ -216,6 +213,7 @@ const create_table_recive = `
 	  FOREIGN KEY (userName) REFERENCES PERSON(userName),
 	  FOREIGN KEY (idmessages) REFERENCES MESSAGES(idmessages)
 	);
+	
 `;
 module.exports = {	create_table_location,
 	create_table_session,

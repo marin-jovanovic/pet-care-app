@@ -39,16 +39,21 @@ async function decrypt_data(password, content) {
     return as_j
 }
 
-(async () => {
+// (async () => {
 
-    let mp ="vD15<>$%dmqw"
-    let msg = "helloworld"
-    console.log(msg) 
+//     let mp ="vD15<>$%dmqw"
+//     let msg = "helloworld"
+//     console.log(msg) 
 
-    let encrypter = await encrypt_data(mp, msg)
-    console.log(encrypter)
+//     let encrypter = await encrypt_data(mp, msg)
+//     console.log(encrypter)
 
-    let decrypter = await decrypt_data(mp, encrypter)
-    console.log(decrypter)
+//     let decrypter = await decrypt_data(mp, encrypter)
+//     console.log(decrypter)
 
-})();
+// })();
+
+module.exports = {
+    encrypt_data,
+    decrypt_data
+}
