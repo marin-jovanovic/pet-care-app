@@ -1,6 +1,6 @@
 CREATE TABLE LOCATION
 (
-  idLocation INT NOT NULL,
+  idLocation SERIAL NOT NULL,
   latitude FLOAT NOT NULL,
   longitude FLOAT NOT NULL,
   level INT NOT NULL,
@@ -17,15 +17,15 @@ CREATE TABLE SESSION
 
 CREATE TABLE PERIOD
 (
-  start DATE NOT NULL,
-  end DATE NOT NULL,
-  idPeriod INT NOT NULL,
+  startDate DATE NOT NULL,
+  endDate DATE NOT NULL,
+  idPeriod SERIAL NOT NULL,
   PRIMARY KEY (idPeriod)
 );
 
 CREATE TABLE PETTYPE
 (
-  idPetType INT NOT NULL,
+  idPetType SERIAL NOT NULL,
   typePetName VARCHAR(1000) NOT NULL,
   PRIMARY KEY (idPetType)
 );
@@ -33,7 +33,7 @@ CREATE TABLE PETTYPE
 CREATE TABLE BREED
 (
   petBreed VARCHAR(1000) NOT NULL,
-  idPetType INT NOT NULL,
+  idPetType SERIAL NOT NULL,
   PRIMARY KEY (idPetType),
   FOREIGN KEY (idPetType) REFERENCES PETTYPE(idPetType)
 );
@@ -53,7 +53,7 @@ CREATE TABLE PERSON
   email VARCHAR(2000) NOT NULL,
   password VARCHAR(4000) NOT NULL,
   mobileNumber VARCHAR(400) NOT NULL,
-  idPerson INT NOT NULL,
+  idPerson SERIAL NOT NULL,
   idCiper VARCHAR(65000) NOT NULL,
   PRIMARY KEY (userName),
   FOREIGN KEY (idCiper) REFERENCES CIPHER(idCiper),
@@ -67,7 +67,7 @@ CREATE TABLE ADMIN
   FOREIGN KEY (userName) REFERENCES PERSON(userName)
 );
 
-CREATE TABLE USER
+CREATE TABLE APPUSER
 (
   OIB VARCHAR(500) NOT NULL,
   smoker boolean NOT NULL,
@@ -77,10 +77,8 @@ CREATE TABLE USER
   surname VARCHAR(500) NOT NULL,
   isDisable boolean NOT NULL,
   userName VARCHAR(5000) NOT NULL,
-  userName VARCHAR(5000),
   PRIMARY KEY (userName),
   FOREIGN KEY (userName) REFERENCES PERSON(userName),
-  FOREIGN KEY (userName) REFERENCES ADMIN(userName),
   UNIQUE (OIB)
 );
 
@@ -88,7 +86,7 @@ CREATE TABLE DESCRIPTABLE
 (
   description VARCHAR(10000) NOT NULL,
   isDisabled boolean NOT NULL,
-  idDescriptable INT NOT NULL,
+  idDescriptable SERIAL NOT NULL,
   isReported boolean NOT NULL,
   userName VARCHAR(5000),
   PRIMARY KEY (idDescriptable),
@@ -98,26 +96,25 @@ CREATE TABLE DESCRIPTABLE
 CREATE TABLE REVIEW
 (
   grade INT NOT NULL,
-  idDescriptable INT NOT NULL,
+  idDescriptable SERIAL NOT NULL,
   userName VARCHAR(5000) NOT NULL,
   PRIMARY KEY (idDescriptable),
   FOREIGN KEY (idDescriptable) REFERENCES DESCRIPTABLE(idDescriptable),
-  FOREIGN KEY (userName) REFERENCES USER(userName)
+  FOREIGN KEY (userName) REFERENCES APPUSER(userName)
 );
 
 CREATE TABLE ADLISTING
 (
   description VARCHAR(60000) NOT NULL,
   price FLOAT NOT NULL,
-  idAdListing INT NOT NULL,
-  New_Column INT NOT NULL,
-  idDescriptable INT NOT NULL,
+  idAdListing SERIAL NOT NULL,
+  idDescriptable SERIAL NOT NULL,
   userName VARCHAR(5000) NOT NULL,
-  idLocation INT NOT NULL,
-  idPeriod INT NOT NULL,
+  idLocation SERIAL NOT NULL,
+  idPeriod SERIAL NOT NULL,
   PRIMARY KEY (idDescriptable),
   FOREIGN KEY (idDescriptable) REFERENCES DESCRIPTABLE(idDescriptable),
-  FOREIGN KEY (userName) REFERENCES USER(userName),
+  FOREIGN KEY (userName) REFERENCES APPUSER(userName),
   FOREIGN KEY (idLocation) REFERENCES LOCATION(idLocation),
   FOREIGN KEY (idPeriod) REFERENCES PERIOD(idPeriod),
   UNIQUE (idAdListing)
@@ -125,27 +122,27 @@ CREATE TABLE ADLISTING
 
 CREATE TABLE PET
 (
-  petId INT NOT NULL,
+  petId SERIAL NOT NULL,
   age INT NOT NULL,
   name VARCHAR(1000) NOT NULL,
   description VARCHAR(10000) NOT NULL,
-  idDescriptable INT NOT NULL,
+  idDescriptable SERIAL NOT NULL,
   userName VARCHAR(5000) NOT NULL,
-  idPetType INT NOT NULL,
+  idPetType SERIAL NOT NULL,
   PRIMARY KEY (idDescriptable),
   FOREIGN KEY (idDescriptable) REFERENCES DESCRIPTABLE(idDescriptable),
-  FOREIGN KEY (userName) REFERENCES USER(userName),
+  FOREIGN KEY (userName) REFERENCES APPUSER(userName),
   FOREIGN KEY (idPetType) REFERENCES PETTYPE(idPetType),
   UNIQUE (petId)
 );
 
 CREATE TABLE MESSAGES
 (
-  idmessages INT NOT NULL,
+  idmessages SERIAL NOT NULL,
   body VARCHAR(65000) NOT NULL,
   timestamp DATE NOT NULL,
-  idPersonFrom VARCHAR(1000) NOT NULL,
-  idPersonTo VARCHAR(1000) NOT NULL,
+  idPersonFrom SERIAL NOT NULL,
+  idPersonTo SERIAL NOT NULL,
   userName VARCHAR(5000) NOT NULL,
   PRIMARY KEY (idmessages),
   FOREIGN KEY (userName) REFERENCES PERSON(userName)
@@ -160,23 +157,22 @@ CREATE TABLE CARD
   cardType VARCHAR(200) NOT NULL,
   userName VARCHAR(5000) NOT NULL,
   PRIMARY KEY (userName),
-  FOREIGN KEY (userName) REFERENCES USER(userName)
+  FOREIGN KEY (userName) REFERENCES APPUSER(userName)
 );
 
 CREATE TABLE give
 (
   userName VARCHAR(5000) NOT NULL,
-  idDescriptable INT NOT NULL,
+  idDescriptable SERIAL NOT NULL,
   PRIMARY KEY (userName, idDescriptable),
-  FOREIGN KEY (userName) REFERENCES USER(userName),
+  FOREIGN KEY (userName) REFERENCES APPUSER(userName),
   FOREIGN KEY (idDescriptable) REFERENCES REVIEW(idDescriptable)
 );
 
 CREATE TABLE contains
 (
-  idDescriptable INT NOT NULL,
-  idDescriptable INT NOT NULL,
-  PRIMARY KEY (idDescriptable, idDescriptable),
+  idDescriptable SERIAL NOT NULL,
+  PRIMARY KEY (idDescriptable),
   FOREIGN KEY (idDescriptable) REFERENCES ADLISTING(idDescriptable),
   FOREIGN KEY (idDescriptable) REFERENCES PET(idDescriptable)
 );
@@ -184,17 +180,18 @@ CREATE TABLE contains
 CREATE TABLE report
 (
   userName VARCHAR(5000) NOT NULL,
-  idDescriptable INT NOT NULL,
+  idDescriptable SERIAL NOT NULL,
   PRIMARY KEY (userName, idDescriptable),
-  FOREIGN KEY (userName) REFERENCES USER(userName),
+  FOREIGN KEY (userName) REFERENCES APPUSER(userName),
   FOREIGN KEY (idDescriptable) REFERENCES DESCRIPTABLE(idDescriptable)
 );
 
 CREATE TABLE recive
 (
   userName VARCHAR(5000) NOT NULL,
-  idmessages INT NOT NULL,
+  idmessages SERIAL NOT NULL,
   PRIMARY KEY (userName, idmessages),
   FOREIGN KEY (userName) REFERENCES PERSON(userName),
   FOREIGN KEY (idmessages) REFERENCES MESSAGES(idmessages)
 );
+
