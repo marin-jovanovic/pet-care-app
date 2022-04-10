@@ -79,14 +79,19 @@ def get_decrypted(params, json_input):
     try:
         plaintext = cipher.decrypt_and_verify(jv['ciphertext'], jv['tag'])
         t = plaintext.decode("utf-8")
-        t = json.loads(t)
 
         return json.dumps({"plaintext": t, "is_decrypted_successfully": True})
 
     except ValueError as e:
 
         if len(e.args) > 0 and e.args[0] == 'MAC check failed':
-            return json.dumps({"is_decrypted_successfully": False})
+
+            json_k = ['is_decrypted_successfully']
+            json_v = [b64encode(x).decode('utf-8') for x in
+                      ("False",)]
+            result = json.dumps(dict(zip(json_k, json_v)))
+            return result
+
         else:
             raise e
 
@@ -112,11 +117,9 @@ def get_encrypted(params, plaintext):
     if not is_password_strong(master_password):
         return "master_password not strong"
 
-    pt = str(json.dumps(plaintext))
-
     key, salt = get_key(master_password)
 
-    data = pt.encode("ascii")
+    data = plaintext.encode("ascii")
 
     cipher = AES.new(key, AES.MODE_GCM)
     ciphertext, tag = cipher.encrypt_and_digest(data)
@@ -149,12 +152,12 @@ def main():
     parser.add_argument('--decrypt', '-d', default=False,
                         help='decrypt flag', action="store_true")
 
-    parser.add_argument('--configuration', '--config', '-cf', default=None,
-                        help='configuration {"master_password": str}', type=json.loads)
+    parser.add_argument('--secret', '-s', default=None,help='secret configuration, minimal: {"master_password": str}', type=json.loads)
+
     parser.add_argument('--plaintext', '-p', default=None, help='plaintext',
-                        type=json.loads)
-    parser.add_argument('--ciphertext', '-c', default=None, help='ciphertext',
-                        type=json.loads)
+                        type=str)
+
+    parser.add_argument('--ciphertext', '-c', default=None, help='ciphertext, minimal {"nonce": str, "ciphertext": str, "tag": str, "salt": str}',type=json.loads)
 
     args = parser.parse_args()
 
@@ -162,11 +165,11 @@ def main():
         parser.print_help()
         raise ValueError("must select mode")
 
-    if not args.configuration:
+    if not args.secret:
         parser.print_help()
-        raise ValueError("must provide configuration")
+        raise ValueError("must provide secret configuration")
 
-    if not args.configuration["master_password"]:
+    if not args.secret["master_password"]:
         parser.print_help()
         raise ValueError("must provide minimal configuration (master_password)")
 
@@ -176,7 +179,7 @@ def main():
             raise ValueError("must provide plaintext")
 
         ret = get_encrypted(
-            args.configuration,
+            args.secret,
             args.plaintext
         )
 
@@ -188,7 +191,7 @@ def main():
             raise ValueError("must provide ciphertext")
 
         ret = get_decrypted(
-            args.configuration,
+            args.secret,
             args.ciphertext
         )
 
