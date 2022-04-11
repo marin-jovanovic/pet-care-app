@@ -1,3 +1,6 @@
+# force to run with sh
+#!/bin/sh
+
 #!/bin/bash
 
 # param 1 -e or -d
