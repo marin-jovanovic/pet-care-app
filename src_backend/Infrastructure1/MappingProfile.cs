@@ -9,7 +9,7 @@ public class MappingProfile : Profile
   public MappingProfile()
   {
     CreateMap<AddPersonCommand, EFModel.Person>()
-      .ForMember(person => person.IdPerson, opt => opt.MapFrom(command => command.userName));
+      .ForMember(person => person.UserName, opt => opt.MapFrom(command => command.userName));
         /*
     CreateMap<UpdatePersonCommand, EFModel.Person>()
       .ForMember(person => person.PersonalIdentificationNumber, opt => opt.MapFrom(command => command.PIN));
@@ -19,7 +19,7 @@ public class MappingProfile : Profile
     CreateMap<EFModel.Project, Domain.Projects.Project>()
       .ForMember(dest => dest.ProjectTypeName , opt => opt.MapFrom(src => src.ProjectType.ProjectTypeName));*/
     CreateMap<EFModel.Person, Domain.People.Person>()
-     .ForMember(dest => dest.userName, opt => opt.MapFrom(src => src.IdPerson));
+     .ForMember(dest => dest.userName, opt => opt.MapFrom(src => src.UserName));
 
   }
 }

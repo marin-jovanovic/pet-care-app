@@ -5,9 +5,7 @@ namespace PetCareAppMVC.Features;
 public class PersonViewModel
 {
   public int? idPerson { get; set; }
-  [Required]
-  [MaxLength(25)] 
-  [Display(Name="First Name")]
+
   public string userName { get; set; }
   
   [Required]
@@ -22,6 +20,7 @@ public class PersonViewModel
   public string email{ get; set; }
   
   [Required]
-  [MaxLength(20)] 
-  public string username { get; set; }
+  [MaxLength(20)]
+  [Display(Name = "Password")]
+    public string password { get; set; }
 }

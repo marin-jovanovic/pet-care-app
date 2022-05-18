@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using ProjectMVC.Extensions;
-using PetCareAppMVC.Features;
+using ProjectMVC.Features.Shared;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MediatR;
 using Infrastructure;
 using Sieve.Models;
-using PetCareAppMVC.Features;
+
 //using Domain.Roles;
 //using DomainServices.Roles;
 using static DomainServices.People.Commands;
@@ -40,8 +40,8 @@ namespace PetCareAppMVC.Features.People
   
    
         
-        [HttpGet]
-        public async Task<IActionResult> Edit(int id)
+    [HttpGet]
+    public async Task<IActionResult> Edit(int id)
         {
             var personQuery = new DomainServices.People.Queries.GetPersonQuery(id, IncludeProjects: false);
             var person = await mediator.Send(personQuery);
@@ -54,6 +54,23 @@ namespace PetCareAppMVC.Features.People
                 PersonViewModel model = mapper.Map<PersonViewModel>(person);
                 return View(model);
             }
+        }
+
+
+        [HttpPost]
+        public async Task<ActionResult> Delete(int idPerson)
+        {
+            try
+            {
+                var command = new DeletePersonCommand(idPerson);
+                await mediator.Send(command);
+                TempData.Put(Constants.ActionStatus, new ActionStatus(true, "Person deleted"));
+            }
+            catch (Exception ex)
+            {
+                TempData.Put(Constants.ActionStatus, new ActionStatus(false, ex.CompleteExceptionMessage()));
+            }
+            return RedirectToAction(nameof(Index));
         }
     }
 

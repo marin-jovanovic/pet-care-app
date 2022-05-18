@@ -14,6 +14,8 @@ namespace Domain
         public int? IdDescriptable { get; set; }
         public string UserName { get; set; }
         public int IdPetType { get; set; }
+        
+        public string TypePetName { get; set; }
 
 
     }

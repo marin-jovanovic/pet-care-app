@@ -4,7 +4,7 @@ using MediatR;
 namespace DomainServices.People;
     public class Commands
     {
-        public record DeletePersonnCommand(int idPerson):IRequest;
+        public record DeletePersonCommand(int idPerson):IRequest;
         public class UpdatePersonCommand : IRequest
         {
             public string userName { get; set; }
