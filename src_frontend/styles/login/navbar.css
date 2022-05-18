@@ -1,0 +1,142 @@
+.theme__color {
+    color: black;
+}
+
+.header__spacer {
+    height: 500px;
+}
+
+.util__center__wrapper {
+    display: table;
+
+}
+
+.util__center {
+    display: table-cell;
+    vertical-align: middle;
+   
+}
+
+.header {
+    background-color: lightblue;
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:100;
+    
+    /* box-sizing: border-box; */
+}
+
+.header__spacer__left {
+    width: 10%;
+    float: left;
+    display: flex;
+
+}
+
+
+.header__logo {
+    width: 20%;
+    float: left;
+    display: flex;
+
+    height: 50px;
+}
+
+.header__empty {
+    width: 50%;
+    float: left;
+
+    height: 50px;
+}
+
+.header__navbar {
+    width: 30%;
+    float: right;
+
+    height: 50px;
+}
+
+.header__spacer__right {
+    width: 20%;
+    float: left;
+    display: flex;
+
+}
+
+
+.header__logo__img {
+
+    max-height: 100%;
+    max-width: 100%;
+
+}
+
+.header__navbar__listing {
+    width: 40%;
+    float: left;
+    display: flex;
+
+    height: 50px;
+}
+
+.header__navbar__profile {
+    width: 20%;
+    float: left;
+
+    height: 50px;
+}
+
+.split__two__left {
+    width: 50%;
+    float: left;
+
+    display: flex;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+
+    height: 50px;
+}
+
+.split__two__right {
+    width: 50%;
+    float: right;
+
+    display: flex;
+    justify-content: center;
+
+    top: 50%;
+    left: 50%;
+
+    height: 50px;
+
+}
+
+.header__navbar__profile__left {
+
+    width: 50%;
+    float: left;
+
+}
+
+.header__navbar__profile__right {
+    width: 50%;
+    float: left;
+
+}
+.header__navbar__dd_resize{
+    width: 45px;
+    height: 45px;
+
+}
+
+.header__navbar__image-cropper {
+
+    width: 45px;
+    height: 45px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+
+}

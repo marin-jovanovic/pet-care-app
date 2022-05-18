@@ -1,0 +1,31 @@
+﻿@model IList<Domain.People.PersonInfo>
+@{
+  ViewBag.Title = "People";
+}
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Person</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var item in Model)
+      {
+        <tr>
+          <td><a asp-action="Details" asp-route-id="@item.userName">@item.userName</a></td>
+          <td>
+            <form method="post" asp-action="Delete" asp-route-id="@item.PersonId">
+                <button type="submit" class="btn btn-danger confirm-delete">Delete <i class="fas fa-trash-alt ms-1"></i></button>
+            </form>
+          </td>
+        </tr>
+      }
+      </tbody>
+  </table>
+</div>
+<p>
+  <a asp-action="Create" class="btn btn-sm btn-primary">Add new person</a>
+</p>

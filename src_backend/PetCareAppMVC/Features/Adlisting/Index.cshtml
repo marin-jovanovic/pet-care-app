@@ -1,0 +1,32 @@
+﻿
+@model IList<Domain.Adlisting>
+@{
+  ViewBag.Title = "Adlisting";
+}
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Person</th>
+
+        <th>Opis</th>
+        <th>Cijena</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var item in Model)
+      {
+        <tr>
+          <td>@item.UserName</td>
+          <td>@item.Description</td>
+          <td>@item.Price</td>
+          <td>@item.IdLocation</td>
+        </tr>
+      }
+      </tbody>
+  </table>
+</div>
+<p>
+  <a asp-action="Create" class="btn btn-sm btn-primary">Add new person</a>
+</p>

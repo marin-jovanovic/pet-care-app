@@ -1,0 +1,15 @@
+C:\Users\mataj\source\repos\PetCareApp\DomainService\bin\Debug\net6.0\DomainServices.deps.json
+C:\Users\mataj\source\repos\PetCareApp\DomainService\bin\Debug\net6.0\DomainServices.dll
+C:\Users\mataj\source\repos\PetCareApp\DomainService\bin\Debug\net6.0\DomainServices.pdb
+C:\Users\mataj\source\repos\PetCareApp\DomainService\bin\Debug\net6.0\DomainModel.dll
+C:\Users\mataj\source\repos\PetCareApp\DomainService\bin\Debug\net6.0\DomainModel.pdb
+C:\Users\mataj\source\repos\PetCareApp\DomainService\obj\Debug\net6.0\DomainServices.csproj.AssemblyReference.cache
+C:\Users\mataj\source\repos\PetCareApp\DomainService\obj\Debug\net6.0\DomainServices.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mataj\source\repos\PetCareApp\DomainService\obj\Debug\net6.0\DomainServices.AssemblyInfoInputs.cache
+C:\Users\mataj\source\repos\PetCareApp\DomainService\obj\Debug\net6.0\DomainServices.AssemblyInfo.cs
+C:\Users\mataj\source\repos\PetCareApp\DomainService\obj\Debug\net6.0\DomainServices.csproj.CoreCompileInputs.cache
+C:\Users\mataj\source\repos\PetCareApp\DomainService\obj\Debug\net6.0\DomainServices.csproj.CopyComplete
+C:\Users\mataj\source\repos\PetCareApp\DomainService\obj\Debug\net6.0\DomainServices.dll
+C:\Users\mataj\source\repos\PetCareApp\DomainService\obj\Debug\net6.0\refint\DomainServices.dll
+C:\Users\mataj\source\repos\PetCareApp\DomainService\obj\Debug\net6.0\DomainServices.pdb
+C:\Users\mataj\source\repos\PetCareApp\DomainService\obj\Debug\net6.0\ref\DomainServices.dll

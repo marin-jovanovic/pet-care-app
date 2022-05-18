@@ -1,0 +1,33 @@
+﻿@model PetCareAppMVC.Features.PersonViewModel
+@{
+  ViewBag.Title = "Add new person";
+}
+
+<h5>Add new person</h5>
+
+<form method="post">
+  <div asp-validation-summary="All"></div>
+  <div class="form-floating mb-3">
+    <input asp-for="mobileNumber" class="form-control">
+    <label asp-for="mobileNumber"></label>
+  </div>
+  <div class="form-floating mb-3">
+    <input asp-for="email" class="form-control">
+    <label asp-for="email"></label>
+  </div>
+  <div class="form-floating mb-3">
+    <input asp-for="userName" class="form-control">
+    <label asp-for="userName"></label>
+  </div>
+  <div class="form-floating mb-3">
+    <input asp-for="userName" class="form-control">
+    <label asp-for="userName"></label>
+  </div>
+  <div>
+    <button type="submit" class="btn btn-sm btn-primary">Save <i class="fas fa-save ms-1"></i></button>
+  </div>
+</form>
+
+@section Scripts{
+  <partial name="_ValidationScriptsPartial"/>
+}

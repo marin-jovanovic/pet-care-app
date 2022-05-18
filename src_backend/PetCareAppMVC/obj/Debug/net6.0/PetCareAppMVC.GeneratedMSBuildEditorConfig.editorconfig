@@ -1,0 +1,64 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = PetCareAppMVC
+build_property.RootNamespace = PetCareAppMVC
+build_property.ProjectDir = C:\Users\mataj\source\repos\PetCareApp\PetCareAppMVC\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\mataj\source\repos\PetCareApp\PetCareAppMVC
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/mataj/source/repos/PetCareApp/PetCareAppMVC/Features/Adlisting/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcQWRsaXN0aW5nXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mataj/source/repos/PetCareApp/PetCareAppMVC/Features/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mataj/source/repos/PetCareApp/PetCareAppMVC/Features/People/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcUGVvcGxlXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mataj/source/repos/PetCareApp/PetCareAppMVC/Features/People/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcUGVvcGxlXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mataj/source/repos/PetCareApp/PetCareAppMVC/Features/People/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcUGVvcGxlXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mataj/source/repos/PetCareApp/PetCareAppMVC/Features/People/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcUGVvcGxlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mataj/source/repos/PetCareApp/PetCareAppMVC/Features/Shared/Navigation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcU2hhcmVkXE5hdmlnYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mataj/source/repos/PetCareApp/PetCareAppMVC/Features/Shared/ShowMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcU2hhcmVkXFNob3dNZXNzYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mataj/source/repos/PetCareApp/PetCareAppMVC/Features/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mataj/source/repos/PetCareApp/PetCareAppMVC/Features/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mataj/source/repos/PetCareApp/PetCareAppMVC/Features/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mataj/source/repos/PetCareApp/PetCareAppMVC/Features/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-3zgpsq1oy0

@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>1d68999e-4a59-44bb-9689-a22f92da0b90</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="10.4.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+    <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.1.161" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DomainModel\DomainModel.csproj" />
+    <ProjectReference Include="..\DomainServices.Validation1\DomainServices.Validation.csproj" />
+    <ProjectReference Include="..\DomainService\DomainServices.csproj" />
+    <ProjectReference Include="..\Infrastructure1\Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

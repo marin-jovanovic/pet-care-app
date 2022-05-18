@@ -1,0 +1,107 @@
+﻿{
+   "CodeGenerationMode": 2,
+   "ContextClassName": "ProjectContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "EFModel",
+   "ProjectRootNamespace": "Infrastructure",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[ADLISTING]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ADMIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[APPUSER]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[BREED]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CARD]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DESCRIPTABLE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[give]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[LOCATION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MESSAGES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PERIOD]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PERSON]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PET]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PETTYPE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[recive]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[report]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REVIEW]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SESSION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SiteContent]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "DESKTOP-CLCPQT7.petCareApp",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoConstructor": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}

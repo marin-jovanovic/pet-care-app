@@ -1,0 +1,23 @@
+﻿@model PetCareAppMVC.Features.PersonViewModel
+@{
+  ViewBag.Title = $"{Model.username} {Model.email}";
+}
+
+<h5>@Model.email @Model.userName</h5>
+
+<form method="post">
+  <input type="hidden" asp-for=idPerson />
+  <div asp-validation-summary="All"></div>
+  <div class="form-floating mb-3">
+    <input asp-for="mobileNumber" class="form-control">
+    <label asp-for="mobileNumber"></label>
+  </div>
+
+  <div>
+    <button type="submit" class="btn btn-sm btn-primary">Save <i class="fas fa-save ms-1"></i></button>
+  </div>
+</form>
+
+@section Scripts{
+  <partial name="_ValidationScriptsPartial"/>
+}
