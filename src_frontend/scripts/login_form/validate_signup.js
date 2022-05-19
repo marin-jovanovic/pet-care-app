@@ -104,12 +104,7 @@ function init_generic_listeners(id_selector, id_selector_err, additional_control
         return;
       }
     }
-
-    // show_element(id_selector_err, false);
-
-
-    // additional_control(document.getElementById(id_selector).value);
-    
+   
     if (additional_control(document.getElementById(id_selector).value)) {
  
       show_element(id_selector_err, false);
@@ -123,8 +118,6 @@ function init_generic_listeners(id_selector, id_selector_err, additional_control
   }
   
 }
-
-
 
 function init_username_listeners() {
 
@@ -213,26 +206,18 @@ function init_card_number_listeners() {
   let id_selector_err = "input__cardnumber__err"
 
   init_generic_listeners(id_selector, id_selector_err, (value) => {
-    console.log("heloo card")
           
     let card = creditCardValidation(value);
   
     if (card === undefined) {
 
-      console.log("card", card)
 
-      // let id_selector = "input__cardnumber"
-      // let id_selector_err = "input__cardnumber__err"
-      // console.log(
-      //   document.getElementById(id_selector_err)
-      // )
-      
       show_element(id_selector_err, true);
+
       document.getElementById(id_selector_err).innerText = 
       "Broj kreditne kartice nije valjanog formata.";
       
       return false
-      // return false;
   
     } else {
       show_element(id_selector_err, false);
@@ -303,7 +288,7 @@ function init_card_year_listeners() {
 
 function init_password_listeners() {
 
-  // // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_password_val
+  // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_password_val
 
 
   let id_selector = "input__password"
@@ -435,7 +420,6 @@ function init_password_repeat_listeners() {
     if (p_1 === p_2 && p_1 !== "") {
   
       show_element(id, false);
-      // document.getElementById("input__password_repeat").style= "border: 2px solid yellow;"
   
       return true;
     } else {
@@ -693,7 +677,6 @@ function autocomplete(inp, arr) {
     document.addEventListener("click", function (e) {
         closeAllLists(e.target);
 
-        // inp.onkeyup()
     });
 }
   
