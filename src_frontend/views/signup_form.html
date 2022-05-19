@@ -176,13 +176,24 @@
     
                     <td>
                         <span class="deleteicon">
-                            <input type="password" class="input__text" id="input__password" placeholder="Lozinka" required />
+                            <input type="password" class="input__text" id="input__password" 
+                            placeholder="Lozinka" required 
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                            
+                            />
                             <span id="delete__password">x</span>
                         </span>
+
+                                                
                         <div id="input__password__err">
-                            Lozinka nije dovoljno sigurna, mora biti duljine minimalno 8 znakova, sadržavati barem jedno veliko slovo, barem jedno malo slovo, barem jedan broj i barem jedan nealfanumerički znak. 
+                            <!-- Lozinka nije dovoljno sigurna -->
+                            <!-- , mora biti duljine minimalno 8 znakova,
+                             sadržavati barem jedno veliko slovo, 
+                             barem jedno malo slovo, barem jedan broj i 
+                             barem jedan nealfanumerički znak.     -->
                         </div>
-                        
+
+                                      
                     </td>
                 </tr>
                 <tr>

@@ -37,8 +37,9 @@ function change_listeners_init() {
   let id_selector = "input__username"
   let id_selector_err = "input__username__err"
   document.getElementById(id_selector).addEventListener("change", (event) => {
+    let id_selector = "input__username"
     let id_selector_err = "input__username__err"
-    if (document.getElementById("input__username").value === '') {
+      if (document.getElementById("input__username").value === '') {
       console.log("username empty")
       show_element(id_selector_err, false);
       return;
@@ -48,6 +49,7 @@ function change_listeners_init() {
     let exist = true 
 
     if (! exist) {
+      console.log("username ok")
       show_element(id_selector_err, false);
       document.getElementById(id_selector).style= "border: 2px solid yellow;"
    
@@ -60,7 +62,9 @@ function change_listeners_init() {
   id_selector = "input__OIB"
   id_selector_err = "input__OIB__err"
   document.getElementById(id_selector).addEventListener("change", (event) => {
-    let value = document.getElementById("input__OIB").value; 
+    let id_selector = "input__OIB"
+    let id_selector_err = "input__OIB__err"
+      let value = document.getElementById("input__OIB").value; 
     
     if (value === '') {
       console.log("oib empty")
@@ -69,6 +73,7 @@ function change_listeners_init() {
     } 
     
     if (value.length === 11) {
+      console.log("oib length ok")
       show_element(id_selector_err, false);
       document.getElementById(id_selector).style= "border: 2px solid yellow;"
     } else {
@@ -81,12 +86,15 @@ function change_listeners_init() {
   id_selector = "input__firstname"
   id_selector_err = "input__firstname__err"
   document.getElementById(id_selector).addEventListener("change", (event) => {
-    let value = document.getElementById("input__firstname").value; 
+    let id_selector = "input__firstname"
+    let id_selector_err = "input__firstname__err"
+      let value = document.getElementById("input__firstname").value; 
     if (value === '') {
       console.log("firstname empty")
       show_element(id_selector_err, false);
       return;
     } else {
+      console.log("firstname ok")
       show_element(id_selector_err, false);
       document.getElementById(id_selector).style= "border: 2px solid yellow;"
     }
@@ -95,12 +103,15 @@ function change_listeners_init() {
   id_selector = "input__lastname"
   id_selector_err = "input__lastname__err"
   document.getElementById(id_selector).addEventListener("change", (event) => {
-    let value = document.getElementById("input__lastname").value; 
+    let id_selector = "input__lastname"
+    let id_selector_err = "input__lastname__err"
+      let value = document.getElementById("input__lastname").value; 
     if (value === '') {
       console.log("lastname empty")
       show_element(id_selector_err, false);
       return;
     } else {
+      console.log("lastname ok")
       show_element(id_selector_err, false);
       document.getElementById(id_selector).style= "border: 2px solid yellow;"
     }
@@ -110,7 +121,9 @@ function change_listeners_init() {
   id_selector = "input__email"
   id_selector_err = "input__email__err"
   document.getElementById(id_selector).addEventListener("change", (event) => {
-    let value = document.getElementById("input__email").value; 
+    let id_selector = "input__email"
+    let id_selector_err = "input__email__err"
+      let value = document.getElementById("input__email").value; 
     if (value === '') {
       console.log("email empty")
       show_element(id_selector_err, false);
@@ -120,6 +133,7 @@ function change_listeners_init() {
       show_element(id_selector_err, true);
       return;
     } else {
+      console.log("email ok")
       show_element(id_selector_err, false);
       document.getElementById(id_selector).style= "border: 2px solid yellow;"
     }
@@ -130,7 +144,9 @@ function change_listeners_init() {
   id_selector = "input__cardnumber"
   id_selector_err = "input__cardnumber__err"
   document.getElementById(id_selector).addEventListener("change", (event) => {
-    let value = document.getElementById("input__cardnumber").value; 
+    let id_selector = "input__cardnumber"
+    let id_selector_err = "input__cardnumber__err"
+      let value = document.getElementById("input__cardnumber").value; 
     if (value === '') {
       console.log("input__cardnumber empty")
       show_element(id_selector_err, false);
@@ -157,7 +173,9 @@ function change_listeners_init() {
   id_selector = "input__card__month"
   id_selector_err = "input__card__month__err"
   document.getElementById(id_selector).addEventListener("change", (event) => {
-    let value = document.getElementById("input__card__month").value; 
+    let id_selector = "input__card__month"
+    let id_selector_err = "input__card__month__err"
+      let value = document.getElementById("input__card__month").value; 
     if (value === '') {
       console.log("input__card__month empty")
       show_element(id_selector_err, false);
@@ -167,6 +185,7 @@ function change_listeners_init() {
       show_element(id_selector_err, true);
       return;
     } else {
+      console.log("month ok")
       show_element(id_selector_err, false);
       document.getElementById(id_selector).style= "border: 2px solid yellow;"
     }
@@ -175,6 +194,8 @@ function change_listeners_init() {
   id_selector = "input__card__year"
   id_selector_err = "input__card__year__err"
   document.getElementById(id_selector).addEventListener("change", (event) => {
+    let id_selector = "input__card__year"
+    let id_selector_err = "input__card__year__err"
     let value = document.getElementById("input__card__year").value; 
     if (value === '') {
       console.log("input__card__y empty")
@@ -185,12 +206,133 @@ function change_listeners_init() {
       show_element(id_selector_err, true);
       return;
     } else {
+      console.log("card year ok")
       show_element(id_selector_err, false);
       document.getElementById(id_selector).style= "border: 2px solid yellow;"
     }
   });
 
-// https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_password_val
+  // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_password_val
+  var myInput = document.getElementById("input__password");
+
+  // When the user clicks on the password field, show the message box
+  myInput.onfocus = function() {
+    // document.getElementById("message").style.display = "block";
+  }
+
+  // When the user clicks outside of the password field, hide the message box
+  myInput.onblur = function() {
+    // document.getElementById("message").style.display = "none";
+  }
+
+  // When the user starts to type something inside the password field
+  myInput.onkeyup = function() {
+    let msg ="Lozinka nije dovoljno sigurna; ";
+
+    let to_contain = [];
+    let other_conditions = [];
+
+    var lowerCaseLetters = /[a-z]/g;
+    if(! (myInput.value.match(lowerCaseLetters))) {  
+      
+      to_contain.push("barem jedno malo slovo");
+    }
+    
+    var upperCaseLetters = /[A-Z]/g;
+    if(! (myInput.value.match(upperCaseLetters))) {  
+      to_contain.push("barem jedno veliko slovo");
+    }
+
+    var numbers = /[0-9]/g;
+    if(! (myInput.value.match(numbers))) {  
+      to_contain.push("barem jedan broj");
+    }
+    
+    if(! (myInput.value.length >= 8)) {
+      other_conditions.push("mora biti duljine minimalno 8 znakova")
+    }
+
+    var alphaNum = /^[a-z0-9]+$/i;
+    if(! (myInput.value.match(alphaNum))) {  
+      to_contain.push("barem jedan nealfanumericki znak");
+    }
+    
+    console.log(to_contain)
+    console.log(other_conditions)
+
+    if (other_conditions && to_contain) {
+
+      other_conditions.forEach(element => {
+        console.log(element)  
+        msg += element + " ";
+      });
+
+      msg += "te sadržavati "
+      
+      if (to_contain.length >= 2) {
+        let last = to_contain.pop();
+        let one_before_last = to_contain.pop();
+
+        to_contain.forEach(element => {
+          msg += element + ", "; 
+        });
+  
+        msg += one_before_last + " i " + last
+
+
+      } else {
+        msg += to_contain[0];
+      }
+
+    } else if (other_conditions) {
+    
+      other_conditions.forEach(element => {
+        console.log(element)  
+        msg += element + " ";
+      });
+    
+    }  else  if (to_contain) {
+
+      msg += "te sadržavati "
+      
+      if (to_contain.length >= 2) {
+        let last = to_contain.pop();
+        let one_before_last = to_contain.pop();
+
+        to_contain.forEach(element => {
+          msg += element + ", "; 
+        });
+  
+        msg += one_before_last + " i " + last
+
+
+      } else {
+        msg += to_contain[0];
+      }
+    
+  
+    } 
+
+    if (msg) {
+      msg += ".";
+
+      console.log(msg)
+  
+      let id = "input__password__err";
+      document.getElementById(id).innerText = msg;
+      show_element(id, true);
+  
+    }    else {
+      show_element(id, false);
+  
+    }
+
+  }
+
+
+
+
+
 }
 
 function is_year_valid(value) {
