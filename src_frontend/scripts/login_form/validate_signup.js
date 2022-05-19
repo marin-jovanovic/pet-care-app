@@ -20,29 +20,45 @@ function change_listeners_init() {
     "input__lastname__err",
     "input__email__err",
     "input__cardnumber__err",
+    "input__cardtype__err",
     "input__card__month__err",
     "input__card__year__err",
     "input__password__err",
-    "input__password_repeat__err"
+    "input__password_repeat__err",
   ].forEach(element => {
     // console.log(element)  
     show_element(element, false);
 
   });
 
-  show_element("input__card__type", false);
- 
   init_username_listeners();
   init_oib_listeners();
   init_firstname_listeners();
   init_lastname_listeners();
   init_email_listeners();
   init_card_number_listeners();
+  init_card_type_listeners();
   init_card_month_listeners();
   init_card_year_listeners();
   init_password_listeners();
   init_password_repeat_listeners();
   
+}
+
+function empty_msg_mapper() {
+  return {
+    "input__username" : "Korisničko ime ne može biti prazno.",
+    "input__OIB" : "OIB ne može biti prazan.",
+    "input__firstname" : "Ime ne može biti prazno.",
+    "input__lastname" : "Prezime ne može biti prazno.",
+    "input__email" : "Adresa e-pošte ne može biti prazna.",
+    "input__cardnumber" : "Broj kartice ne može biti prazan.",
+    // "init_card_type_listeners": ""
+    "input__card__month" : "Mjesec istjecanja kreditne kartice ne može biti prazan.",
+    "input__card__year" : "Godina istjecanja kreditne kartice ne može biti prazna.",
+    "input__password" : "Lozinka ne može biti prazna",
+    "input__password_repeat" : "Ponovno upisana lozinka ne može biti prazna."
+  }
 }
 
 function init_generic_listeners(id_selector, id_selector_err, additional_control) {
@@ -68,26 +84,27 @@ function init_generic_listeners(id_selector, id_selector_err, additional_control
   }
 
   function runner() {
-    console.log("runner", id_selector)
 
     if (is_entered) {
       console.log(id_selector, "entered")
 
       if (document.getElementById(id_selector).value === '') {
-        document.getElementById(id_selector).style= "border: 2px solid red;"
-        document.getElementById(id_selector_err).innerText= id_selector + " OIB ne može biti prazan. "
-
+        set_red(id_selector);
+        document.getElementById(id_selector_err).innerText = empty_msg_mapper()[id_selector];
         show_element(id_selector_err, true);
-        return
+        return;
       }  
     } else {
       if (document.getElementById(id_selector).value === '') {
-        
-        set_red(id_selector);
-        return
+        set_blue(id_selector);
+        return;
       }
     }
 
+    show_element(id_selector_err, false);
+
+
+    
     if (additional_control(document.getElementById(id_selector).value)) {
       console.log("addition control passed for", id_selector)
  
@@ -97,6 +114,7 @@ function init_generic_listeners(id_selector, id_selector_err, additional_control
     } else {
       console.log("add control failed for", id_selector)
       set_red(id_selector);
+      // show_element(id_selector_err, true);
 
     }
 
@@ -104,70 +122,16 @@ function init_generic_listeners(id_selector, id_selector_err, additional_control
   
 }
 
-function set_red(id_selector) {
-  document.getElementById(id_selector).style= "border: 3px solid #609;"
-}
 
-function set_green(id_selector) {
-  document.getElementById(id_selector).style= "border: 3px solid green;"
-
-}
-
-function set_blue(id_selector) {
-  document.getElementById(id_selector).style= "border: 3px solid red;"
-}
 
 function init_username_listeners() {
 
   let id_selector = "input__username"
   let id_selector_err = "input__username__err"
   init_generic_listeners(id_selector, id_selector_err, (value) => {
-    console.log("hello from additional control username", value)
     return true;
   }) 
 
-
-  // let is_entered = false;
-
-  // let id = "input__username"
-  // let element = document.getElementById(id)
-  // runner();
-  
-  // element.onkeyup = function() {
-  //   is_entered= true;
-    
-  //   runner();
-  // }
-  
-  // element.onfocus = function() {
-  //   is_entered= true;
-  // }
-
-  // element.onblur = function() {
-  //   runner();
-  // }
-
-  // function runner() {
-  //   console.log("username validation")
-  //   let id_selector = "input__username"
-  //   let id_selector_err = "input__username__err"
-
-  //   if (is_entered) {
-  //     if (document.getElementById(id_selector).value === '') {
-  //       document.getElementById(id_selector).style= "border: 2px solid red;"
-  //       show_element(id_selector_err, true);
-  //       return
-  //     }  
-  //   } else {
-  //     if (document.getElementById(id_selector).value === '') {
-  //       document.getElementById(id_selector).style= "border: 2px solid #609;"
-  //       return
-  //     }
-  //   }
-
-  //   document.getElementById(id_selector).style= "border: 2px solid yellow;"
-
-  // }
 
 }
 
@@ -176,76 +140,23 @@ function init_oib_listeners() {
   let id_selector = "input__OIB"
   let id_selector_err = "input__OIB__err"
   init_generic_listeners(id_selector, id_selector_err, (value) => {
-    console.log("hello from additional control oib", value)
-    if (document.getElementById(id_selector).value.length === 11) {
-      console.log("oib length ok")
+    var reg = /^\d+$/;
+
+    let val = document.getElementById(id_selector).value; 
+
+    if (val.length === 11 && val.match(reg)) {
       show_element(id_selector_err, false);
-      document.getElementById(id_selector).style= "border: 2px solid yellow;"
-      return false
+      return true
+    } else {
+      show_element(id_selector_err, true);
+      document.getElementById(id_selector_err).innerText = 
+      "OIB nije valjanog formata, mora sadržavati 11 brojeva.";
+      return false;
     }
 
   }) 
 
-  // let id = "input__username"
-  // let id_selector = "input__OIB"
-  // let id_selector_err = "input__OIB__err"
-  // let element = document.getElementById(id)
 
-  // let is_entered = false;
-
-  // runner();
-  
-  // element.onkeyup = function() {
-  //   is_entered= true;
-    
-  //   runner();
-  // }
-  
-  // element.onfocus = function() {
-  //   is_entered= true;
-  // }
-
-  // element.onblur = function() {
-  //   runner();
-  // }
-
-  // function runner() {
-  //   // console.log("oib validation")
-
-
-
-  //   if (is_entered) {
-  //     console.log("oib entered")
-
-  //     if (document.getElementById(id_selector).value === '') {
-  //       document.getElementById(id_selector).style= "border: 2px solid red;"
-  //       document.getElementById(id_selector_err).innerText= " OIB ne može biti prazan. "
-
-  //       show_element(id_selector_err, true);
-  //       return
-  //     }  
-  //   } else {
-  //     if (document.getElementById(id_selector).value === '') {
-        
-  //       document.getElementById(id_selector).style= "border: 2px solid #609;"
-  //       return
-  //     }
-  //   }
-
-  //   if (document.getElementById(id_selector).value.length === 11) {
-  //     console.log("oib length ok")
-  //     show_element(id_selector_err, false);
-  //     document.getElementById(id_selector).style= "border: 2px solid yellow;"
-  //   } else {
-  //     console.log("oib length error")
-  //     show_element(id_selector_err, true);
-  //     document.getElementById(id_selector_err).innerText= " OIB nije valjanog formata, mora sadržavati 11 brojeva. "
-  //     document.getElementById(id_selector).style= "border: 2px solid red;"
-  //   }
-
-
-  // }
-  
 
 }
 
@@ -253,41 +164,9 @@ function init_firstname_listeners() {
   let id_selector = "input__firstname"
   let id_selector_err = "input__firstname__err"
   init_generic_listeners(id_selector, id_selector_err, (value) => {
-    console.log("hello from additional control firstname", value)
     return true;
   }) 
 
-  // let id = document.getElementById("input__firstname")
-
-  // id.onkeyup = function() {
-  //   validate_firstname();
-  // }
-  
-  // id.onfocus = function() {
-  //   validate_firstname();
-  // }
-
-//  init_generic_listeners(id_selector, id_selector_err, () => {})
-
-//   function validate_firstname() {
-
-//     document.getElementById(id_selector).addEventListener("change", (event) => {
-//       let id_selector = "input__firstname"
-//       let id_selector_err = "input__firstname__err"
-//         let value = document.getElementById("input__firstname").value; 
-//       if (value === '') {
-//         console.log("firstname empty")
-//         show_element(id_selector_err, false);
-//         return;
-//       } else {
-//         console.log("firstname ok")
-//         show_element(id_selector_err, false);
-//         document.getElementById(id_selector).style= "border: 2px solid yellow;"
-//       }
-//     });
-  
-//   }
-  
   
 
 
@@ -298,40 +177,10 @@ function init_lastname_listeners() {
   let id_selector = "input__lastname"
   let id_selector_err = "input__lastname__err"
   init_generic_listeners(id_selector, id_selector_err, (value) => {
-    console.log("hello from additional control ", value)
     return true;
   }) 
 
 
-  // let id = document.getElementById("input__lastname")
-
-  // id.onkeyup = function() {
-  //   validate_lastname();
-  // }
-  
-  // id.onfocus = function() {
-  //   validate_lastname();
-  // }
-
-  // function validate_lastname() {
-  //   id_selector = "input__lastname"
-  //   id_selector_err = "input__lastname__err"
-  //   document.getElementById(id_selector).addEventListener("change", (event) => {
-  //     let id_selector = "input__lastname"
-  //     let id_selector_err = "input__lastname__err"
-  //       let value = document.getElementById("input__lastname").value; 
-  //     if (value === '') {
-  //       console.log("lastname empty")
-  //       show_element(id_selector_err, false);
-  //       return;
-  //     } else {
-  //       console.log("lastname ok")
-  //       show_element(id_selector_err, false);
-  //       document.getElementById(id_selector).style= "border: 2px solid yellow;"
-  //     }
-  //   });
-  
-  // }
   
 
 }
@@ -342,50 +191,17 @@ function init_email_listeners() {
   let id_selector_err = "input__email__err"
 
   init_generic_listeners(id_selector, id_selector_err, (value) => {
-    console.log("hello from additional control", value)
    
     if (! isEmailValid(value)) {
-      console.log("email validation err")
       show_element(id_selector_err, true);
+      document.getElementById(id_selector_err).innerText = 
+      "Adresa e-pošte nije valjanog formata."
+
       return false;
     } 
 
     return true;
   }) 
-
-  // function validate_email() {
-  //   id_selector = "input__email"
-  //   id_selector_err = "input__email__err"
-  //   document.getElementById(id_selector).addEventListener("change", (event) => {
-  //     let id_selector = "input__email"
-  //     let id_selector_err = "input__email__err"
-  //       let value = document.getElementById("input__email").value; 
-  //     if (value === '') {
-  //       console.log("email empty")
-  //       show_element(id_selector_err, false);
-  //       return;
-  //     } else if (! isEmailValid(value)) {
-  //       console.log("email validation err")
-  //       show_element(id_selector_err, true);
-  //       return;
-  //     } else {
-  //       console.log("email ok")
-  //       show_element(id_selector_err, false);
-  //       document.getElementById(id_selector).style= "border: 2px solid yellow;"
-  //     }
-  //   });
-  
-  // }
-
-  // let id = document.getElementById("input__email")
-
-  // id.onkeyup = function() {
-  //   validate_email();
-  // }
-  
-  // id.onfocus = function() {
-  //   validate_email();
-  // }
 
 }
 
@@ -395,73 +211,36 @@ function init_card_number_listeners() {
   let id_selector_err = "input__cardnumber__err"
 
   init_generic_listeners(id_selector, id_selector_err, (value) => {
-    console.log("hello from additional control cardnumber", value)
 
-      
+          
     let card = creditCardValidation(value);
   
     if (card === undefined) {
-      console.log("input__cardnumber err")
       show_element(id_selector_err, true);
       return false;
   
     } else {
       console.log("card", card)
       show_element(id_selector_err, false);
-      // document.getElementById(id_selector).style= "border: 2px solid yellow;"
-      show_element("input__card__type", true);
-      document.querySelector("#input__card__type > td:nth-child(1) > span:nth-child(1) > input:nth-child(1)").value= card 
-      // document.getElementById("input__cardnumber__type").style= "border: 2px solid yellow;"
     
+      document.getElementById("input__cardtype").value = card;
       return true;
     }
 
   }) 
 
 
-  // let id = document.getElementById("input__cardnumber")
+}
 
-  // id.onkeyup = function() {
-  //   validate_cardnumber();
-  // }
-  
-  // id.onfocus = function() {
-  //   validate_cardnumber();
-  // }
+function init_card_type_listeners() {
+  let id_selector = "input__cardtype"
+  let id_selector_err = "input__cardtype__err"
+  init_generic_listeners(id_selector, id_selector_err, (value) => {
 
-  // function validate_cardnumber() {
-  //   id_selector = "input__cardnumber"
-  //   id_selector_err = "input__cardnumber__err"
-  //   document.getElementById(id_selector).addEventListener("change", (event) => {
-  //     let id_selector = "input__cardnumber"
-  //     let id_selector_err = "input__cardnumber__err"
-  //       let value = document.getElementById("input__cardnumber").value; 
-  //     if (value === '') {
-  //       console.log("input__cardnumber empty")
-  //       show_element(id_selector_err, false);
-  //       return;
-  //     } 
-      
-  //     let card = creditCardValidation(value);
-  
-  //     if (card === undefined) {
-  //       console.log("input__cardnumber err")
-  //       show_element(id_selector_err, true);
-  //       return;
-    
-  //     } else {
-  //       console.log("card", card)
-  //       show_element(id_selector_err, false);
-  //       document.getElementById(id_selector).style= "border: 2px solid yellow;"
-  //       show_element("input__card__type", true);
-  //       document.querySelector("#input__card__type > td:nth-child(1) > span:nth-child(1) > input:nth-child(1)").value= card 
-  //       document.getElementById("input__cardnumber__type").style= "border: 2px solid yellow;"
-  //     }
-  //   });
-  
-  // }
+    return true
 
 
+  }) 
 }
 
 function init_card_month_listeners() {
@@ -469,54 +248,20 @@ function init_card_month_listeners() {
   let id_selector = "input__card__month"
   let id_selector_err = "input__card__month__err"
   init_generic_listeners(id_selector, id_selector_err, (value) => {
-    console.log("hello from additional control cardnumber", value)
 
     if (! is_month_valid(value)) {
-      console.log("input__card__month validation err")
       show_element(id_selector_err, true);
+
+      document.getElementById(id_selector_err).innerText = 
+      "Mjesec istjecanja kreditne kartice nije valjanog formata, mora sadržavati 2 broja odnosno nalaziti se u padajućem izborniku."
       return false;
     } else {
-      console.log("month ok")
       show_element(id_selector_err, false);
-      document.getElementById(id_selector).style= "border: 2px solid yellow;"
       return true;
     }
 
   }) 
 
-  // let input_card_month = document.getElementById("input__card__month")
-
-  // input_card_month.onkeyup = function() {
-  //   validate_card_month();
-  // }
-  
-  // input_card_month.onfocus = function() {
-  //   validate_card_month();
-  // }
-
-  // function validate_card_month() {
-  //   id_selector = "input__card__month"
-  //   id_selector_err = "input__card__month__err"
-  //   document.getElementById(id_selector).addEventListener("change", (event) => {
-  //     let id_selector = "input__card__month"
-  //     let id_selector_err = "input__card__month__err"
-  //       let value = document.getElementById("input__card__month").value; 
-  //     if (value === '') {
-  //       console.log("input__card__month empty")
-  //       show_element(id_selector_err, false);
-  //       return;
-  //     } else if (! is_month_valid(value)) {
-  //       console.log("input__card__month validation err")
-  //       show_element(id_selector_err, true);
-  //       return;
-  //     } else {
-  //       console.log("month ok")
-  //       show_element(id_selector_err, false);
-  //       document.getElementById(id_selector).style= "border: 2px solid yellow;"
-  //     }
-  //   });
-  // }
-  
 
 }
 
@@ -525,85 +270,25 @@ function init_card_year_listeners() {
   id_selector = "input__card__year"
   id_selector_err = "input__card__year__err"
   init_generic_listeners(id_selector, id_selector_err, (value) => {
-    console.log("hello from additional control cardnumber", value)
 
     if (! is_year_valid(value)) {
-      console.log("input__card__year validation err")
       show_element(id_selector_err, true);
+      document.getElementById(id_selector_err).innerText = 
+      "Godina istjecanja kreditne kartice nije valjanog formata, mora sadržavati 4 broja."
       return false;
     } else {
-      console.log("card year ok")
       show_element(id_selector_err, false);
-      document.getElementById(id_selector).style= "border: 2px solid yellow;"
       return true;
     }
   });
 
-  // }) 
-
-
-  // let input_card_year = document.getElementById("input__card__year")
-
-  // input_card_year.onkeyup = function() {
-  //   validate_card_year();
-  // }
-  
-  // input_card_year.onfocus = function() {
-  //   validate_card_year();
-  // }
-
-  // function validate_card_year() {
-  //   id_selector = "input__card__year"
-  //   id_selector_err = "input__card__year__err"
-  //   document.getElementById(id_selector).addEventListener("change", (event) => {
-  //     let id_selector = "input__card__year"
-  //     let id_selector_err = "input__card__year__err"
-  //     let value = document.getElementById("input__card__year").value; 
-      
-  //     if (value === '') {
-  //       console.log("input__card__y empty")
-  //       show_element(id_selector_err, false);
-  //       return;
-  //     } else if (! is_year_valid(value)) {
-  //       console.log("input__card__year validation err")
-  //       show_element(id_selector_err, true);
-  //       return;
-  //     } else {
-  //       console.log("card year ok")
-  //       show_element(id_selector_err, false);
-  //       document.getElementById(id_selector).style= "border: 2px solid yellow;"
-  //     }
-  //   });
-  
-  // }
+ 
 
 }
 
 function init_password_listeners() {
 
   // // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_password_val
-  // var input_password = document.getElementById("input__password");
-
-  // // When the user clicks on the password field, show the message box
-  // input_password.onfocus = function() {
-  //   // document.getElementById("message").style.display = "block";
-  //   let id ="input__password__err";
-  //   // show_element(id, true);
-  // }
-
-  // // When the user clicks outside of the password field, hide the message box
-  // input_password.onblur = function() {
-  //   // document.getElementById("message").style.display = "none";
-
-  //   let id = "input__password__err";
-  //   // show_element(id, false);
-  
-  // }
-
-  // When the user starts to type something inside the password field
-  // input_password.onkeyup = function() {
-  //   validate_password(input_password) ;   
-  // }
 
 
   id_selector = "input__password"
@@ -620,27 +305,27 @@ function init_password_listeners() {
     let other_conditions = [];
   
     var lowerCaseLetters = /[a-z]/g;
-    if(! (input_password.value.match(lowerCaseLetters))) {  
+    if(! (input_password.match(lowerCaseLetters))) {  
       
       to_contain.push("barem jedno malo slovo");
     }
     
     var upperCaseLetters = /[A-Z]/g;
-    if(! (input_password.value.match(upperCaseLetters))) {  
+    if(! (input_password.match(upperCaseLetters))) {  
       to_contain.push("barem jedno veliko slovo");
     }
   
     var numbers = /[0-9]/g;
-    if(! (input_password.value.match(numbers))) {  
+    if(! (input_password.match(numbers))) {  
       to_contain.push("barem jedan broj");
     }
     
-    if(! (input_password.value.length >= 8)) {
+    if(! (input_password.length >= 8)) {
       other_conditions.push("mora biti duljine minimalno 8 znakova")
     }
   
     var alphaNum = /^[a-z0-9]+$/i;
-    if(input_password.value.match(alphaNum)) {  
+    if(input_password.match(alphaNum)) {  
       to_contain.push("barem jedan nealfanumericki znak");
     }
     
@@ -713,27 +398,12 @@ function init_password_listeners() {
   
     }    else {
       show_element(id, false);
-      // document.getElementById("input__password").style= "border: 2px solid yellow;"
   
       return true;
     }
 
-    // if (! is_year_valid(value)) {
-    //   console.log("input__card__year validation err")
-    //   show_element(id_selector_err, true);
-    //   return false;
-    // } else {
-    //   console.log("card year ok")
-    //   show_element(id_selector_err, false);
-    //   document.getElementById(id_selector).style= "border: 2px solid yellow;"
-    //   return true;
-    // }
   });
 
-  // function validate_password(input_password) {
- 
-  // }
-  
   
 
 }
@@ -767,29 +437,10 @@ function init_password_repeat_listeners() {
       return false;
     }
 
-    // if (! is_month_valid(value)) {
-    //   console.log("input__card__month validation err")
-    //   show_element(id_selector_err, true);
-    //   return false;
-    // } else {
-    //   console.log("month ok")
-    //   show_element(id_selector_err, false);
-    //   document.getElementById(id_selector).style= "border: 2px solid yellow;"
-    //   return true;
-    // }
 
   }) 
 
 
-  // let input_repeat_password = document.getElementById("input__password_repeat")
-
-  // input_repeat_password.onkeyup = function() {
-  //   validate_password_repeat();
-  // }
-  
-  // input_repeat_password.onfocus = function() {
-  //   validate_password_repeat();
-  // }
 
 
   function validate_password_repeat() {
@@ -799,15 +450,6 @@ function init_password_repeat_listeners() {
 
 }
 
-
-
-
-
-
-
-
-
-
 function validateCode(){
   var TCode = document.getElementById('TCode').value;
   if( /[^a-zA-Z0-9]/.test( TCode ) ) {
@@ -816,7 +458,6 @@ function validateCode(){
   }
   return true;     
 }
-
 
 function isAlphaNumeric(str) {
   var code, i, len;
@@ -831,7 +472,6 @@ function isAlphaNumeric(str) {
   }
   return true;
 };
-
 
 function is_year_valid(value) {
   let years = get_years();
@@ -876,7 +516,7 @@ function creditCardValidation(creditCradNum)
   
 }    
 
-const isEmailValid = (email) => {
+function isEmailValid(email) {
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
 };
@@ -903,7 +543,6 @@ function show_element(id, visible) {
   //   x.style.display = "none";
   // }
 }
-
 
 function delete_init() {
 
@@ -945,6 +584,12 @@ function delete_init() {
     input.value = '';
     input.focus();
   }
+
+  document.getElementById("delete__cardtype").onclick = () => {
+    var input = document.getElementById("input__cardtype");
+    input.value = '';
+    input.focus();
+  }
   
   document.getElementById("delete__card__month").onclick = () => {
     var input = document.getElementById("input__card__month");
@@ -965,11 +610,12 @@ function delete_init() {
   }
   
   document.getElementById("delete__password_repeat").onclick = () => {
-    var input = document.getElementById("input__password_repeat");
+    var input = document.getElementById("input__password__repeat");
     input.value = '';
     input.focus();
   }
   
+
 }
 
 function autocomplete(inp, arr) {
@@ -1013,7 +659,17 @@ function autocomplete(inp, arr) {
             if (x) x[currentFocus].click();
           }
         }
+
+        else if (e.keyCode == 9) {
+
+
+          document.getElementById("empty_click").click()
+
+        }
     });
+
+
+
     function addActive(x) {
       if (!x) return false;
       removeActive(x);
@@ -1036,35 +692,37 @@ function autocomplete(inp, arr) {
     }
     document.addEventListener("click", function (e) {
         closeAllLists(e.target);
+
+        // inp.onkeyup()
     });
-  }
+}
   
-  function get_years()                
-  {
-    let current_year = Number(String(Date()).split(" ")[3])
-    let max_exp_year = current_year + 7;
+function get_years()                
+{
+  let current_year = Number(String(Date()).split(" ")[3])
+  let max_exp_year = current_year + 7;
 
-    let r = [];
+  let r = [];
 
 
-      for (var i = current_year; i  <= max_exp_year; i++) {
-        r.push(String(i));
+    for (var i = current_year; i  <= max_exp_year; i++) {
+      r.push(String(i));
 
-     
-      }   
+    
+    }   
 
-    return r;
-  }
+  return r;
+}
 
-  function get_months() {
-    let months_hrv = "Siječanj Veljača Ožujak Travanj Svibanj Lipanj Srpanj Kolovoz Rujan Listopad Studeni Prosinac".split(" ")
-    let months_descr = "January, February, March, April, May, June, July, August, September, October, November, December".split(", ")
-    let months = "1 2 3 4 5 6 7 8 9 10 11 12 01 02 03 04 05 06 07 08 09".split(" ")
-  
-    return months_descr.concat(months).concat(months_hrv);
-  }
+function get_months() {
+  let months_hrv = "Siječanj Veljača Ožujak Travanj Svibanj Lipanj Srpanj Kolovoz Rujan Listopad Studeni Prosinac".split(" ")
+  let months_descr = "January, February, March, April, May, June, July, August, September, October, November, December".split(", ")
+  let months = "1 2 3 4 5 6 7 8 9 10 11 12 01 02 03 04 05 06 07 08 09".split(" ")
 
-      function val_cc () {          
+  return months_descr.concat(months).concat(months_hrv);
+}
+
+function val_cc () {          
 
       var expiry_month = document.getElementById("expiry_month").value;
       var expiry_year = document.getElementById("expiry_year").value;
@@ -1080,3 +738,15 @@ function autocomplete(inp, arr) {
       }
 }
 
+function set_blue(id_selector) {
+  document.getElementById(id_selector).style= "border: 3px solid #609;"
+}
+
+function set_green(id_selector) {
+  document.getElementById(id_selector).style= "border: 3px solid green;"
+
+}
+
+function set_red(id_selector) {
+  document.getElementById(id_selector).style= "border: 3px solid red;"
+}

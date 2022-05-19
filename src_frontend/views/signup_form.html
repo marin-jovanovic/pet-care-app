@@ -23,7 +23,7 @@
         REGISTRACIJA
     </h1>
 
-    <div class="center__err center" >
+    <!-- <div class="center__err center" >
         Korisničko ime se već koristi.
         Korisničko ime ne može biti prazno.
 
@@ -45,10 +45,11 @@
         Lozinka nije dovoljno sigurna, mora biti duljine minimalno 8 znakova, sadržavati barem jedno veliko slovo, barem jedno malo slovo, barem jedan broj i barem jedan nealfanumerički znak.
         <br>
         Ponovno upisana lozinka se ne podudara s prvotno upisanom  lozinkom.
-    </div>
+    </div> -->
 
     <br>
 
+    <div id="empty_click"></div>
 
     <div class="center">
 
@@ -74,7 +75,7 @@
                             <span id="delete__OIB">x</span>
                         </span>
                         <div id="input__OIB__err">
-                            <!-- OIB nije valjanog formata, mora sadržavati 11 brojeva. -->
+                            OIB nije valjanog formata, mora sadržavati 11 brojeva.
                         </div>
                     </td>
                 </tr>
@@ -124,16 +125,20 @@
                         </div>
                     </td>
                 </tr>
-    
-                <tr id="input__card__type">
+
+
+                <tr>
                     <td>
-                        <span>
-                            <input type="text" class="input__text" id="input__cardnumber__type" placeholder="tip kartice" required/>
+                        <span class="deleteicon">
+                            <input type="text" class="input__text" id="input__cardtype" placeholder="Tip kreditne kartice"/>
+                            <span id="delete__cardtype">x</span>
                         </span>
-         
+                        <div id="input__cardtype__err">
+                            Tip kreditne kartice ne postoji.
+                        </div>
+                    
                     </td>
                 </tr>
-
                 <tr>
                     <td>
                         <span class="deleteicon">
