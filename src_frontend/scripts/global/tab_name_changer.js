@@ -1,14 +1,10 @@
 window.driver_tab_name_changer = function driver_tab_name_changer() {
     var title = document.title;
 
-
-    // slobodno dodavati jos poruka u titles, nije potrebno modificirati
-    // ostatak koda da bi to radilo
-
     var titles =  [
         "Vrati nam se!", 
-        "Parking te ceka!",
-        "Parkiraj Me"
+        "Životinje su zakon!",
+        "Daj šapu"
     ];
     var driver = null;
    

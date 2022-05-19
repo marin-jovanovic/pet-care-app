@@ -6,56 +6,208 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="../scripts/login_form/validate_login.js"></script>
-    
-    <link rel="stylesheet" href="../styles/login_form/index.css">
-    
+    <!-- <script src="../scripts/login_form/validate_login.js"></script> -->
+    <script src="../scripts/login_form/validate_signup.js"></script>
+  
+    <link rel="stylesheet" href="../styles/signup_form/index.css">
+
+
+
+
     <title>Document</title>
 </head>
 <body>
 
+
     <h1 class="center__title center">
-        PRIJAVA
+        REGISTRACIJA
     </h1>
 
     <div class="center__err center" >
-        Netočna kombinacija korisnika i lozinke
+        Korisničko ime se već koristi.
+        <br>
+        OIB nije valjanog formata, mora sadržavati 11 brojeva.
+        <br>
+        Ime ne može biti prazno.
+        <br>
+        Prezime ne može biti prazno.
+        <br>
+        Adresa e-pošte nije valjanog formata.
+        <br>
+        Broj kreditne kartice nije valjanog formata. 375987654321001
+        <br>
+        Mjesec istjecanja kreditne kartice nije valjanog formata, mora sadržavati 2 broja odnosno nalaziti se u padajućem izborniku.
+        <br>
+        Godina istjecanja kreditne kartice nije valjanog formata, mora sadržavati 4 broja.
+        <br>
+        Lozinka nije dovoljno sigurna, mora biti duljine minimalno 8 znakova, sadržavati barem jedno veliko slovo, barem jedno malo slovo, barem jedan broj i barem jedan nealfanumerički znak.
+        <br>
+        Ponovno upisana lozinka se ne podudara s prvotno upisanom  lozinkom.
     </div>
 
     <br>
 
-    <div class="center">
-        <div>        
-            <form id="loginForm" name="loginForm" action="/user" method="post">
-                <table class="center__login__table">
-                
-                    <tr>
-                        <td>
-                            <span class="deleteicon">
-                                <input type="text" class="input__text" placeholder="Korisničko ime ili e-mail" required id="input__username" />
-                                <span id="delete__username">x</span>
-                            </span>
-                        </td>
-                    </tr>
 
-                    <tr>
-                        <td>
-                            <span class="deleteicon">
-                                <input type="password" class="input__text" id="input__password" placeholder="Lozinka" required />
-                                <span id="delete__password">x</span>
-                            </span>                    
-                        </td>
-                    </tr>
+    <div class="center">
+
+
+        <form id="registerFormU" name="registrationForm" action="/registeruser" method="post">
+            <table class="center__login__table">
+                <tr>
+                    <td>
+                        <span class="deleteicon">
+                            <input type="text" class="input__text" id="input__username" placeholder="Korisničko ime" required/>
+                            <span id="delete__username">x</span>
+                        </span>
+                        <div id="input__username__err">
+                            Korisničko ime se već koristi.
+                        </div>                       
                     
-                    <tr>
-                        <td><input class="center__menu__button button" type="submit" id="4"></td>
-                    </tr>
-                
-                </table>
-            </form>
-        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="deleteicon">
+                            <input type="text" class="input__text" id="input__OIB" placeholder="OIB" required />
+                            <span id="delete__OIB">x</span>
+                        </span>
+                        <div id="input__OIB__err">
+                            OIB nije valjanog formata, mora sadržavati 11 brojeva.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="deleteicon">
+                            <input type="text" class="input__text" id="input__firstname" placeholder="Ime" required />
+                            <span id="delete__firstname">x</span>
+                        </span>
+                        <div id="input__firstname__err">
+                            Ime ne može biti prazno.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="deleteicon">
+                            <input type="text" class="input__text" id="input__lastname" placeholder="Prezime" required />
+                            <span id="delete__lastname">x</span>
+                        </span>
+                        <div id="input__lastname__err">
+                            Prezime ne može biti prazno.
+                        </div>
+                    
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="deleteicon">
+                            <input type="text" class="input__text" id="input__email" placeholder="Adresa e-pošte" required/>
+                            <span id="delete__email">x</span>
+                        </span>
+                        <div id="input__email__err">
+                            Adresa e-pošte nije valjanog formata.
+                        </div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="deleteicon">
+                            <input type="text" class="input__text" id="input__cardnumber" placeholder="Broj kreditne kartice" required/>
+                            <span id="delete__cardnumber">x</span>
+                        </span>
+                        <div id="input__cardnumber__err">
+                            Broj kreditne kartice nije valjanog formata. 375987654321001
+                        </div>
+                    </td>
+                </tr>
+    
+                <tr id="input__card__type">
+                    <td>
+                        <span>
+                            <input type="text" class="input__text" id="input__cardnumber__type" placeholder="tip kartice" required/>
+                        </span>
+         
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span class="deleteicon">
+                            <div class="autocomplete">
+                                <input class="input__text" name="expiry" 
+                                 
+                                placeholder="Mjesec istjecanja kreditne kartice" required
+                                 id="input__card__month" 
+                                type="text" name="myCountry">
+                            </div>
+                              
+                            <span id="delete__card__month">x</span>
+                        </span>
+
+                        <div id="input__card__month__err">
+                            Mjesec istjecanja kreditne kartice nije valjanog formata, mora sadržavati 2 broja odnosno nalaziti se u padajućem izborniku.
+
+                        </div>
+    
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td>
+                        <span class="deleteicon">
+                            <div class="autocomplete">
+                                <input class="input__text" name="expiry" 
+                                maxlength="4" 
+                                placeholder="Godina istjecanja kreditne kartice" required
+                                id="input__card__year" type="text" name="myCountry"
+                                 placeholder="Year">
+                            </div>
+                              
+                            <span id="delete__card__year">x</span>
+                        </span>
+                        <div id="input__card__year__err">
+                            Godina istjecanja kreditne kartice nije valjanog formata, mora sadržavati 4 broja. 
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+    
+                    <td>
+                        <span class="deleteicon">
+                            <input type="password" class="input__text" id="input__password" placeholder="Lozinka" required />
+                            <span id="delete__password">x</span>
+                        </span>
+                        <div id="input__password__err">
+                            Lozinka nije dovoljno sigurna, mora biti duljine minimalno 8 znakova, sadržavati barem jedno veliko slovo, barem jedno malo slovo, barem jedan broj i barem jedan nealfanumerički znak. 
+                        </div>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="deleteicon">
+                            <input type="password" class="input__text" id="input__password_repeat" placeholder="Ponovni upis lozinke" required/>
+                            <span id="delete__password_repeat">x</span>
+                        </span>
+                        <div id="input__password_repeat__err">
+                            Ponovno upisana lozinka se ne podudara s prvotno upisanom lozinkom. 
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input class="center__menu__button button" type="submit" id="15" value="registracija"></td>
+                </tr>
+            </table>
+        </form>
     
     </div>
+
+
+
+
+
 
 </body>
 </html>

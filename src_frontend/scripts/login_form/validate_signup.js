@@ -6,7 +6,264 @@ window.onload = (event) => {
 
   delete_init();
 
+  change_listeners_init();
+
+  // validation_init();
+  
 };
+
+function change_listeners_init() {
+  console.log("change");
+
+  [
+    "input__username__err", 
+    "input__OIB__err", 
+    "input__firstname__err",  
+    "input__lastname__err",
+    "input__email__err",
+    "input__cardnumber__err",
+    "input__card__month__err",
+    "input__card__year__err",
+    "input__password__err",
+    "input__password_repeat__err"
+  ].forEach(element => {
+    console.log(element)  
+    show_element(element, false);
+
+  });
+
+
+
+  let id_selector = "input__username"
+  let id_selector_err = "input__username__err"
+  document.getElementById(id_selector).addEventListener("change", (event) => {
+    let id_selector_err = "input__username__err"
+    if (document.getElementById("input__username").value === '') {
+      console.log("username empty")
+      show_element(id_selector_err, false);
+      return;
+    } 
+
+    // todo check if exist
+    let exist = true 
+
+    if (! exist) {
+      show_element(id_selector_err, false);
+      document.getElementById(id_selector).style= "border: 2px solid yellow;"
+   
+    } else {
+      console.log("username exist")
+      show_element(id_selector_err, true);
+    }
+  });
+
+  id_selector = "input__OIB"
+  id_selector_err = "input__OIB__err"
+  document.getElementById(id_selector).addEventListener("change", (event) => {
+    let value = document.getElementById("input__OIB").value; 
+    
+    if (value === '') {
+      console.log("oib empty")
+      show_element(id_selector_err, false);
+      return;
+    } 
+    
+    if (value.length === 11) {
+      show_element(id_selector_err, false);
+      document.getElementById(id_selector).style= "border: 2px solid yellow;"
+    } else {
+      console.log("oib length error")
+      show_element(id_selector_err, true);
+    }
+
+  });
+
+  id_selector = "input__firstname"
+  id_selector_err = "input__firstname__err"
+  document.getElementById(id_selector).addEventListener("change", (event) => {
+    let value = document.getElementById("input__firstname").value; 
+    if (value === '') {
+      console.log("firstname empty")
+      show_element(id_selector_err, false);
+      return;
+    } else {
+      show_element(id_selector_err, false);
+      document.getElementById(id_selector).style= "border: 2px solid yellow;"
+    }
+  });
+
+  id_selector = "input__lastname"
+  id_selector_err = "input__lastname__err"
+  document.getElementById(id_selector).addEventListener("change", (event) => {
+    let value = document.getElementById("input__lastname").value; 
+    if (value === '') {
+      console.log("lastname empty")
+      show_element(id_selector_err, false);
+      return;
+    } else {
+      show_element(id_selector_err, false);
+      document.getElementById(id_selector).style= "border: 2px solid yellow;"
+    }
+  });
+
+
+  id_selector = "input__email"
+  id_selector_err = "input__email__err"
+  document.getElementById(id_selector).addEventListener("change", (event) => {
+    let value = document.getElementById("input__email").value; 
+    if (value === '') {
+      console.log("email empty")
+      show_element(id_selector_err, false);
+      return;
+    } else if (! isEmailValid(value)) {
+      console.log("email validation err")
+      show_element(id_selector_err, true);
+      return;
+    } else {
+      show_element(id_selector_err, false);
+      document.getElementById(id_selector).style= "border: 2px solid yellow;"
+    }
+  });
+
+  show_element("input__card__type", false);
+
+  id_selector = "input__cardnumber"
+  id_selector_err = "input__cardnumber__err"
+  document.getElementById(id_selector).addEventListener("change", (event) => {
+    let value = document.getElementById("input__cardnumber").value; 
+    if (value === '') {
+      console.log("input__cardnumber empty")
+      show_element(id_selector_err, false);
+      return;
+    } 
+    
+    let card = creditCardValidation(value);
+
+    if (card === undefined) {
+      console.log("input__cardnumber err")
+      show_element(id_selector_err, true);
+      return;
+  
+    } else {
+      console.log("card", card)
+      show_element(id_selector_err, false);
+      document.getElementById(id_selector).style= "border: 2px solid yellow;"
+      show_element("input__card__type", true);
+      document.querySelector("#input__card__type > td:nth-child(1) > span:nth-child(1) > input:nth-child(1)").value= card 
+      document.getElementById("input__cardnumber__type").style= "border: 2px solid yellow;"
+    }
+  });
+
+  id_selector = "input__card__month"
+  id_selector_err = "input__card__month__err"
+  document.getElementById(id_selector).addEventListener("change", (event) => {
+    let value = document.getElementById("input__card__month").value; 
+    if (value === '') {
+      console.log("input__card__month empty")
+      show_element(id_selector_err, false);
+      return;
+    } else if (! is_month_valid(value)) {
+      console.log("input__card__month validation err")
+      show_element(id_selector_err, true);
+      return;
+    } else {
+      show_element(id_selector_err, false);
+      document.getElementById(id_selector).style= "border: 2px solid yellow;"
+    }
+  });
+
+  id_selector = "input__card__year"
+  id_selector_err = "input__card__year__err"
+  document.getElementById(id_selector).addEventListener("change", (event) => {
+    let value = document.getElementById("input__card__year").value; 
+    if (value === '') {
+      console.log("input__card__y empty")
+      show_element(id_selector_err, false);
+      return;
+    } else if (! is_year_valid(value)) {
+      console.log("input__card__year validation err")
+      show_element(id_selector_err, true);
+      return;
+    } else {
+      show_element(id_selector_err, false);
+      document.getElementById(id_selector).style= "border: 2px solid yellow;"
+    }
+  });
+
+// https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_password_val
+}
+
+function is_year_valid(value) {
+  let years = get_years();
+ 
+  return years.includes(value);
+
+}
+
+function is_month_valid(value) {
+  let months = get_months();
+  const lowercased = months.map(name => name.toLowerCase());
+  console.log(lowercased);
+
+  return lowercased.includes(value.toLowerCase());
+
+}
+
+function creditCardValidation(creditCradNum)
+{
+  cards = {
+    "Mastercard": /^5[1-5][0-9]{14}$|^2(?:2(?:2[1-9]|[3-9][0-9])|[3-6][0-9][0-9]|7(?:[01][0-9]|20))[0-9]{12}$/,
+    "American Express": /^3[47][0-9]{13}$/,
+    "Visa": /^4[0-9]{12}(?:[0-9]{3})?$/,
+    "Discover": /^65[4-9][0-9]{13}|64[4-9][0-9]{13}|6011[0-9]{12}|(622(?:12[6-9]|1[3-9][0-9]|[2-8][0-9][0-9]|9[01][0-9]|92[0-5])[0-9]{10})$/,
+    "Maestro": /^(5018|5081|5044|5020|5038|603845|6304|6759|676[1-3]|6799|6220|504834|504817|504645)[0-9]{8,15}$/,
+    "JCB": /^(?:2131|1800|35[0-9]{3})[0-9]{11}$/,
+    "Diner’s Club": /^3(?:0[0-5]|[68][0-9])[0-9]{11}$/
+  };
+  
+  let is_valid = false;
+
+  for (const [key, value] of Object.entries(cards)) {
+
+    if (value.test(creditCradNum)) {
+        is_valid = true;
+        return key
+      } 
+
+  }
+
+  return undefined
+  
+}    
+
+const isEmailValid = (email) => {
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+};
+
+function show_element(id, visible) {
+  console.log("id", id, visible)
+  var x = document.getElementById(id);
+
+  if (visible) {
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    }
+  
+  } else {
+    if (x.style.display !== "none") {
+      x.style.display = "none";
+    
+    }
+  }
+
+  // if (x.style.display === "none") {
+  //   x.style.display = "block";
+  // } else {
+  //   x.style.display = "none";
+  // }
+}
+
 
 function delete_init() {
 
@@ -20,6 +277,9 @@ function delete_init() {
     var input = document.getElementById("input__OIB");
     input.value = '';
     input.focus();
+    let id_selector_err = "input__OIB__err"
+    show_element(id_selector_err, false);
+
   }
   
   document.getElementById("delete__firstname").onclick = () => {
