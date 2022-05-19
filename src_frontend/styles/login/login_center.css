@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+
 }
 
 .intro {
@@ -39,7 +40,7 @@
     }
 
     .center__container {
-        display: flex;
+        /* display: flex; */
         min-width: 400px;
     }
 
