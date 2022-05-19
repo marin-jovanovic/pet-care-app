@@ -1,0 +1,29 @@
+﻿@model PetCareAppMVC.Features.Adlisting.AdlistingViewModel;
+@{
+  ViewBag.Title = "Dodaj novi oglas";
+}
+
+<h5>Add new person</h5>
+
+<form method="post">
+  <div asp-validation-summary="All"></div>
+  <div class="form-floating mb-3">
+    <input asp-for="Description" class="form-control">
+    <label asp-for="Description"></label>
+  </div>
+  <div class="form-floating mb-3">
+    <input asp-for="UserName" class="form-control">
+    <label asp-for="UserName"></label>
+  </div>
+  <div class="form-floating mb-3">
+    <input asp-for="Price" class="form-control">
+    <label asp-for="Price"></label>
+  </div>
+  <div>
+    <button type="submit" class="btn btn-sm btn-primary">Save <i class="fas fa-save ms-1"></i></button>
+  </div>
+</form>
+
+@section Scripts{
+  <partial name="_ValidationScriptsPartial"/>
+}

@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace DomainServices.Location
 {
-    internal class Queries
+    public class Queries
     {
 
-        public record GetLocationQuery : IRequest<Domain.Location>;
+        public record GetLocationsQuery : IRequest<IList<Domain.Location>>;
+
+        public record GetLocationQuery(int IdLocation):IRequest<Domain.Location>;
     }
 }

@@ -3,7 +3,7 @@
 
 namespace DomainServices.Adlisting
 {
-    internal class Commands
+    public class Commands
     {
        public record DeleteAdlistingCommand(int idAdlisting):IRequest;
 

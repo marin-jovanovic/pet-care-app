@@ -2885,11 +2885,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mataj\\source\\repos\\PetCareApp\\PetCareAppMVC\\PetCareAppMVC.csproj",
+      "projectUniqueName": "C:\\Users\\mataj\\OneDrive\\Documents\\IS3\\pet-care-app\\src_backend\\PetCareAppMVC\\PetCareAppMVC.csproj",
       "projectName": "PetCareAppMVC",
-      "projectPath": "C:\\Users\\mataj\\source\\repos\\PetCareApp\\PetCareAppMVC\\PetCareAppMVC.csproj",
+      "projectPath": "C:\\Users\\mataj\\OneDrive\\Documents\\IS3\\pet-care-app\\src_backend\\PetCareAppMVC\\PetCareAppMVC.csproj",
       "packagesPath": "C:\\Users\\mataj\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mataj\\source\\repos\\PetCareApp\\PetCareAppMVC\\obj\\",
+      "outputPath": "C:\\Users\\mataj\\OneDrive\\Documents\\IS3\\pet-care-app\\src_backend\\PetCareAppMVC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2910,17 +2910,17 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\mataj\\source\\repos\\PetCareApp\\DomainModel\\DomainModel.csproj": {
-              "projectPath": "C:\\Users\\mataj\\source\\repos\\PetCareApp\\DomainModel\\DomainModel.csproj"
+            "C:\\Users\\mataj\\OneDrive\\Documents\\IS3\\pet-care-app\\src_backend\\DomainModel\\DomainModel.csproj": {
+              "projectPath": "C:\\Users\\mataj\\OneDrive\\Documents\\IS3\\pet-care-app\\src_backend\\DomainModel\\DomainModel.csproj"
             },
-            "C:\\Users\\mataj\\source\\repos\\PetCareApp\\DomainServices.Validation1\\DomainServices.Validation.csproj": {
-              "projectPath": "C:\\Users\\mataj\\source\\repos\\PetCareApp\\DomainServices.Validation1\\DomainServices.Validation.csproj"
+            "C:\\Users\\mataj\\OneDrive\\Documents\\IS3\\pet-care-app\\src_backend\\DomainServices.Validation1\\DomainServices.Validation.csproj": {
+              "projectPath": "C:\\Users\\mataj\\OneDrive\\Documents\\IS3\\pet-care-app\\src_backend\\DomainServices.Validation1\\DomainServices.Validation.csproj"
             },
-            "C:\\Users\\mataj\\source\\repos\\PetCareApp\\DomainService\\DomainServices.csproj": {
-              "projectPath": "C:\\Users\\mataj\\source\\repos\\PetCareApp\\DomainService\\DomainServices.csproj"
+            "C:\\Users\\mataj\\OneDrive\\Documents\\IS3\\pet-care-app\\src_backend\\DomainService\\DomainServices.csproj": {
+              "projectPath": "C:\\Users\\mataj\\OneDrive\\Documents\\IS3\\pet-care-app\\src_backend\\DomainService\\DomainServices.csproj"
             },
-            "C:\\Users\\mataj\\source\\repos\\PetCareApp\\Infrastructure1\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\mataj\\source\\repos\\PetCareApp\\Infrastructure1\\Infrastructure.csproj"
+            "C:\\Users\\mataj\\OneDrive\\Documents\\IS3\\pet-care-app\\src_backend\\Infrastructure1\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\mataj\\OneDrive\\Documents\\IS3\\pet-care-app\\src_backend\\Infrastructure1\\Infrastructure.csproj"
             }
           }
         }
@@ -2970,7 +2970,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

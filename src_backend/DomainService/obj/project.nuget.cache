@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HJnsMh0TF0t76nal7oHXv8RGKI4FkpGk24JNLs1kPqReWwX/l9XJBzTEI2y+yPKicIlGkrE9m/K4qAdfCY6XgA==",
+  "dgSpecHash": "caOuLKl/PVdOJkVOPJjb04fzqyOXTmHjbC6dN5Zc6b8qcBnotSNld17bOwa3TMSJxoBA/DEaNEV3jaZMgdMmpg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mataj\\source\\repos\\PetCareApp\\DomainService\\DomainServices.csproj",
+  "projectFilePath": "C:\\Users\\mataj\\OneDrive\\Documents\\IS3\\pet-care-app\\src_backend\\DomainService\\DomainServices.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mataj\\.nuget\\packages\\fluentvalidation\\10.4.0\\fluentvalidation.10.4.0.nupkg.sha512",
     "C:\\Users\\mataj\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",

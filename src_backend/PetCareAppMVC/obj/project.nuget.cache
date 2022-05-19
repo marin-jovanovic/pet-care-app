@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vqM5TtD/oeKJJiuG0MsGjE5vdG0X944VyHucCXZasqyWOtYlkcvFvGil9kZ2hM4op0I17HaK2xU31lGmXI7kJA==",
+  "dgSpecHash": "qPrKvoszcoVCKMfknN/awF9fx1MHoXJM1bs6xoB3IghCCGbMqphTuuGTTopcoYq2eRH4wUcRyxZpeKU1JfKhEA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mataj\\source\\repos\\PetCareApp\\PetCareAppMVC\\PetCareAppMVC.csproj",
+  "projectFilePath": "C:\\Users\\mataj\\OneDrive\\Documents\\IS3\\pet-care-app\\src_backend\\PetCareAppMVC\\PetCareAppMVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mataj\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\mataj\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

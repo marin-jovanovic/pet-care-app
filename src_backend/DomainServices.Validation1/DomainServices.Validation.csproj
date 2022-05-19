@@ -16,4 +16,11 @@
     <ProjectReference Include="..\DomainService\DomainServices.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Adlisting\" />
+    <Folder Include="Location\" />
+    <Folder Include="Pettype\" />
+    <Folder Include="Pet\" />
+  </ItemGroup>
+
 </Project>

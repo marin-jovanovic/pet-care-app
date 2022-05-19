@@ -5,6 +5,7 @@ namespace DomainServices.Period
     public class Commands
     {
         public  record DeletePeriod(int IdPeriod ):IRequest;
+
         public class CreatePeriod: IRequest<int>
         {
             public DateTime StartDate { get; set; }

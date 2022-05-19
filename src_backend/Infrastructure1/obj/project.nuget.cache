@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VeP4Ls3Zj4dYxgox1VtBXQLUY12EIpltgFA4+xBNPjOPQ0kh9kPv/v0jo4m+anKdbqgad7FUjPdoiMXK8H9EfQ==",
+  "dgSpecHash": "qViCQuNyzUzeO5hO/IOSNmqMumRgrMVxHK/VG0hYAuyT3X8FtvvAvI9RNN9YFEwjS2rAfBtuMgjHXLEty9Gu/A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mataj\\source\\repos\\PetCareApp\\Infrastructure1\\Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\mataj\\OneDrive\\Documents\\IS3\\pet-care-app\\src_backend\\Infrastructure1\\Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mataj\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\mataj\\.nuget\\packages\\fluentvalidation\\10.4.0\\fluentvalidation.10.4.0.nupkg.sha512",

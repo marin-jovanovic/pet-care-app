@@ -1,9 +1,10 @@
 ﻿using MediatR;
-
+using Domain;
 namespace DomainServices.Pettype
 {
-    internal class Queries
+    public class Queries
     {
-        public record GetPettypeQuery : IRequest<Domain.Pettype>;
+        public record GetPettypeQuery(int IdPettype) : IRequest<Domain.Pettype>;
+        public record GetPettypesQuery : IRequest<IList<Domain.Pettype>>;
     }
 }

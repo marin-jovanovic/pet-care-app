@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bGY5F8ONAtPAn6axgvxjSnXUGk2eZf/g49ISaJhUHwkAMsQOyD2f7YOKUqf2ku9mcgNc/hVJ8uniHBq6RdLdcQ==",
+  "dgSpecHash": "tQLRQW9mGrOrode8PqyqHI47PEjh0EXNKnj9zW1IYzMEueSwLdg/zm87+EbXX599CUo9yM6P7xxzcwMGRqNPjA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mataj\\source\\repos\\PetCareApp\\DomainModel\\DomainModel.csproj",
+  "projectFilePath": "C:\\Users\\mataj\\OneDrive\\Documents\\IS3\\pet-care-app\\src_backend\\DomainModel\\DomainModel.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

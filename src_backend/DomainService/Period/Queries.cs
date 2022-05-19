@@ -2,8 +2,8 @@
 
 namespace DomainServices.Period
 {
-    internal class Queries
+    public class Queries
     {
-        public record GetPeriodQuery : IRequest<Domain.Period>;
+        public record GetPeriodQuery(int IdPeriod) : IRequest<Domain.Period>;
     }
 }
