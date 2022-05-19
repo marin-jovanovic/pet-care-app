@@ -11,7 +11,6 @@ window.onload = (event) => {
 };
 
 function change_listeners_init() {
-  console.log("change");
 
   [
     "input__username__err", 
@@ -26,7 +25,6 @@ function change_listeners_init() {
     "input__password__err",
     "input__password_repeat__err",
   ].forEach(element => {
-    // console.log(element)  
     show_element(element, false);
 
   });
@@ -53,7 +51,7 @@ function empty_msg_mapper() {
     "input__lastname" : "Prezime ne može biti prazno.",
     "input__email" : "Adresa e-pošte ne može biti prazna.",
     "input__cardnumber" : "Broj kartice ne može biti prazan.",
-    // "init_card_type_listeners": ""
+    // "input__cardtype": "",
     "input__card__month" : "Mjesec istjecanja kreditne kartice ne može biti prazan.",
     "input__card__year" : "Godina istjecanja kreditne kartice ne može biti prazna.",
     "input__password" : "Lozinka ne može biti prazna",
@@ -86,11 +84,17 @@ function init_generic_listeners(id_selector, id_selector_err, additional_control
   function runner() {
 
     if (is_entered) {
-      console.log(id_selector, "entered")
 
       if (document.getElementById(id_selector).value === '') {
         set_red(id_selector);
-        document.getElementById(id_selector_err).innerText = empty_msg_mapper()[id_selector];
+
+        let val = empty_msg_mapper()[id_selector];
+        if (val === undefined) {
+          set_blue(id_selector);
+        } else {
+          document.getElementById(id_selector_err).innerText = val;
+        }
+
         show_element(id_selector_err, true);
         return;
       }  
@@ -101,20 +105,18 @@ function init_generic_listeners(id_selector, id_selector_err, additional_control
       }
     }
 
-    show_element(id_selector_err, false);
+    // show_element(id_selector_err, false);
 
 
+    // additional_control(document.getElementById(id_selector).value);
     
     if (additional_control(document.getElementById(id_selector).value)) {
-      console.log("addition control passed for", id_selector)
  
       show_element(id_selector_err, false);
       set_green(id_selector);
  
     } else {
-      console.log("add control failed for", id_selector)
       set_red(id_selector);
-      // show_element(id_selector_err, true);
 
     }
 
@@ -211,16 +213,28 @@ function init_card_number_listeners() {
   let id_selector_err = "input__cardnumber__err"
 
   init_generic_listeners(id_selector, id_selector_err, (value) => {
-
+    console.log("heloo card")
           
     let card = creditCardValidation(value);
   
     if (card === undefined) {
+
+      console.log("card", card)
+
+      // let id_selector = "input__cardnumber"
+      // let id_selector_err = "input__cardnumber__err"
+      // console.log(
+      //   document.getElementById(id_selector_err)
+      // )
+      
       show_element(id_selector_err, true);
-      return false;
+      document.getElementById(id_selector_err).innerText = 
+      "Broj kreditne kartice nije valjanog formata.";
+      
+      return false
+      // return false;
   
     } else {
-      console.log("card", card)
       show_element(id_selector_err, false);
     
       document.getElementById("input__cardtype").value = card;
@@ -247,6 +261,7 @@ function init_card_month_listeners() {
 
   let id_selector = "input__card__month"
   let id_selector_err = "input__card__month__err"
+
   init_generic_listeners(id_selector, id_selector_err, (value) => {
 
     if (! is_month_valid(value)) {
@@ -267,8 +282,8 @@ function init_card_month_listeners() {
 
 function init_card_year_listeners() {
   
-  id_selector = "input__card__year"
-  id_selector_err = "input__card__year__err"
+  let id_selector = "input__card__year"
+  let id_selector_err = "input__card__year__err"
   init_generic_listeners(id_selector, id_selector_err, (value) => {
 
     if (! is_year_valid(value)) {
@@ -291,10 +306,9 @@ function init_password_listeners() {
   // // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_password_val
 
 
-  id_selector = "input__password"
-  id_selector_err = "input__password__err"
+  let id_selector = "input__password"
+  let id_selector_err = "input__password__err"
   init_generic_listeners(id_selector, id_selector_err, (value) => {
-    console.log("hello from additional control pass", value)
 
 
     let input_password = value;
@@ -328,10 +342,7 @@ function init_password_listeners() {
     if(input_password.match(alphaNum)) {  
       to_contain.push("barem jedan nealfanumericki znak");
     }
-    
-    console.log(to_contain)
-    console.log(other_conditions)
-  
+      
     let msg_present = false;
   
     if (! (other_conditions.length === 0) && ! (to_contain.length === 0)) {
@@ -414,15 +425,11 @@ function init_password_repeat_listeners() {
   let id_selector_err = "input__password_repeat__err"
 
   init_generic_listeners(id_selector, id_selector_err, (value) => {
-    console.log("hello from additional control pass rep", value)
 
 
     let p_1 = document.getElementById("input__password").value;
     let p_2 = document.getElementById("input__password_repeat").value;
-  
-    console.log(p_1);
-    console.log(p_2);
-  
+    
     let id = "input__password_repeat__err";
   
     if (p_1 === p_2 && p_1 !== "") {
@@ -483,7 +490,6 @@ function is_year_valid(value) {
 function is_month_valid(value) {
   let months = get_months();
   const lowercased = months.map(name => name.toLowerCase());
-  console.log(lowercased);
 
   return lowercased.includes(value.toLowerCase());
 
@@ -522,7 +528,6 @@ function isEmailValid(email) {
 };
 
 function show_element(id, visible) {
-  // console.log("id", id, visible)
   var x = document.getElementById(id);
 
   if (visible) {
@@ -537,11 +542,6 @@ function show_element(id, visible) {
     }
   }
 
-  // if (x.style.display === "none") {
-  //   x.style.display = "block";
-  // } else {
-  //   x.style.display = "none";
-  // }
 }
 
 function delete_init() {
