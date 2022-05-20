@@ -2061,24 +2061,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mataj\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Marin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mataj\\OneDrive\\Documents\\IS3\\pet-care-app\\src_backend\\Infrastructure1\\Infrastructure.csproj",
+      "projectUniqueName": "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\Infrastructure1\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "C:\\Users\\mataj\\OneDrive\\Documents\\IS3\\pet-care-app\\src_backend\\Infrastructure1\\Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\mataj\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mataj\\OneDrive\\Documents\\IS3\\pet-care-app\\src_backend\\Infrastructure1\\obj\\",
+      "projectPath": "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\Infrastructure1\\Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\Marin\\.nuget\\packages\\",
+      "outputPath": "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\Infrastructure1\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\mataj\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Marin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2092,11 +2087,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\mataj\\OneDrive\\Documents\\IS3\\pet-care-app\\src_backend\\DomainServices.Validation1\\DomainServices.Validation.csproj": {
-              "projectPath": "C:\\Users\\mataj\\OneDrive\\Documents\\IS3\\pet-care-app\\src_backend\\DomainServices.Validation1\\DomainServices.Validation.csproj"
+            "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\DomainServices.Validation1\\DomainServices.Validation.csproj": {
+              "projectPath": "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\DomainServices.Validation1\\DomainServices.Validation.csproj"
             },
-            "C:\\Users\\mataj\\OneDrive\\Documents\\IS3\\pet-care-app\\src_backend\\DomainService\\DomainServices.csproj": {
-              "projectPath": "C:\\Users\\mataj\\OneDrive\\Documents\\IS3\\pet-care-app\\src_backend\\DomainService\\DomainServices.csproj"
+            "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\DomainService\\DomainServices.csproj": {
+              "projectPath": "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\DomainService\\DomainServices.csproj"
             }
           }
         }
