@@ -2,26 +2,12 @@
 
 
 #index_img_cont {
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden */
 }
 #index_img_cont img {
-    /* flex-shrink: 0; */
-    /* min-width: 100%;
-    min-height: 100% */
 
     object-fit: contain
 
-    /* min-height:100%;  */
-    /* min-width: 100%;  */
-    /* object-fit: cover; */
-    /* max-height: 100%; */
-    /* max-width: 100%; */
-
     width: 100%;
-/* height: auto; */
 }
 
 
