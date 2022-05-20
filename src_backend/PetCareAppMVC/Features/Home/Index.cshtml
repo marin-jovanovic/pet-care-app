@@ -1,19 +1,55 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+
 }
 
-<h5>ProjectMVC with FeatureFolders and Command-Query separation</h5>
+<div>
+       @*<link rel="stylesheet" href="../styles/index.css">*@
+         @*<link asp-append-version="true" rel="stylesheet" href="~/styles/index.css" />*@
+       <link asp-append-version="true" rel="stylesheet" href="~/styles/index.css" />
 
-<p>Similar to Jimmy Bogard's idea of Vertical slice arhitecture, 
-  but with Command-Query separation, and horizontal layering of presentation, infrastructure, validation, and domain layer organized in features.</p>
 
-<p>Vertical slice architecture enables that each feature can use own concept how to work with data, and
-  does not force you to use layering.
-  For example, you could work directly using Entity Framework for one feature, and use layering for another.
-</p>
 
-<p>
-  The MVC project is using Feature folders organization, instead of classic directory structure
-  with Controllers, Views, and Models maps.
-</p>
-
+                 <div class="center__container" >
+            <div>
+                <div class="navbar">
+                    <div class="header__logo">
+                        <div class="split__left_20"></div>
+                        <div class="split__right_80">
+                            <img class="header__logo__img" src="~/resources/logo_horizontal.png" alt="">
+                        </div>
+                    </div>
+                    <div class="header__empty">
+                    </div>
+                    <div>
+                  
+                        <div class="dropdown">
+                            <button class="dropbtn">Korisnik 
+                            <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="/login">Prijavi se</a>
+                                <a href="/signup" >Registriraj se</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container"> 
+                    <img class="image" src="~/resources/index.png">
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="landing"></div>
+            <div class="text"></div>
+            <div class="slider"></div>
+            <div class="intro">
+                <img class="image" src="~/resources/large_logo.png" alt="Pet Care">
+            </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+            <script src="~/scripts/home/on_load_functions.js"></script>
+            <script src="~/scripts/global/tab_name_changer.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        </div>
+</div>
+     

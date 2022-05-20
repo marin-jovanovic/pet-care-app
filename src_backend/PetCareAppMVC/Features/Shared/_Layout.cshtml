@@ -4,19 +4,23 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ProjectMVC</title>
+            <link rel="icon" type="image/x-icon" href="~/resources/favicon.ico">
 
-    @*<link asp-append-version="true" rel="stylesheet" href="~/styles/login.css" />  *@
+            
+    @*<link asp-append-version="true" rel="stylesheet" href="~/styles/login.css" />*@
 </head>
 <body>
 
-    bodi enter  
-
+ 
           @*<partial name="Navigation" />*@
-     
+     <div>
+
           @RenderBody()
 
-          bodi kraj
+     </div>
 
+         
+ 
 @*  <script>
     window.applicationBaseUrl = '@Url.Content("~/")';
   </script>

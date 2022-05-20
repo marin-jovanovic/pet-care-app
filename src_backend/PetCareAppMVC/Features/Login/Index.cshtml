@@ -1,43 +1,32 @@
-@model PetCareAppMVC.Features.LoginViewModel
+@model PetCareAppMVC.Features.Login.LoginViewModel
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Index";
 }
 
 <div>
   <link asp-append-version="true" rel="stylesheet" href="~/styles/login.css" />
 
-  <section>
-      <div class="center__container" style="border: 2px solid black;">
-          <div>
-              <div class="navbar">
-                  <div class="header__logo">
-                      <div class="split__left_20"></div>
-                      <div class="split__right_80">
-                          <img class="header__logo__img" src="../resources/logo_horizontal.png" alt="">
-                      </div>
-                  </div>
-                  <div class="header__empty">
-                  </div>
-                  <div>
-                      <a href="#home">Pretraži</a>
-                      <a href="#news">
-                      Objavi oglas
-                      </a>
-                      <div class="dropdown">
-                          <button class="dropbtn">Korisnik 
-                          <i class="fa fa-caret-down"></i>
-                          </button>
-                          <div class="dropdown-content">
-                              <a href="#login">Prijavi se</a>
-                              <a href="#signup">Registriraj se</a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
+
+        <section>
+        <div class="center__container" style="border: 2px solid black;">
+            <div>
+                <div class="navbar">
+                    <div class="header__logo">
+                        <div class="split__left_20"></div>
+                        <div class="split__right_80">
+                            <img class="header__logo__img" src="../resources/logo_horizontal.png" alt="">
+                        </div>
+                    </div>
+                    <div class="header__empty">
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
   <h1 class="center__title center">
@@ -53,12 +42,15 @@
   <br>
   <div class="center">
       <div>
-          <form id="loginForm" name="loginForm" action="/user" method="post">
+
+
+
+              <form id="loginForm" name="loginForm" asp-action="LoginCheck" method="post">
               <table class="center__login__table">
                   <tr>
                       <td>
                           <span class="deleteicon">
-                          <input type="text" class="input__text" placeholder="Korisničko ime ili e-mail" required id="input__username" />
+                          <input asp-for="userName" type="text" class="input__text" placeholder="Korisničko ime ili e-mail" required id="input__username" />
                           <span id="delete__username">x</span>
                           </span>
                       </td>
@@ -66,7 +58,7 @@
                   <tr>
                       <td>
                           <span class="deleteicon">
-                          <input type="password" class="input__text" id="input__password" placeholder="Lozinka" required />
+                          <input asp-for="password" type="password" class="input__text" id="input__password" placeholder="Lozinka" required />
                           <span id="delete__password">x</span>
                           </span>                    
                       </td>
@@ -76,6 +68,9 @@
                   </tr>
               </table>
           </form>
+
+
+
       </div>
   </div>
 
