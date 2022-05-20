@@ -5,17 +5,24 @@
 }
 
 <div>
+
+
   <link asp-append-version="true" rel="stylesheet" href="~/styles/login.css" />
 
 
-        <section>
+    <section>
         <div class="center__container" style="border: 2px solid black;">
             <div>
                 <div class="navbar">
                     <div class="header__logo">
                         <div class="split__left_20"></div>
                         <div class="split__right_80">
-                            <img class="header__logo__img" src="../resources/logo_horizontal.png" alt="">
+                            <a href="/home" style="padding: unset">
+
+                             <img style="width: 100%" class="header__logo__img" src="../resources/logo_horizontal.png" alt="">
+ 
+                                
+                            </a>
                         </div>
                     </div>
                     <div class="header__empty">
@@ -33,9 +40,24 @@
       PRIJAVA
   </h1>
 
-  <div class="center__err center" >
+
+        @{
+        if (String.IsNullOrEmpty(TempData["tmp"]?.ToString()))
+        {
+
+
+        } else
+        {
+
+                <div class="center__err center" >
       Netočna kombinacija korisnika i lozinke
-  </div>
+     </div>
+
+
+        }
+    }
+
+ 
 
 
 

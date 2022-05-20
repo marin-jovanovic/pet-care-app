@@ -28,16 +28,47 @@ namespace PetCareAppMVC.Features.Login
         private readonly IMapper mapper;
         private readonly IMediator mediator;
 
-        public LoginController(IMapper mapper, IMediator mediator)
+        public LoginController (IMapper mapper, IMediator mediator)
         {
             this.mapper = mapper;
             this.mediator = mediator;
         }
 
+        
         [HttpPost]
-        public async Task<ActionResult> LoginCheck(string username, string password)
+        public async Task<ActionResult> LoginCheck(LoginViewModel model)
         {
-            Console.WriteLine("login username " + username + " password " + password);
+            Console.WriteLine("tu login username " + model.userName + " password " + model.password);
+            Console.WriteLine("tu login username " + model.userName+ " password " + model.password);
+
+            Console.WriteLine(model.userName == "error");
+            Console.WriteLine("ffffffffffffffffff");
+
+            ViewData["error"] = "nema  errora vieew data";
+            ViewBag.tmp = "view beg";
+            TempData["tmp"] = "temp data";
+            return RedirectToAction("");
+
+            return View("Login");
+
+            return View();
+
+            if (model.userName == "error")
+            {
+                Console.WriteLine(model.userName == "error");
+                ViewBag.errorMessage = "You must have a confirmed email to log on.";
+                //return View("Login");
+
+                return View();
+
+            } else {
+                Console.WriteLine(model.userName == "error");
+                //return View("Login");
+
+            }
+            return RedirectToAction("/home");
+
+            //return View("Login");
 
             //Create session id
             //return session id
@@ -45,7 +76,6 @@ namespace PetCareAppMVC.Features.Login
             //session = session id + last req time
 
 
-            return RedirectToAction(nameof(Index));
         }
 
     }
