@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PetCareAppMVC.Features;
+namespace PetCareAppMVC.Features.People;
 
 public class PersonViewModel
 {

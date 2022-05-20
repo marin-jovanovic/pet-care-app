@@ -8,12 +8,12 @@ using static DomainServices.People.Commands;
 namespace Infrastructure.Features.People
 {
 
-    public class GetPeopleQueryHandler : IRequestHandler<AddPersonCommand, int>, IRequestHandler<DeletePersonCommand>, IRequestHandler<UpdatePersonCommand>
+    public class GetPeopleCommandHandler : IRequestHandler<AddPersonCommand, int>, IRequestHandler<DeletePersonCommand>, IRequestHandler<UpdatePersonCommand>
     {
         private readonly ProjectContext ctx;
         private readonly IMapper mapper;
 
-        public GetPeopleQueryHandler(ProjectContext ctx, IMapper mapper)
+        public GetPeopleCommandHandler(ProjectContext ctx, IMapper mapper)
         {
             this.ctx = ctx;
             this.mapper = mapper;
@@ -29,7 +29,7 @@ namespace Infrastructure.Features.People
 
         public async Task<Unit> Handle(DeletePersonCommand request, CancellationToken cancellationToken)
         {
-            var entity = await ctx.Person.FindAsync(request);
+            var entity = await ctx.Person.FindAsync(request.username);
             if (entity != null)
             {
                 ctx.Remove(entity);

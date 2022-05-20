@@ -1,8 +1,17 @@
 ﻿
 
+using Infrastructure.EFModel;
+
 namespace Domain.Validation.People
 {
-    internal class CheckUserNameUniquenessRequestHandler
+    public class CheckUserNameUniquenessRequestHandler
     {
+        private readonly ProjectContext ctx;
+
+        public CheckUserNameUniquenessRequestHandler(ProjectContext ctx)
+        {
+            this.ctx = ctx;
+        }
+
     }
 }

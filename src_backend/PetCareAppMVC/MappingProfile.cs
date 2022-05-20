@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using PetCareAppMVC.Features;
+using PetCareAppMVC.Features.People;
 using PetCareAppMVC.Features.Adlisting;
 using Domain;
 
@@ -11,6 +11,7 @@ public class MappingProfile : Profile
   {
         CreateMap<PersonViewModel, DomainServices.People.Commands.AddPersonCommand>();
         CreateMap<PersonViewModel, DomainServices.People.Commands.UpdatePersonCommand>();
+
         CreateMap<Domain.People.Person, PersonViewModel>();
 
      

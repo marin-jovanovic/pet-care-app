@@ -21,8 +21,4 @@
     <ProjectReference Include="..\Infrastructure1\Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Period\" />
-  </ItemGroup>
-
 </Project>
