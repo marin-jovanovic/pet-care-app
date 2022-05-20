@@ -21,4 +21,9 @@
     <ProjectReference Include="..\Infrastructure1\Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\NewFolder1\" />
+    <Folder Include="Features\NewFolder\" />
+  </ItemGroup>
+
 </Project>

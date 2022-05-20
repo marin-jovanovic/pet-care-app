@@ -4,52 +4,28 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ProjectMVC</title>
-    <link asp-append-version="true" rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
-    <link asp-append-version="true" rel="stylesheet" href="~/lib/font-awesome/css/all.css" />  
-    <link asp-append-version="true" rel="stylesheet" href="~/lib/toastr.js/toastr.min.css" />  
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    @*<link asp-append-version="true" rel="stylesheet" href="~/styles/login.css" />  *@
 </head>
 <body>
-    
-    <div class="color-overlay"></div>
-    <div class="container">
-      <div class="row my-2">
-        <div class="col-sm-9 col-lg-7 header-title text-light mt-2 mt-sm-0">
-          <h1 class="fw-bold text-uppercase">Project.MVC</h1>
-          <p>FER-Information Systems</p>
-        </div>
-      </div>
-    </div>
-  </header>
-  <main class="py-3 py-lg-5">
-    <div class="container">
-      <div class="row align-items-stretch">
-        <aside class="col-lg-3 col-xxl-2">
-          <partial name="Navigation" />
-        </aside>
-        <section class="main-content col-lg-9 col-xxl-10 ps-lg-5">          
+
+    bodi enter  
+
+          @*<partial name="Navigation" />*@
+     
           @RenderBody()
-        </section>
-      </div>
-    </div>
-  </main>
-  <footer class="bg-light-2 py-3">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          Demo demo
-        </div>
-      </div>
-    </div>
-  </footer>
-  <script>
+
+          bodi kraj
+
+@*  <script>
     window.applicationBaseUrl = '@Url.Content("~/")';
   </script>
-  <script asp-append-version="true" src="~/lib/jquery/jquery.min.js"></script>
-  <script asp-append-version="true" src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>  
-  <script asp-append-version="true" src="~/lib/toastr.js/toastr.min.js"></script>  
-  <script src="~/js/site.js" asp-append-version="true"></script>
-  <partial name="ShowMessage"/>
-  @await RenderSectionAsync("Scripts", required: false)
+*@
+    @*<script asp-append-version="true" src="~/lib/jquery/jquery.min.js"></script>*@
+  @*<script asp-append-version="true" src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>  *@
+  @*<script asp-append-version="true" src="~/lib/toastr.js/toastr.min.js"></script>  *@
+  @*<script src="~/js/site.js" asp-append-version="true"></script>*@
+  @*<partial name="ShowMessage"/>*@
+  @*@await RenderSectionAsync("Scripts", required: false)*@
 </body>
 </html>
