@@ -1,6 +1,4 @@
-/* * {
-    border: 1px solid blue;
-} */
+
 
 .center {
     text-align: center;
@@ -64,7 +62,6 @@ body {
   font: 16px Arial;  
 }
 
-/*the container must be positioned relative:*/
 .autocomplete {
   position: relative;
   display: inline-block;

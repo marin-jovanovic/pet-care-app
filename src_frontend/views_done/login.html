@@ -5,26 +5,13 @@
     <title>Pet Care app</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-    <link rel="stylesheet" href="../styles/login/login_center.css">
-    <link rel="stylesheet" href="../styles/login/navbar.css">
-
     <link rel="icon" type="image/x-icon" href="../resources/favicon.ico">
-
-    <link rel="stylesheet" href="../styles/navigation_bar/index.css">
+    <link rel="stylesheet" href="../styles/login.css">
 </head>
 <main>
-
-
     <section>
-
         <div class="center__container" style="border: 2px solid black;">
-         
-
-
             <div>
-
                 <div class="navbar">
                     <div class="header__logo">
                         <div class="split__left_20"></div>
@@ -50,75 +37,43 @@
                         </div>
                     </div>
                 </div>
-
-
-                <style>
-
-                html, body {margin: 0; height: 100%; overflow: hidden}
-
-                </style>
-
-                  
-
-
             </div>
-
-      
         </div>
-
-
     </section>
-
-
     <script src="../scripts/login_form/validate_signup.js"></script>
-    
-    <link rel="stylesheet" href="../styles/signup_form/index.css">
-    
-
     <h1 class="center__title center">
         PRIJAVA
     </h1>
-
     <div class="center__err center" >
         Netočna kombinacija korisnika i lozinke
     </div>
-
     <br>
-
     <div class="center">
-        <div>        
+        <div>
             <form id="loginForm" name="loginForm" action="/user" method="post">
                 <table class="center__login__table">
-                
                     <tr>
                         <td>
                             <span class="deleteicon">
-                                <input type="text" class="input__text" placeholder="Korisničko ime ili e-mail" required id="input__username" />
-                                <span id="delete__username">x</span>
+                            <input type="text" class="input__text" placeholder="Korisničko ime ili e-mail" required id="input__username" />
+                            <span id="delete__username">x</span>
                             </span>
                         </td>
                     </tr>
-
                     <tr>
                         <td>
                             <span class="deleteicon">
-                                <input type="password" class="input__text" id="input__password" placeholder="Lozinka" required />
-                                <span id="delete__password">x</span>
+                            <input type="password" class="input__text" id="input__password" placeholder="Lozinka" required />
+                            <span id="delete__password">x</span>
                             </span>                    
                         </td>
                     </tr>
-                    
                     <tr>
-                        <td><input class="center__menu__button button" type="submit" id="4"></td>
+                        <td><input class="center__menu__button button" value="Prijavi me" type="submit" id="4"></td>
                     </tr>
-                
                 </table>
             </form>
         </div>
-    
     </div>
-
-    
-
 </main>
 
