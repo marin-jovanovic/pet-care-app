@@ -58,11 +58,11 @@ namespace PetCareAppMVC.Features.People
 
 
         [HttpPost]
-        public async Task<ActionResult> Delete(int idPerson)
+        public async Task<ActionResult> Delete(string username)
         {
             try
             {
-                var command = new DeletePersonCommand(idPerson);
+                var command = new DeletePersonCommand(username);
                 await mediator.Send(command);
                 TempData.Put(Constants.ActionStatus, new ActionStatus(true, "Person deleted"));
             }
@@ -71,6 +71,30 @@ namespace PetCareAppMVC.Features.People
                 TempData.Put(Constants.ActionStatus, new ActionStatus(false, ex.CompleteExceptionMessage()));
             }
             return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(PersonViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var command = mapper.Map<AddPersonCommand>(model);
+                    int id = await mediator.Send(command);
+                    TempData.Put(Constants.ActionStatus, new ActionStatus(true, $"{model.userName} {model.email} added"));
+                    return RedirectToAction(nameof(PersonViewModel), new { id });
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, ex.CompleteExceptionMessage());
+                    return View(model);
+                }
+            }
+            else
+            {
+                return View(model);
+            }
         }
     }
 

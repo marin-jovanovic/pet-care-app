@@ -4,6 +4,7 @@
 }
 
 <div class="table-responsive">
+ 
   <table class="table">
     <thead>
       <tr>
@@ -18,7 +19,7 @@
           <td><a asp-action="Details" asp-route-id="@item.email">@item.email</a></td>
           <td><a asp-action="Details" asp-route-id="@item.userName">@item.userName</a></td>
           <td>
-            <form method="post" asp-action="Delete" asp-route-id="@item.idPerson">
+            <form method="post" asp-action="Delete" asp-route-username="@item.userName">
              <button type="submit" class="btn btn-danger confirm-delete">Delete <i class="fas fa-trash-alt ms-1"></i></button>
             </form>
           </td>

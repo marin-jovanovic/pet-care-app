@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Sieve.Services;
 using Infrastructure.EFModel;
 using static DomainServices.People.Queries;
+using static DomainServices.People.Commands;
 
 namespace Infrastructure.Features.People;
 public class PeopleQueryHandler :
@@ -49,6 +50,8 @@ IRequestHandler<GetPeopleQuery, IList<Domain.People.Person>>,
                             .ToListAsync(cancellationToken: cancellationToken);
       return data;
     }
+
+ 
 }
 
 
