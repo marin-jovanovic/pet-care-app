@@ -4,7 +4,7 @@ using ProjectMVC.Extensions;
 using ProjectMVC.Features.Shared;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MediatR;
-using Infrastructure;
+using Infrastructure5;
 using Sieve.Models;
 
 //using Domain.Roles;
@@ -35,9 +35,34 @@ namespace PetCareAppMVC.Features.Signup
     
 
         [HttpPost]
-        public async Task<ActionResult> SignupCheck(string username, string oib, string firstname, string lastname, string email, string cardnumber, string cardtype, string cardmonth, string cardyear, string password, string passwordrepeat)
-        {
-            Console.WriteLine("signup params" +" "+ username + " " + oib + " " + firstname + " " + lastname + " " + email + " " + cardnumber + " " + cardtype + " " + cardmonth + " " + cardyear + " " + password + " " + passwordrepeat);
+        public async Task<ActionResult> SignupCheck(SignupViewModel model)
+
+         {
+            var query = new DomainServices.People.Queries.GetPeopleQuery();
+            var data = await mediator.Send(query);
+            var idP = data.Count() + 1;
+            model.PersonId = idP;
+            model.SessionId = model.SessionId + "ha";
+
+
+            if (ModelState.IsValid)
+            {
+
+                var command = mapper.Map<AddPersonCommand>(model);
+                int id = await mediator.Send(command);
+                TempData.Put(Constants.ActionStatus, new ActionStatus(true, $"{model.UserName} {model.PersonEmail} added"));
+            }
+
+
+            
+
+
+
+
+
+
+
+            Console.WriteLine("signup params" +model.UserName+model.Password);
 
             // if all ok redirect to login
 

@@ -8,9 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\NewFolder1\**" />
+    <Compile Remove="Features\NewFolder\**" />
     <Compile Remove="Features\Pet\**" />
+    <Content Remove="Features\NewFolder1\**" />
+    <Content Remove="Features\NewFolder\**" />
     <Content Remove="Features\Pet\**" />
+    <EmbeddedResource Remove="Features\NewFolder1\**" />
+    <EmbeddedResource Remove="Features\NewFolder\**" />
     <EmbeddedResource Remove="Features\Pet\**" />
+    <None Remove="Features\NewFolder1\**" />
+    <None Remove="Features\NewFolder\**" />
     <None Remove="Features\Pet\**" />
   </ItemGroup>
 
@@ -31,16 +39,6 @@
 
   <ItemGroup>
     <Folder Include="Features\Person2\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Features\NewFolder1\" />
-    <Folder Include="Features\NewFolder\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Features\NewFolder1\" />
-    <Folder Include="Features\NewFolder\" />
   </ItemGroup>
 
 </Project>

@@ -28,8 +28,8 @@ public class MappingProfile : Profile
 
       CreateMap<Infrastructure5.EFModel.AdListing ,DomainServices.Adlisting.Commands.AddAdlisting > ();
 
+        CreateMap<Domain.People.Person, SignupViewModel> ();
 
-      
-
+        CreateMap<SignupViewModel, DomainServices.People.Commands.AddPersonCommand>();
     }
 }

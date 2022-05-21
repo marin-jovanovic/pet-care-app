@@ -44,8 +44,10 @@
                 
                 <form id="registerFormU" name="registrationForm" asp-action="SignupCheck" method="post">
                     <div>
+                        <input asp-for=PersonId />
+                        <input asp-for=SessionId />
                         <span class="deleteicon">
-                        <input asp-for="username" type="text" class="input__text" id="input__username" placeholder="Korisničko ime" required/>
+                        <input asp-for="UserName" type="text" class="input__text" id="input__username" placeholder="Korisničko ime" required/>
                         <span id="delete__username">x</span>
                         </span>
                         <br>
@@ -54,7 +56,7 @@
                         </div>
                         <br>
                         <span class="deleteicon">
-                        <input asp-for="oib" type="text" class="input__text" id="input__OIB" placeholder="OIB" required />
+                        <input asp-for="Oib" type="text" class="input__text" id="input__OIB" placeholder="OIB" required />
                         <span id="delete__OIB">x</span>
                         </span>
                         <br>
@@ -63,7 +65,7 @@
                         </div>
                         <br>
                         <span class="deleteicon">
-                        <input asp-for="firstname" type="text" class="input__text" id="input__firstname" placeholder="Ime" required />
+                        <input asp-for="PersonFirstName" type="text" class="input__text" id="input__firstname" placeholder="Ime" required />
                         <span id="delete__firstname">x</span>
                         </span>
                         <br>
@@ -72,7 +74,7 @@
                         </div>
                         <br>
                         <span class="deleteicon">
-                        <input asp-for="lastname" type="text" class="input__text" id="input__lastname" placeholder="Prezime" required />
+                        <input asp-for="PersonLastName" type="text" class="input__text" id="input__lastname" placeholder="Prezime" required />
                         <span id="delete__lastname">x</span>
                         </span>
                         <br>
@@ -81,68 +83,27 @@
                         </div>
                         <br>
                         <span class="deleteicon">
-                        <input asp-for="email" type="text" class="input__text" id="input__email" placeholder="Adresa e-pošte" required/>
+                        <input asp-for="PersonEmail" type="text" class="input__text" id="input__email" placeholder="Adresa e-pošte" required/>
                         <span id="delete__email">x</span>
                         </span>
                         <br>
                         <div id="input__email__err">
                             Adresa e-pošte nije valjanog formata.
                         </div>
-                        <br>
-                        <span class="deleteicon">
-                        <input asp-for="cardnumber" type="text" class="input__text" id="input__cardnumber" placeholder="Broj kreditne kartice" required/>
-                        <span id="delete__cardnumber">x</span>
-                        </span>
-                        <br>
-                        <div id="input__cardnumber__err">
-                            Broj kreditne kartice nije valjanog formata.
-                        </div>
-                        <br>
-                        <span class="deleteicon">
-                        <input asp-for="cardtype" type="text" class="input__text" id="input__cardtype" placeholder="Tip kreditne kartice"/>
-                        <span id="delete__cardtype">x</span>
-                        </span>
-                        <br>
-                        <div id="input__cardtype__err">
-                            <!-- Tip kreditne kartice ne postoji. -->
-                        </div>
-                        <br>
-                        <span class="deleteicon">
-                            <div class="autocomplete">
-                                <input asp-for="cardmonth" class="input__text" name="expiry" 
-                                    placeholder="Mjesec istjecanja kreditne kartice" required
-                                    id="input__card__month" 
-                                    type="text" name="myCountry">
-                            </div>
-                            <span id="delete__card__month">x</span>
-                        </span>
-                        <br>
-                        <div id="input__card__month__err">
-                            Mjesec istjecanja kreditne kartice nije valjanog formata, mora sadržavati 2 broja odnosno nalaziti se u padajućem izborniku.
-                        </div>
-                        <br>
-                        <span class="deleteicon">
-                            <div class="autocomplete">
-                                <input asp-for="cardyear" class="input__text" name="expiry" 
-                                    maxlength="4" 
-                                    placeholder="Godina istjecanja kreditne kartice" required
-                                    id="input__card__year" type="text" name="myCountry"
-                                    placeholder="Year">
-                            </div>
-                            <span id="delete__card__year">x</span>
-                        </span>
+                        
                         <br>
                         <div id="input__card__year__err">
                             Godina istjecanja kreditne kartice nije valjanog formata, mora sadržavati 4 broja. 
                         </div>
                         <br>
                         <span class="deleteicon">
-                        <input asp-for="password" type="password" class="input__text" id="input__password" 
+                        <input asp-for="Password" type="password" class="input__text" id="input__password" 
                             placeholder="Lozinka" required 
                             />
                         <span id="delete__password">x</span>
                         </span>
                         <br>
+                         <!--
                         <div id="input__password__err">
                         </div>
                         <br>
@@ -154,6 +115,7 @@
                         <div id="input__password_repeat__err">
                             Ponovno upisana lozinka se ne podudara s prvotno upisanom lozinkom. 
                         </div>
+                        -->
                         <br>
                         <span class="deleteicon" >
                             <input type="submit" class="input__text" 

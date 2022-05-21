@@ -4,7 +4,7 @@ using ProjectMVC.Extensions;
 using ProjectMVC.Features.Shared;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MediatR;
-using Infrastructure;
+using Infrastructure5;
 using Sieve.Models;
 
 //using Domain.Roles;
@@ -59,11 +59,28 @@ namespace PetCareAppMVC.Features.Login
         }
 
         [HttpPost]
+
         public async Task<ActionResult> LoginCheck(LoginViewModel model)
         {
             Console.WriteLine("tu login username " + model.userName + " password " + model.password);
 
+            if (ModelState.IsValid)
+            {
+                var query = new DomainServices.People.Queries.GetPeopleQuery();
+                var data = await mediator.Send(query);
+                foreach (var item in data)
+                {
+                    if(item.UserName.Equals( model.userName) && item.Password.Equals(model.password))
+                    {
+                        //model.sessionId = GetUniqueKey(20);
+                        //Console.WriteLine("session id", model.sessionId);
+                        return View("../listings/index", model);
+                    }
+                }
 
+            }
+           
+            
 
             // todo if len(select * from db where username = username && password == password) == 0
             if (model.userName == "error")
@@ -76,8 +93,8 @@ namespace PetCareAppMVC.Features.Login
             else {
 
 
-                model.sessionId = GetUniqueKey(20);
-                Console.WriteLine("session id", model.sessionId);
+             //   model.sessionId = GetUniqueKey(20);
+               // Console.WriteLine("session id", model.sessionId);
 
                 // spremi u bazu za ovog usera ovaj session id
 
