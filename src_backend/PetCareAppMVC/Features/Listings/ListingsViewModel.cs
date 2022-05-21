@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace PetCareAppMVC.Features.Login;
+namespace PetCareAppMVC.Features.Listings;
 
 public class ListingsViewModel
 {

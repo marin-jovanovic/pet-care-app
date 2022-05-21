@@ -59,7 +59,31 @@
                         </style>
 
                       <div id="scrollable_div">
-                        <table>
+
+
+                        <style>
+                    /* #listings_t > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) */
+                    
+                    /* #listings_t:nth-child(2n) {
+                                background-color: lightblue} */
+
+                                pill {
+  background-color: #ddd;
+  border: none;
+  color: green;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+
+                        </style>
+                        <table id="listings_t">
+
                             <tr>
 
                                 <td>
@@ -121,10 +145,10 @@
                             </tr>
 
                             <tr>
-                                <td>
-                                    <table id="listing_2">
+                                <td style="background-color: lightblue; border: none;">
+                                    <table style="background-color: white; border: none;" id="listing_2">
                                         <tr>
-                                          <td>
+                                          <td class="pill">
                                             opis: vrijednost 2
                                           </td>
                                         </tr>

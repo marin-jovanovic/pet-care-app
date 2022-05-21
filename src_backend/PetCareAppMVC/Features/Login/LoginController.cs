@@ -12,6 +12,9 @@ using Sieve.Models;
 using static DomainServices.People.Commands;
 //using static DomainServices.People.Commands;
 
+using PetCareAppMVC.Features.Listings;
+
+
 using PetCareAppMVC.Features;
 using System.Security.Cryptography;
 using System.Text;
@@ -83,39 +86,27 @@ namespace PetCareAppMVC.Features.Login
                     model.SessionId = GetUniqueKey(20);
                     mapper.Map<UpdatePersonCommand>(model);
 
-                    var query1 = new DomainServices.Adlisting.Queries.GetAdlistingQuery();
+                    //var query1 = new DomainServices.Adlisting.Queries.GetAdlistingQuery();
+                    //var data2 = await mediator.Send(query1);
                     //Console.WriteLine("session id", model.sessionId);
-                    return View("../listings/index", query1);
-                    }
+                    //return View("../listings/index", data2);
+
+                    var retModel = new SessionViewModel();
+                    retModel.sessionId = model.SessionId;
+
+                    return RedirectToAction("Index", "Listings", retModel);
+                    //return RedirectToRoute("listings", "index", new { sessionid = model.SessionId });
+                    //return View("../listings/index", new SessionViewModel(model.SessionId));
+                    
                 }
+            }
 
             
 
             ViewData["error"] = true;
             return View("./index");
 
-            // todo if len(select * from db where username = username && password == password) == 0
-            if (model.UserName == "error")
-            {
-
-                ViewData["error"] = true;
-                return View("./index");
-
-            }
-            else {
-
-
-                return View("../Listings/index", model);
-
-            }
-
-            //return View("Login");
-
-            //Create session id
-            //return session id
-            //log session in db 
-            //session = session id + last req time
-
+ 
 
         }
 

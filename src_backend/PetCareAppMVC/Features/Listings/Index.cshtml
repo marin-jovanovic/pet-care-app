@@ -1,18 +1,26 @@
 @*@model PetCareAppMVC.Features.Login.LoginViewModel*@
+@*@model PetCareAppMVC.Features.Listings.SessionViewModel*@
+
+@model IList<Domain.Adlisting>
 
 @{
     ViewData["Title"] = "oglasi";
 }
 
+
+ 
+
+
 <div>
-listings page
 
 
     @*
         @Model.sessionId
-
+        ViewData["SessionId"]
     *@
 
+
+    session id = @ViewData["SessionId"] 
 </div>
 
 
@@ -73,6 +81,63 @@ listings page
 
                       <div id="scrollable_div">
                         <table>
+                         
+                                  @foreach (var item in Model)
+      {
+        <tr>
+            <td>
+
+
+ <table id= @item.AdlistingId>
+
+                                        <tr>
+                                          <td>
+                                            datum pocetka: @item.StartDate
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            datum kraja: @item.EndDate  
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            opis: @item.AdlistingDescription
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            cijena: @item.Price
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            naslov: @item.Title
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            PetId: @item.PetId
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            IdAdress: @item.IdAdress
+                                          </td>
+                                        </tr>
+                    
+                                    </table>                       
+
+
+
+
+
+</td>
+ 
+        </tr>
+      }
+
+                            
                             <tr>
 
                                 <td>

@@ -14,6 +14,8 @@ using static DomainServices.People.Commands;
 
 using PetCareAppMVC.Features;
 
+//using PetCareAppMVC.Features.Listings;
+//namespace PetCareAppMVC.Features.Login;
 
 namespace PetCareAppMVC.Features.Listings
 {
@@ -21,9 +23,19 @@ namespace PetCareAppMVC.Features.Listings
     {
 
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync(SessionViewModel model)
         {
-            return View();
+            // sad tu ocu da se napravi select iz baze
+          
+            //return View("../listings/index", data2);
+
+            Console.WriteLine("session id", model.sessionId);
+            ViewData["SessionId"] = model.sessionId;
+
+
+            var query1 = new DomainServices.Adlisting.Queries.GetAdlistingQuery();
+            var data2 = await mediator.Send(query1);
+            return View(data2);
         }
 
         private readonly IMapper mapper;
