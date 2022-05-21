@@ -21,7 +21,7 @@ namespace Infrastructure5.Features.People
 
         public async Task<int> Handle(AddPersonCommand request, CancellationToken cancellationToken)
         {
-            var entity = mapper.Map<Infrastructure5.EFModel.Person>(request.PersonId);
+            var entity = mapper.Map<Infrastructure5.EFModel.Person>(request);
             ctx.Add(entity);
             await ctx.SaveChangesAsync();
             return entity.PersonId;

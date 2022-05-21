@@ -66,6 +66,7 @@ namespace PetCareAppMVC.Features.Login
 
             if (ModelState.IsValid)
             {
+                Console.WriteLine("login check: model is valid");
                 var query = new DomainServices.People.Queries.GetPeopleQuery();
                 var data = await mediator.Send(query);
                 foreach (var item in data)
@@ -79,8 +80,9 @@ namespace PetCareAppMVC.Features.Login
                 }
 
             }
-           
-            
+
+            ViewData["error"] = true;
+            return View("./index");
 
             // todo if len(select * from db where username = username && password == password) == 0
             if (model.userName == "error")
@@ -92,24 +94,6 @@ namespace PetCareAppMVC.Features.Login
             }
             else {
 
-
-             //   model.sessionId = GetUniqueKey(20);
-               // Console.WriteLine("session id", model.sessionId);
-
-                // spremi u bazu za ovog usera ovaj session id
-
-                /*
-                 * dohvati sve listinge koji imaju id jednak user.id
-                 * 
-                 ret_model_lista = lista {
-                    select * from listing where listing.id = user.id
-                
-                }
-
-                return View("../Listings/index", ret_model_lista);
-
-                 
-                 */
 
                 return View("../Listings/index", model);
 

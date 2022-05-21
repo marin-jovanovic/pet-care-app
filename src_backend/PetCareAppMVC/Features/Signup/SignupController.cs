@@ -10,7 +10,8 @@ using Sieve.Models;
 //using Domain.Roles;
 //using DomainServices.Roles;
 using static DomainServices.People.Commands;
-
+using System.Security.Cryptography;
+using System.Text;
 
 namespace PetCareAppMVC.Features.Signup
 {
@@ -32,12 +33,79 @@ namespace PetCareAppMVC.Features.Signup
             this.mediator = mediator;
         }
 
-    
 
-        [HttpPost]
+        internal static readonly char[] chars =
+                 "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".ToCharArray();
+
+        public static string GetUniqueKey(int size)
+        {
+            byte[] data = new byte[4 * size];
+            using (var crypto = RandomNumberGenerator.Create())
+            {
+                crypto.GetBytes(data);
+            }
+            StringBuilder result = new StringBuilder(size);
+            for (int i = 0; i < size; i++)
+            {
+                var rnd = BitConverter.ToUInt32(data, i * 4);
+                var idx = rnd % chars.Length;
+
+                result.Append(chars[idx]);
+            }
+
+            return result.ToString();
+        }
+
+
+
+    [HttpPost]
         public async Task<ActionResult> SignupCheck(SignupViewModel model)
+        {
+            model.PersonId = 2;
+            model.PersonFirstName = "a";
+            model.PersonLastName = "a";
+            model.Oib = "a";
+            model.PersonEmail = "a";
+            model.PersonMobile = "a";
+            model.UserName = "a";
+            model.Password = "a";
+            model.SessionId = "a";
 
-         {
+            Console.WriteLine(model.PersonFirstName + " " +
+            model.PersonLastName + " " +
+            model.Oib + " " +
+            model.PersonEmail + " " +
+            model.PersonMobile + " " +
+            model.UserName + " " +
+            model.Password + " " +
+            model.SessionId);
+
+            if (ModelState.IsValid)
+            {
+                //Console.WriteLine("login check: model is valid");
+                //var query = new DomainServices.People.Queries.GetPeopleQuery();
+                //var data = await mediator.Send(query);
+                //foreach (var item in data)
+                //{
+                //    if (item.UserName.Equals(model.userName) && item.Password.Equals(model.password))
+                //    {
+
+                //        return View("../listings/index", model);
+                //    }
+                //}
+
+                Console.WriteLine("model je validan");
+            }
+
+            ViewData["error"] = true;
+            return View("./index");
+
+            /*
+
+
+            return View("../Listings/index", model);
+
+
             var query = new DomainServices.People.Queries.GetPeopleQuery();
             var data = await mediator.Send(query);
             var idP = data.Count() + 1;
@@ -53,15 +121,6 @@ namespace PetCareAppMVC.Features.Signup
                 TempData.Put(Constants.ActionStatus, new ActionStatus(true, $"{model.UserName} {model.PersonEmail} added"));
             }
 
-
-            
-
-
-
-
-
-
-
             Console.WriteLine("signup params" +model.UserName+model.Password);
 
             // if all ok redirect to login
@@ -70,7 +129,7 @@ namespace PetCareAppMVC.Features.Signup
 
             return RedirectToAction("");
 
-
+            */
         }
 
 
