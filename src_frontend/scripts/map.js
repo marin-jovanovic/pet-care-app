@@ -7,52 +7,34 @@ window.onload = () => {
 
 async function map_drivers() {
 
-  // test
-  // var map_inst = SingletonFactory.getInstance();
-  // map_inst.add_complex_marker(15.9326851, 45.791663);
-
-  // show my area on map
   await set_position();
 
-  // var map_inst = SingletonFactory.getInstance();
-  // let user_position = get_user_position();
-
-  // map_inst.add_complex_marker(15.9326851, 45.791663);
-
-  // show all markers that are in db
   show_markers();
-
-  // test for user click
-  var map_inst = SingletonFactory.getInstance();
-  map_inst.single_click();
 
 }
 
 function get_markers() {
   return {
-    // "0": {
-    //   lon: "15.97357328039510", 
-    //   lat: "45.79500836301534"
-    // },
-    // "1": {
-    //   lon: "15.976148201050032", 
-    //   lat: "45.805779155784435"
-    // },
+
     "2": {
       lon: "15.97357328039518", 
-      lat: "45.79500836301531"
+      lat: "45.79500836301531",
+      listing_id: "listing_1"
     },
     "3": {
       lon: "15.951257301391397", 
-      lat: "45.79644458901876"
+      lat: "45.79644458901876",
+      listing_id: "listing_2"
     },
     "4": {
       lon: "15.938554359496676", 
-      lat: "45.80996723511464"
+      lat: "45.80996723511464",
+      listing_id: "3"
     },
     "5": {
       lon: "15.994859291137193", 
-      lat: "45.820376239569896"
+      lat: "45.820376239569896",
+      listing_id: "4"
     },
   }
 
@@ -67,13 +49,17 @@ function show_markers() {
   for (const key in markers) {  
     map_inst.add_marker(
       markers[key].lon, 
-      markers[key].lat
+      markers[key].lat,
+      markers[key].listing_id
     )
   };
 
 }
 
+function href_jump(h) {
 
+  document.getElementById(h).scrollIntoView(); 
+}
 
 
 var SingletonFactory = (function(){
@@ -117,40 +103,13 @@ var SingletonFactory = (function(){
       
         let title = "title "
 
-        // marker.events.register("click", marker, function(e){
-        //   console.log("clicked", marker)
-
-        // });
-
-
         
         marker.events.register("click", marker, function(e){
-          console.log("clicked", marker)
 
           let marker_id = marker["icon"]["imageDiv"]["id"] 
-          console.log(marker["icon"]["imageDiv"]["id"])
-          document.getElementById(marker_id + "_innerImage").src = "../resources/OpenLayers-2.13.1/img/marker-green.png"
 
-          // document.getElementById(marker["icon"]["attributes"])
+          alert("Odredili smo da se tu nalazite!");
 
-          // marker["icon"]["url"] = "../resources/OpenLayers-2.13.1/img/marker.png"
-
-          // markers.removeMarker(marker)
-
-          // popup = new OpenLayers.Popup.FramedCloud("chicken",
-          //     marker.lonlat,
-          //     new OpenLayers.Size(200, 200),
-          //     title,
-          //     null, false );
-
-
-          // var poPrompt = new OpenLayers.Popup('name',
-          //                           null,
-          //                           poSize,
-          //                           '',
-          //                           false);
-
-          // this.map.addPopup(popup);
         });
 
 
@@ -207,22 +166,21 @@ var SingletonFactory = (function(){
 
       }
 
-      add_marker(lon, lat) {
+      add_marker(lon, lat, listing_id) {
 
           let position = new OpenLayers.LonLat(lon, lat).transform( this.fromProjection, this.toProjection);
 
           let marker = new OpenLayers.Marker(position);
           this.markers.addMarker(marker);
-        
-          // this.markers.removeMarker(marker)
-
-          let title = "title "
-
-
+      
           marker.events.register("click", marker, function(e){
 
             console.log("clicked", marker)
-            
+        
+              console.log("listing id", listing_id)
+
+              href_jump(listing_id);
+
             try {
               let selected_marker = document.getElementById("selected_marker") 
               console.log("prev", selected_marker)
@@ -242,15 +200,10 @@ var SingletonFactory = (function(){
             document.getElementById(marker_id + "_innerImage").id = "selected_marker"
             console.log(document.getElementById("selected_marker").id)
             console.log(document.getElementById("selected_marker").tmp)
-            // popup = new OpenLayers.Popup.FramedCloud("chicken",
-            //     marker.lonlat,
-            //     new OpenLayers.Size(200, 200),
-            //     title,
-            //     null, false );
-            //   map.addPopup(popup);
-          });
-          // this.markers.events.trigger("click", marker)
 
+
+          });
+      
       }
 
       set_position(lon, lat) {
@@ -297,10 +250,7 @@ var SingletonFactory = (function(){
                   this.handlerOptions
               );
                 
-              // return this.handler;
-
-                // console.log(options)
-
+  
           }, 
 
           trigger: function(e) {
@@ -316,20 +266,12 @@ var SingletonFactory = (function(){
                   console.log("first click");
                   is_first = false;
 
-                  // alert("You clicked near " + lonlat.lat + " N, " +
-                  //                           + lonlat.lon + " E");
                   console.log(lonlat.lon, lonlat.lat);
 
                 } else {
                   console.log("not first click");
 
                 }
-
-                // callbacks.point();
-
-                // return 5;
-                // e.callbacks.point;
-                // console.log(lonlat.lon, lonlat.lat);
 
           }
 
@@ -338,8 +280,7 @@ var SingletonFactory = (function(){
         var click = new OpenLayers.Control.Click();
         this.map.addControl(click);
         click.activate();
-        // console.log(click)
-
+      
 
       }
 
@@ -350,13 +291,13 @@ var SingletonFactory = (function(){
       getInstance: function(){
           if (instance == null) {
               instance = new SingletonClass();
-              // Hide the constructor so the returned object can't be new'd...
               instance.constructor = null;
           }
           return instance;
       }
 };
 })();
+
 
 async function get_user_position(cb) {
 
@@ -367,18 +308,12 @@ async function get_user_position(cb) {
 
   if (navigator.geolocation) {
 
-
-
     navigator.geolocation.getCurrentPosition(
 
         (position) => {
 
-            userLocation = {
-                lat: position.coords.latitude,
-                lon: position.coords.longitude,
-            };
-
-            cb(userLocation.lon, userLocation.lat);
+            cb(position.coords.longitude,               
+              position.coords.latitude);
         },
 
         () => {
@@ -396,71 +331,16 @@ async function get_user_position(cb) {
 
 async function set_position() {
 
-  let map_inst = SingletonFactory.getInstance();
 
-  // let user_position = get_user_position(test_cb);
-  // let user_position = await get_user_position(cb_add_user_marker);
-
-  await get_user_position((lon, lat) => {
+  get_user_position((lon, lat) => {
   
-    console.log("cb for add user marker");
   
     let map_inst = SingletonFactory.getInstance();
     map_inst.add_user_marker(lon, lat);
   
   })
 
-  // let user_position = await get_user_position();
 
-  // console.log("user position", user_position);
-
-  // map_inst.set_position(user_position.lon, user_position.lat);
-  
-  // if (navigator.geolocation) {
-
-
-
-  //     navigator.geolocation.getCurrentPosition(
-
-  //         (position) => {
-
-  //             userLocation = {
-  //                 lat: position.coords.latitude,
-  //                 lng: position.coords.longitude,
-  //             };
-
-  //             console.log("user location", userLocation)
-        
-          
-  //         },
-
-  //         () => {
-  
-  //         }
-
-  //     );
-
-  // } 
   
 }
 
-// function njihov_nativ() {
-//   var lat            = 47.35387;
-//   var lon            = 8.43609;
-//   var zoom           = 18;
-
-//   var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
-//   var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
-//   var position       = new OpenLayers.LonLat(lon, lat).transform( fromProjection, toProjection);
-
-//   map = new OpenLayers.Map("Map");
-//   var mapnik         = new OpenLayers.Layer.OSM();
-//   map.addLayer(mapnik);
-
-//   var markers = new OpenLayers.Layer.Markers( "Markers" );
-//   map.addLayer(markers);
-//   markers.addMarker(new OpenLayers.Marker(position));
-
-//   map.setCenter(position, zoom);
-
-// }
