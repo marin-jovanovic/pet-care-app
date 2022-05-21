@@ -4,20 +4,12 @@ namespace PetCareAppMVC.Features.Login;
 
 public class LoginViewModel
 {
+
     public int? idPerson { get; set; }
 
     public string userName { get; set; }
 
-    //[Required]
-    //[MaxLength(25)]
-
-    public string mobileNumber { get; set; }
-
-    //[Required]
-    //[MaxLength(50)]
-    //[EmailAddress]
-    //[Display(Name = "Email")]
-    public string email { get; set; }
+    public string sessionId { get; set; }
 
     //[Required]
     //[MaxLength(20)]

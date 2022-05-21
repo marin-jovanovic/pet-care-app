@@ -13,6 +13,8 @@ using static DomainServices.People.Commands;
 //using static DomainServices.People.Commands;
 
 using PetCareAppMVC.Features;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace PetCareAppMVC.Features.Login
 {
@@ -28,45 +30,58 @@ namespace PetCareAppMVC.Features.Login
         private readonly IMapper mapper;
         private readonly IMediator mediator;
 
-        public LoginController (IMapper mapper, IMediator mediator)
+        public LoginController(IMapper mapper, IMediator mediator)
         {
             this.mapper = mapper;
             this.mediator = mediator;
         }
 
-        
+        internal static readonly char[] chars =
+                 "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".ToCharArray();
+
+        public static string GetUniqueKey(int size)
+        {
+            byte[] data = new byte[4 * size];
+            using (var crypto = RandomNumberGenerator.Create())
+            {
+                crypto.GetBytes(data);
+            }
+            StringBuilder result = new StringBuilder(size);
+            for (int i = 0; i < size; i++)
+            {
+                var rnd = BitConverter.ToUInt32(data, i * 4);
+                var idx = rnd % chars.Length;
+
+                result.Append(chars[idx]);
+            }
+
+            return result.ToString();
+        }
+
         [HttpPost]
         public async Task<ActionResult> LoginCheck(LoginViewModel model)
         {
             Console.WriteLine("tu login username " + model.userName + " password " + model.password);
-            Console.WriteLine("tu login username " + model.userName+ " password " + model.password);
 
-            Console.WriteLine(model.userName == "error");
-            Console.WriteLine("ffffffffffffffffff");
 
-            ViewData["error"] = "nema  errora vieew data";
-            ViewBag.tmp = "view beg";
-            TempData["tmp"] = "temp data";
-            return RedirectToAction("");
 
-            return View("Login");
-
-            return View();
-
+            // todo if len(select * from db where username = username && password == password) == 0
             if (model.userName == "error")
             {
-                Console.WriteLine(model.userName == "error");
-                ViewBag.errorMessage = "You must have a confirmed email to log on.";
-                //return View("Login");
 
-                return View();
-
-            } else {
-                Console.WriteLine(model.userName == "error");
-                //return View("Login");
+                ViewData["error"] = true;
+                return View("./index");
 
             }
-            return RedirectToAction("/home");
+            else {
+
+
+                model.sessionId = GetUniqueKey(20);
+                Console.WriteLine("session id", model.sessionId);
+
+                return View("../Listings/index", model);
+
+            }
 
             //return View("Login");
 

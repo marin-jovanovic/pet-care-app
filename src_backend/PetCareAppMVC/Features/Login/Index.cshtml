@@ -42,7 +42,9 @@
 
 
         @{
-        if (String.IsNullOrEmpty(TempData["tmp"]?.ToString()))
+        //if (String.IsNullOrEmpty(TempData["tmp"]?.ToString()))
+        if (String.IsNullOrEmpty(ViewData["error"]?.ToString()))
+
         {
 
 

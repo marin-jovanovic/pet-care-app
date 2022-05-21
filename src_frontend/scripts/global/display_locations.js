@@ -34,67 +34,50 @@ var distanceToClosestParking;
 function display_locations() {
     console.log("display_locations/ display_locations")
 
-    // Create XHR Object
-    var xhr = new XMLHttpRequest();
- 
-    // OPEN - type, url/file, async
-    xhr.open('GET', 'user/test', true);
-
-    // OPTIONAL - used for loaders
-    // xhr.onprogress = function(){
-    // }
-
-    xhr.onload = function(){
-
-      if(this.status == 200){
-
-        parkings = JSON.parse(this.responseText);
-
-        formatted_locations = []
-
-        for (var i  = 0 ; i < parkings.length; i++) {
-
-            temp = {
-                lat: parseFloat(parkings[i].lokacija.geosirina), 
-                lng: parseFloat(parkings[i].lokacija.geoduzina),
-                NumEmpty : parseFloat(parkings[i].brojslobmjesta)
-            }
-
-            // addParkingMarker(
-            //    temp,
-            //     map
-            // );
-
-            formatted_locations.push(temp);
-
+    let responseText = JSON.stringify({
+        "0": {
+            lokacija: {
+                geosirina: "1",
+                geoduzina: "2"
+            },
+            brojslobmjesta: "3"
+        },
+        "1": {
+            lokacija: {
+                geosirina: "4",
+                geoduzina: "5"
+            },
+            brojslobmjesta: "6"
         }
 
-        locations = formatted_locations;
+    })
+    
 
-         
-        for (let i = 0; i < locations.length; i++) {
-            console.log(locations[i]);
+    parkings = JSON.parse(responseText);
 
-            addParkingMarker(
-                locations[i],
-                map
-            );
+    let locations = []
+
+    for (var i  = 0 ; i < parkings.length; i++) {
+
+        temp = {
+            lat: parseFloat(parkings[i].lokacija.geosirina), 
+            lng: parseFloat(parkings[i].lokacija.geoduzina),
+            NumEmpty : parseFloat(parkings[i].brojslobmjesta)
         }
-       
-      } else if(this.status = 404){
 
-        console.log("not found");
+        locations.push(temp);
+
+    }
         
-      }
+    for (let i = 0; i < locations.length; i++) {
+        console.log(locations[i]);
 
+        addParkingMarker(
+            locations[i],
+            map
+        );
     }
-
-    xhr.onerror = function(){
-      console.log('Request Error...');
-    }
-
-    xhr.send();
-
+  
 }
 
 // postavlja sve parkiralisne povrsine na kartu
