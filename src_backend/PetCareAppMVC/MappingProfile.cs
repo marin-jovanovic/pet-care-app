@@ -20,7 +20,9 @@ public class MappingProfile : Profile
         CreateMap<Domain.People.Person, LoginViewModel>();
         CreateMap<Domain.People.Person, SignupViewModel>();
 
-       
+        CreateMap<DomainServices.People.Commands, PetCareAppMVC.Features.Login.LoginViewModel>();
+        CreateMap<DomainServices.People.Commands.UpdatePersonCommand, PetCareAppMVC.Features.Login.LoginViewModel>();
+        CreateMap< PetCareAppMVC.Features.Login.LoginViewModel, DomainServices.People.Commands.UpdatePersonCommand>();
 
         CreateMap<Domain.Adlisting, AdlistingViewModel>();
         CreateMap<AdlistingViewModel, DomainServices.Adlisting2.Commands.AddAdlistingCommand2>();

@@ -62,30 +62,40 @@ namespace PetCareAppMVC.Features.Login
 
         public async Task<ActionResult> LoginCheck(LoginViewModel model)
         {
-            Console.WriteLine("tu login username " + model.userName + " password " + model.password);
+            Console.WriteLine("tu login username " + model.UserName + " password " + model.Password);
 
-            if (ModelState.IsValid)
-            {
+            
                 Console.WriteLine("login check: model is valid");
                 var query = new DomainServices.People.Queries.GetPeopleQuery();
                 var data = await mediator.Send(query);
                 foreach (var item in data)
                 {
-                    if(item.UserName.Equals( model.userName) && item.Password.Equals(model.password))
+                    if(item.UserName.Equals( model.UserName) && item.Password.Equals(model.Password))
                     {
-                        //model.sessionId = GetUniqueKey(20);
-                        //Console.WriteLine("session id", model.sessionId);
-                        return View("../listings/index", model);
+                    model.UserName = item.UserName;
+                    model.PersonLastName = item.PersonLastName; 
+                    model.PersonFirstName = item.PersonFirstName;   
+                    model.Oib=item.Oib;
+                    model.PersonMobile = model.PersonMobile;
+                    model.Password = item.Password; 
+                    model.PersonEmail= item.PersonEmail;    
+                    model.PersonId=item.PersonId;   
+                    model.SessionId = GetUniqueKey(20);
+                    mapper.Map<UpdatePersonCommand>(model);
+
+                    var query1 = new DomainServices.Adlisting.Queries.GetAdlistingQuery();
+                    //Console.WriteLine("session id", model.sessionId);
+                    return View("../listings/index", query1);
                     }
                 }
 
-            }
+            
 
             ViewData["error"] = true;
             return View("./index");
 
             // todo if len(select * from db where username = username && password == password) == 0
-            if (model.userName == "error")
+            if (model.UserName == "error")
             {
 
                 ViewData["error"] = true;

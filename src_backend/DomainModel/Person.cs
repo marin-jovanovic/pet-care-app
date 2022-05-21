@@ -6,7 +6,7 @@ namespace Domain.People
 
     public class Person
     {
-        public Person(int personId, string personFirstName, string userName, string personEmail, string personLastName, string password, string personMobile, string sessionId)
+        public Person(int personId, string personFirstName, string userName, string personEmail, string personLastName, string password, string personMobile, string sessionId, string oib)
         {
             PersonId = personId;
             PersonFirstName = personFirstName;
@@ -16,6 +16,7 @@ namespace Domain.People
             Password = password;
             PersonMobile = personMobile;
             SessionId = sessionId;
+            Oib = oib;
         }
 
         public int PersonId { get; set; }

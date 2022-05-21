@@ -45,7 +45,7 @@ IRequestHandler<GetPeopleQuery, IList<Domain.People.Person>>,
       {
         query = sieveProcessor.Apply(request.Criteria, query);
       }
-      var data = await query.Select(p => new Domain.People.Person(p.PersonId,p.PersonFirstName, p.UserName,p.PersonEmail,p.PersonLastName,p.Password, p.PersonMobile,p.SessionId))
+      var data = await query.Select(p => new Domain.People.Person(p.PersonId,p.PersonFirstName, p.UserName,p.PersonEmail,p.PersonLastName,p.Password, p.PersonMobile,p.SessionId,p.Oib))
                             .ToListAsync(cancellationToken: cancellationToken);
       return data;
     }
