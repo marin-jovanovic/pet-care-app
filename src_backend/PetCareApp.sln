@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainServices", "DomainSer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainServices.Validation", "DomainServices.Validation1\DomainServices.Validation.csproj", "{C3D328B0-E323-4EE7-B4E3-5D393F8E17C2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure1\Infrastructure.csproj", "{840F75CB-3243-4F61-825E-8A3ED71817AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure5", "Infrastructure5\Infrastructure5.csproj", "{14F58EDF-9BC4-434A-908D-EC2E7BE92BF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{C3D328B0-E323-4EE7-B4E3-5D393F8E17C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3D328B0-E323-4EE7-B4E3-5D393F8E17C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3D328B0-E323-4EE7-B4E3-5D393F8E17C2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{840F75CB-3243-4F61-825E-8A3ED71817AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{840F75CB-3243-4F61-825E-8A3ED71817AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{840F75CB-3243-4F61-825E-8A3ED71817AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{840F75CB-3243-4F61-825E-8A3ED71817AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14F58EDF-9BC4-434A-908D-EC2E7BE92BF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14F58EDF-9BC4-434A-908D-EC2E7BE92BF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14F58EDF-9BC4-434A-908D-EC2E7BE92BF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14F58EDF-9BC4-434A-908D-EC2E7BE92BF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

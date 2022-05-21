@@ -12,6 +12,34 @@ window.onload = () =>  {
     initMap();
 }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Person</th>
+
+        <th>Opis</th>
+        <th>Cijena</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var item in Model)
+      {
+        <tr>
+          <td>@item.Title</td>
+          <td>@item.AdlistingDescription</td>
+          
+        </tr>
+      }
+      </tbody>
+  </table>
+</div>
+<p>
+  <a asp-action="Create" class="btn btn-sm btn-primary">Add new adlisting</a>
+</p>
+=======
 function initMap() {
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 7,
@@ -22,3 +50,16 @@ function initMap() {
 
 
     </script>
+>>>>>>> fcd3f71e35f12aad46205fb859263cdea6d594a1
+=======
+function initMap() {
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 7,
+    center: { lat: 44.717, lng: 16.1 },
+  });
+}
+
+
+
+    </script>
+>>>>>>> fcd3f71e35f12aad46205fb859263cdea6d594a1

@@ -2174,23 +2174,23 @@
           "bin/placeholder/DomainServices.Validation.dll": {}
         }
       },
-      "Infrastructure/1.0.0": {
+      "Infrastructure5/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "AutoMapper": "11.0.1",
+          "DomainModel": "1.0.0",
           "DomainServices": "1.0.0",
-          "DomainServices.Validation": "1.0.0",
           "MediatR": "10.0.1",
           "Microsoft.EntityFrameworkCore": "6.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.3",
           "Sieve": "2.5.5"
         },
         "compile": {
-          "bin/placeholder/Infrastructure.dll": {}
+          "bin/placeholder/Infrastructure5.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Infrastructure.dll": {}
+          "bin/placeholder/Infrastructure5.dll": {}
         }
       }
     }
@@ -7465,10 +7465,10 @@
       "path": "../DomainServices.Validation1/DomainServices.Validation.csproj",
       "msbuildProject": "../DomainServices.Validation1/DomainServices.Validation.csproj"
     },
-    "Infrastructure/1.0.0": {
+    "Infrastructure5/1.0.0": {
       "type": "project",
-      "path": "../Infrastructure1/Infrastructure.csproj",
-      "msbuildProject": "../Infrastructure1/Infrastructure.csproj"
+      "path": "../Infrastructure5/Infrastructure5.csproj",
+      "msbuildProject": "../Infrastructure5/Infrastructure5.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -7478,26 +7478,31 @@
       "DomainServices >= 1.0.0",
       "DomainServices.Validation >= 1.0.0",
       "FluentValidation.AspNetCore >= 10.4.0",
-      "Infrastructure >= 1.0.0",
+      "Infrastructure5 >= 1.0.0",
       "MediatR.Extensions.Microsoft.DependencyInjection >= 10.0.1",
       "Microsoft.AspNet.WebApi.Cors >= 5.2.8",
       "Microsoft.Web.LibraryManager.Build >= 2.1.161"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Marin\\.nuget\\packages\\": {}
+    "C:\\Users\\mataj\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\PetCareAppMVC\\PetCareAppMVC.csproj",
+      "projectUniqueName": "C:\\Users\\mataj\\OneDrive\\Documents\\IS5\\pet-care-app\\src_backend\\PetCareAppMVC\\PetCareAppMVC.csproj",
       "projectName": "PetCareAppMVC",
-      "projectPath": "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\PetCareAppMVC\\PetCareAppMVC.csproj",
-      "packagesPath": "C:\\Users\\Marin\\.nuget\\packages\\",
-      "outputPath": "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\PetCareAppMVC\\obj\\",
+      "projectPath": "C:\\Users\\mataj\\OneDrive\\Documents\\IS5\\pet-care-app\\src_backend\\PetCareAppMVC\\PetCareAppMVC.csproj",
+      "packagesPath": "C:\\Users\\mataj\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mataj\\OneDrive\\Documents\\IS5\\pet-care-app\\src_backend\\PetCareAppMVC\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Marin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mataj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7511,17 +7516,17 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\DomainModel\\DomainModel.csproj": {
-              "projectPath": "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\DomainModel\\DomainModel.csproj"
+            "C:\\Users\\mataj\\OneDrive\\Documents\\IS5\\pet-care-app\\src_backend\\DomainModel\\DomainModel.csproj": {
+              "projectPath": "C:\\Users\\mataj\\OneDrive\\Documents\\IS5\\pet-care-app\\src_backend\\DomainModel\\DomainModel.csproj"
             },
-            "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\DomainServices.Validation1\\DomainServices.Validation.csproj": {
-              "projectPath": "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\DomainServices.Validation1\\DomainServices.Validation.csproj"
+            "C:\\Users\\mataj\\OneDrive\\Documents\\IS5\\pet-care-app\\src_backend\\DomainServices.Validation1\\DomainServices.Validation.csproj": {
+              "projectPath": "C:\\Users\\mataj\\OneDrive\\Documents\\IS5\\pet-care-app\\src_backend\\DomainServices.Validation1\\DomainServices.Validation.csproj"
             },
-            "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\DomainService\\DomainServices.csproj": {
-              "projectPath": "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\DomainService\\DomainServices.csproj"
+            "C:\\Users\\mataj\\OneDrive\\Documents\\IS5\\pet-care-app\\src_backend\\DomainService\\DomainServices.csproj": {
+              "projectPath": "C:\\Users\\mataj\\OneDrive\\Documents\\IS5\\pet-care-app\\src_backend\\DomainService\\DomainServices.csproj"
             },
-            "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\Infrastructure1\\Infrastructure.csproj": {
-              "projectPath": "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\Infrastructure1\\Infrastructure.csproj"
+            "C:\\Users\\mataj\\OneDrive\\Documents\\IS5\\pet-care-app\\src_backend\\Infrastructure5\\Infrastructure5.csproj": {
+              "projectPath": "C:\\Users\\mataj\\OneDrive\\Documents\\IS5\\pet-care-app\\src_backend\\Infrastructure5\\Infrastructure5.csproj"
             }
           }
         }

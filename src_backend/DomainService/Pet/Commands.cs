@@ -4,23 +4,28 @@ namespace DomainServices.Pet
 {
     public class Commands
     {
-        public record DeletePet(int IdPet) : IRequest;
+        public record DeletePet(int idPet) : IRequest;
 
 
-        public class CreatePettype : IRequest<int>
+        public class CreatePet : IRequest<int>
         {
-            public int IdPet { get; set; }
-            public string? Name { get; set; }
-            public int age { get; set; }
+            public int PetId { get; set; }
+            public string PetName { get; set; }
+            public bool? Sex { get; set; }
+            public string Size { get; set; }
+            public string PetType { get; set; }
+            public string Breed { get; set; }
 
-            public string? Description { get; set; }
+        }
 
-         }
-
-        public class UpdatePettype : IRequest
+        public class UpdatePet : IRequest
         {
-            public int IdPetType { get; set; }
-            public string? TypePetName { get; set; }
+            public int PetId { get; set; }
+            public string PetName { get; set; }
+            public bool? Sex { get; set; }
+            public string Size { get; set; }
+            public string PetType { get; set; }
+            public string Breed { get; set; }
         }
     }
 }

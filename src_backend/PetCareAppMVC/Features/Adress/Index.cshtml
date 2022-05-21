@@ -1,0 +1,35 @@
+﻿@model IList<Domain.Adress>
+@{
+  ViewBag.Title = "Period";
+}
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Pet</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var item in Model)
+      {
+        <tr>
+          <td><a asp-action="Details" asp-route-id="@item.AdressId ">@item.AdressId</a></td>
+            <td>@item.Adress1 </td>
+            <td>@item.Country </td>
+            <td>@item.City </td>
+
+          <td>
+            <form method="post" asp-action="Delete" asp-route-id="@item.AdressId">
+                <button type="submit" class="btn btn-danger confirm-delete">Delete <i class="fas fa-trash-alt ms-1"></i></button>
+            </form>
+          </td>
+        </tr>
+      }
+      </tbody>
+  </table>
+</div>
+<p>
+
+</p>
