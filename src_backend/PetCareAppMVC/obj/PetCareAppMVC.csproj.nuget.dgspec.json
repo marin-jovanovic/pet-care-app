@@ -346,6 +346,10 @@
               "target": "Package",
               "version": "[10.0.1, )"
             },
+            "Microsoft.AspNet.WebApi.Cors": {
+              "target": "Package",
+              "version": "[5.2.8, )"
+            },
             "Microsoft.Web.LibraryManager.Build": {
               "target": "Package",
               "version": "[2.1.161, )"
