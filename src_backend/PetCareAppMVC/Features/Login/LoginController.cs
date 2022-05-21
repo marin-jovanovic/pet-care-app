@@ -79,6 +79,21 @@ namespace PetCareAppMVC.Features.Login
                 model.sessionId = GetUniqueKey(20);
                 Console.WriteLine("session id", model.sessionId);
 
+                // spremi u bazu za ovog usera ovaj session id
+
+                /*
+                 * dohvati sve listinge koji imaju id jednak user.id
+                 * 
+                 ret_model_lista = lista {
+                    select * from listing where listing.id = user.id
+                
+                }
+
+                return View("../Listings/index", ret_model_lista);
+
+                 
+                 */
+
                 return View("../Listings/index", model);
 
             }

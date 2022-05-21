@@ -229,3 +229,9 @@ C:\git\marin-jovanovic\pet-care-app\src_backend\PetCareAppMVC\obj\Debug\net6.0\r
 C:\git\marin-jovanovic\pet-care-app\src_backend\PetCareAppMVC\obj\Debug\net6.0\PetCareAppMVC.pdb
 C:\git\marin-jovanovic\pet-care-app\src_backend\PetCareAppMVC\obj\Debug\net6.0\PetCareAppMVC.genruntimeconfig.cache
 C:\git\marin-jovanovic\pet-care-app\src_backend\PetCareAppMVC\obj\Debug\net6.0\ref\PetCareAppMVC.dll
+C:\git\marin-jovanovic\pet-care-app\src_backend\PetCareAppMVC\bin\Debug\net6.0\System.Web.Cors.dll
+C:\git\marin-jovanovic\pet-care-app\src_backend\PetCareAppMVC\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+C:\git\marin-jovanovic\pet-care-app\src_backend\PetCareAppMVC\bin\Debug\net6.0\System.Web.Http.dll
+C:\git\marin-jovanovic\pet-care-app\src_backend\PetCareAppMVC\bin\Debug\net6.0\System.Web.Http.Cors.dll
+C:\git\marin-jovanovic\pet-care-app\src_backend\PetCareAppMVC\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\git\marin-jovanovic\pet-care-app\src_backend\PetCareAppMVC\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
