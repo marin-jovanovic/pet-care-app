@@ -1,12 +1,12 @@
 
 using AutoMapper;
 using Domain.Validation;
-using Domain.Validation.People;
+
 using FluentValidation.AspNetCore;
-using Infrastructure;
-using Infrastructure.EFModel;
-using Infrastructure.Features.People;
-using Infrastructure.Features.AdListing;
+
+
+using Infrastructure5.Features.People;
+
 using MediatR;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +14,11 @@ using PetCareAppMVC;
 using Sieve.Models;
 using Sieve.Services;
 using DomainServices.Validation.People;
+using static DomainServices.People.Commands;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+
+using Infrastructure5;
+using Infrastructure5.EFModel;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,14 +33,15 @@ builder.Services.Configure<RazorViewEngineOptions>(options =>
 });
 
 #region Setup dependencies
-builder.Services.AddDbContext<ProjectContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Project")));
+builder.Services.AddDbContext<PetCareApp2Context>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Project")));
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
 builder.Services.AddMediatR(typeof(PeopleQueryHandler));
-builder.Services.AddMediatR(typeof(AdlistingQueryHandler));
+builder.Services.AddMediatR(typeof(Infrastructure5.Features.AdListing.AdlistingQueryHandler));
+builder.Services.AddMediatR(typeof(Infrastructure5.Features.AdListing.AdlistingCommandHandler));
 
 builder.Services.Configure<SieveOptions>(builder.Configuration.GetSection("Sieve"));
 builder.Services.AddScoped<ISieveCustomFilterMethods, SieveCustomFilterMethods>();
-builder.Services.AddScoped<ISieveProcessor, ApplicationSieveProcessor>();
+builder.Services.AddScoped<ISieveProcessor, Infrastructure5.ApplicationSieveProcessor>();
 #endregion
 
 #region AutoMapper settings
@@ -43,7 +49,7 @@ Action<IServiceProvider, IMapperConfigurationExpression> mapperConfigAction = (s
 {
     cfg.ConstructServicesUsing(serviceProvider.GetService);
 };
-builder.Services.AddAutoMapper(mapperConfigAction, typeof(PetCareAppMVC.MappingProfile), typeof(Infrastructure.MappingProfile)); //assemblies containing mapping profiles            
+builder.Services.AddAutoMapper(mapperConfigAction, typeof(PetCareAppMVC.MappingProfile), typeof(Infrastructure5.MappingProfile)); //assemblies containing mapping profiles            
 #endregion
 
 

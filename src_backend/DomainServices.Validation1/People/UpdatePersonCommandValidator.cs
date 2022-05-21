@@ -11,17 +11,12 @@ namespace DomainServices.Validation.People
         {
 
             this.mediator = mediator;
-            RuleFor(p=>p.email).NotEmpty();
-            RuleFor(p => p.userName).NotEmpty().MaximumLength(20)
-            .DependentRules(() => RuleFor(p => p.userName)
-                                .MustAsync(UserNameMustBeUnique)
-                                .WithMessage("Personal identification number must be unique")
-                        );
+           
         }
 
         private async Task<bool> UserNameMustBeUnique(UpdatePersonCommand command, string userName , CancellationToken cancellationToken)
         {
-            return await mediator.Send(new CheckUserNameUniqueness (command.idPerson, userName), cancellationToken);
+            return await mediator.Send(new CheckUserNameUniqueness (command.PersonId, userName), cancellationToken);
         }
     }
 

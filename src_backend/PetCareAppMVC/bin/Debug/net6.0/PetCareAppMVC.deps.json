@@ -13,7 +13,7 @@
           "DomainServices": "1.0.0",
           "DomainServices.Validation": "1.0.0",
           "FluentValidation.AspNetCore": "10.4.0",
-          "Infrastructure": "1.0.0",
+          "Infrastructure5": "1.0.0",
           "MediatR.Extensions.Microsoft.DependencyInjection": "10.0.1",
           "Microsoft.AspNet.WebApi.Cors": "5.2.8",
           "Microsoft.Web.LibraryManager.Build": "2.1.161"
@@ -1384,18 +1384,18 @@
           "DomainServices.Validation.dll": {}
         }
       },
-      "Infrastructure/1.0.0": {
+      "Infrastructure5/1.0.0": {
         "dependencies": {
           "AutoMapper": "11.0.1",
+          "DomainModel": "1.0.0",
           "DomainServices": "1.0.0",
-          "DomainServices.Validation": "1.0.0",
           "MediatR": "10.0.1",
           "Microsoft.EntityFrameworkCore": "6.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.3",
           "Sieve": "2.5.5"
         },
         "runtime": {
-          "Infrastructure.dll": {}
+          "Infrastructure5.dll": {}
         }
       }
     }
@@ -2380,7 +2380,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Infrastructure/1.0.0": {
+    "Infrastructure5/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

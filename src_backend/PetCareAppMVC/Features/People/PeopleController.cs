@@ -4,7 +4,7 @@ using ProjectMVC.Extensions;
 using ProjectMVC.Features.Shared;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MediatR;
-using Infrastructure;
+using Infrastructure5;
 using Sieve.Models;
 
 //using Domain.Roles;
@@ -58,7 +58,7 @@ namespace PetCareAppMVC.Features.People
 
 
         [HttpPost]
-        public async Task<ActionResult> Delete(string username)
+        public async Task<ActionResult> Delete(int username)
         {
             try
             {

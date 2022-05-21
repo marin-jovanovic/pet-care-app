@@ -1,16 +1,16 @@
 ﻿@model Domain.People.Person
 @{
-  ViewBag.Title = Model.userName;
+  ViewBag.Title = Model.UserName;
 }
 
-<h5>@Model.userName @Model.userName</h5>
-<p><strong>PIN: </strong> @Model.userName, <strong>Email: </strong>@Model.userName</p>
+<h5>@Model.UserName @Model.UserName</h5>
+<p><strong>PIN: </strong> @Model.UserName, <strong>Email: </strong>@Model.UserName</p>
 <div class="row">
   <div class="col-2">
-    <a asp-action="Edit" asp-route-id="@Model.userName" class="btn btn-dark">Edit <i class="fas fa-edit ms-1"></i></a>
+    <a asp-action="Edit" asp-route-id="@Model.UserName" class="btn btn-dark">Edit <i class="fas fa-edit ms-1"></i></a>
   </div>
   <div class="col-2">
-     <form method="post" asp-action="Delete" asp-route-id="@Model.idPerson">
+     <form method="post" asp-action="Delete" asp-route-id="@Model.PersonId">
       <button type="submit" class="btn btn-danger">Delete <i class="fas fa-trash-alt ms-1"></i></button>
   </form>
   </div>

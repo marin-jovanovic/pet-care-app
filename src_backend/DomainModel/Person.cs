@@ -6,20 +6,27 @@ namespace Domain.People
 
     public class Person
     {
-        public Person(int idPerson, string userName, string email, string mobileNumber, string password)
+        public Person(int personId, string personFirstName, string userName, string personEmail, string personLastName, string password, string personMobile, string sessionId)
         {
-            this.idPerson = idPerson;
-            this.userName = userName;
-            this.email = email;
-            this.mobileNumber = mobileNumber;
-            this.password = password;
+            PersonId = personId;
+            PersonFirstName = personFirstName;
+            UserName = userName;
+            PersonEmail = personEmail;
+            PersonLastName = personLastName;
+            Password = password;
+            PersonMobile = personMobile;
+            SessionId = sessionId;
         }
 
-        public int idPerson { get; set; }
-        public string userName { get; set; }
-        public string email { get; set; }
-        public string password { get; set; }
-        public string? mobileNumber { get; set; }
+        public int PersonId { get; set; }
+        public string PersonFirstName { get; set; }
+        public string PersonLastName { get; set; }
+        public string Oib { get; set; }
+        public string PersonEmail { get; set; }
+        public string PersonMobile { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public string SessionId { get; set; }
 
 
     }
