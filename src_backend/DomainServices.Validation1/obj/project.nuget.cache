@@ -1,19 +1,19 @@
 {
   "version": 2,
-  "dgSpecHash": "bwyeQVTUTrBCxt7/gMlL/ETDsMeULoUZb+eap9cmMP7WiH5Q++D6Ql7fFZxGlGDZ6xGhy/TERPDb5EoCR0CiNQ==",
+  "dgSpecHash": "ZiuD50jglFVDy3/YG6gYx+F2IxfUSZt392KU4U9JNXmZVJ15mn0Qr6htfiyqyvaIuG+oFMnvVGji5ef99iKGyg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mataj\\OneDrive\\Documents\\IS_final\\pet-care-app\\src_backend\\DomainServices.Validation1\\DomainServices.Validation.csproj",
+  "projectFilePath": "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\DomainServices.Validation1\\DomainServices.Validation.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\mataj\\.nuget\\packages\\fluentvalidation\\10.4.0\\fluentvalidation.10.4.0.nupkg.sha512",
-    "C:\\Users\\mataj\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
-    "C:\\Users\\mataj\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
-    "C:\\Users\\mataj\\.nuget\\packages\\microsoft.csharp\\4.4.1\\microsoft.csharp.4.4.1.nupkg.sha512",
-    "C:\\Users\\mataj\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.0.0\\microsoft.extensions.dependencyinjection.abstractions.2.0.0.nupkg.sha512",
-    "C:\\Users\\mataj\\.nuget\\packages\\microsoft.extensions.options\\2.0.0\\microsoft.extensions.options.2.0.0.nupkg.sha512",
-    "C:\\Users\\mataj\\.nuget\\packages\\microsoft.extensions.primitives\\2.0.0\\microsoft.extensions.primitives.2.0.0.nupkg.sha512",
-    "C:\\Users\\mataj\\.nuget\\packages\\sieve\\2.5.5\\sieve.2.5.5.nupkg.sha512",
-    "C:\\Users\\mataj\\.nuget\\packages\\system.componentmodel.annotations\\4.4.1\\system.componentmodel.annotations.4.4.1.nupkg.sha512",
-    "C:\\Users\\mataj\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.4.0\\system.runtime.compilerservices.unsafe.4.4.0.nupkg.sha512"
+    "C:\\Users\\Marin\\.nuget\\packages\\fluentvalidation\\10.4.0\\fluentvalidation.10.4.0.nupkg.sha512",
+    "C:\\Users\\Marin\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\Marin\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\Marin\\.nuget\\packages\\microsoft.csharp\\4.4.1\\microsoft.csharp.4.4.1.nupkg.sha512",
+    "C:\\Users\\Marin\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.0.0\\microsoft.extensions.dependencyinjection.abstractions.2.0.0.nupkg.sha512",
+    "C:\\Users\\Marin\\.nuget\\packages\\microsoft.extensions.options\\2.0.0\\microsoft.extensions.options.2.0.0.nupkg.sha512",
+    "C:\\Users\\Marin\\.nuget\\packages\\microsoft.extensions.primitives\\2.0.0\\microsoft.extensions.primitives.2.0.0.nupkg.sha512",
+    "C:\\Users\\Marin\\.nuget\\packages\\sieve\\2.5.5\\sieve.2.5.5.nupkg.sha512",
+    "C:\\Users\\Marin\\.nuget\\packages\\system.componentmodel.annotations\\4.4.1\\system.componentmodel.annotations.4.4.1.nupkg.sha512",
+    "C:\\Users\\Marin\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.4.0\\system.runtime.compilerservices.unsafe.4.4.0.nupkg.sha512"
   ],
   "logs": []
 }
