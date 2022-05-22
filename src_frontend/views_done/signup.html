@@ -1,0 +1,202 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Pet Care app</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="../resources/favicon.ico">
+        <link rel="stylesheet" href="../styles/signup.css">
+    </head>
+    <body>
+        <main>
+            <section>
+                <div class="center__container" style="border: 2px solid black;">
+                    <div>
+                        <div class="navbar">
+                            <div class="header__logo">
+                                <div class="split__left_20"></div>
+                                <div class="split__right_80">
+                                    <img class="header__logo__img" src="../resources/logo_horizontal.png" alt="">
+                                </div>
+                            </div>
+                            <div class="header__empty">
+                            </div>
+                            <div>
+                                <a href="#home">Pretraži</a>
+                                <a href="#news">
+                                Objavi oglas
+                                </a>
+                                <div class="dropdown">
+                                    <button class="dropbtn">Korisnik 
+                                    <i class="fa fa-caret-down"></i>
+                                    </button>
+                                    <div class="dropdown-content">
+                                        <a href="#login">Prijavi se</a>
+                                        <a href="#signup">Registriraj se</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <h1 class="center__title center">
+                REGISTRACIJA
+            </h1>
+            <!-- <div class="center__err center" >
+                Korisničko ime se već koristi.
+                Korisničko ime ne može biti prazno.
+                
+                <br>
+                OIB nije valjanog formata, mora sadržavati 11 brojeva.
+                <br>
+                Ime ne može biti prazno.
+                <br>
+                Prezime ne može biti prazno.
+                <br>
+                Adresa e-pošte nije valjanog formata.
+                <br>
+                Broj kreditne kartice nije valjanog formata. 375987654321001
+                <br>
+                Mjesec istjecanja kreditne kartice nije valjanog formata, mora sadržavati 2 broja odnosno nalaziti se u padajućem izborniku.
+                <br>
+                Godina istjecanja kreditne kartice nije valjanog formata, mora sadržavati 4 broja.
+                <br>
+                Lozinka nije dovoljno sigurna, mora biti duljine minimalno 8 znakova, sadržavati barem jedno veliko slovo, barem jedno malo slovo, barem jedan broj i barem jedan nealfanumerički znak.
+                <br>
+                Ponovno upisana lozinka se ne podudara s prvotno upisanom  lozinkom.
+                </div> -->
+            <br>
+            <div id="empty_click"></div>
+            <div class="center">
+                <form id="registerFormU" name="registrationForm" action="/registeruser" method="post">
+                    <div>
+                        <span class="deleteicon">
+                        <input type="text" class="input__text" id="input__username" placeholder="Korisničko ime" required/>
+                        <span id="delete__username">x</span>
+                        </span>
+                        <br>
+                        <div id="input__username__err">
+                            Korisničko ime ne može biti prazno.
+                        </div>
+                        <br>
+                        <span class="deleteicon">
+                        <input type="text" class="input__text" id="input__OIB" placeholder="OIB" required />
+                        <span id="delete__OIB">x</span>
+                        </span>
+                        <br>
+                        <div id="input__OIB__err">
+                            OIB nije valjanog formata, mora sadržavati 11 brojeva.
+                        </div>
+                        <br>
+                        <span class="deleteicon">
+                        <input type="text" class="input__text" id="input__firstname" placeholder="Ime" required />
+                        <span id="delete__firstname">x</span>
+                        </span>
+                        <br>
+                        <div id="input__firstname__err">
+                            Ime ne može biti prazno.
+                        </div>
+                        <br>
+                        <span class="deleteicon">
+                        <input type="text" class="input__text" id="input__lastname" placeholder="Prezime" required />
+                        <span id="delete__lastname">x</span>
+                        </span>
+                        <br>
+                        <div id="input__lastname__err">
+                            Prezime ne može biti prazno.
+                        </div>
+                        <br>
+                        <span class="deleteicon">
+                        <input type="text" class="input__text" id="input__email" placeholder="Adresa e-pošte" required/>
+                        <span id="delete__email">x</span>
+                        </span>
+                        <br>
+                        <div id="input__email__err">
+                            Adresa e-pošte nije valjanog formata.
+                        </div>
+                        <br>
+                        <span class="deleteicon">
+                        <input type="text" class="input__text" id="input__cardnumber" placeholder="Broj kreditne kartice" required/>
+                        <span id="delete__cardnumber">x</span>
+                        </span>
+                        <br>
+                        <div id="input__cardnumber__err">
+                            Broj kreditne kartice nije valjanog formata.
+                        </div>
+                        <br>
+                        <span class="deleteicon">
+                        <input type="text" class="input__text" id="input__cardtype" placeholder="Tip kreditne kartice"/>
+                        <span id="delete__cardtype">x</span>
+                        </span>
+                        <br>
+                        <div id="input__cardtype__err">
+                            <!-- Tip kreditne kartice ne postoji. -->
+                        </div>
+                        <br>
+                        <span class="deleteicon">
+                            <div class="autocomplete">
+                                <input class="input__text" name="expiry" 
+                                    placeholder="Mjesec istjecanja kreditne kartice" required
+                                    id="input__card__month" 
+                                    type="text" name="myCountry">
+                            </div>
+                            <span id="delete__card__month">x</span>
+                        </span>
+                        <br>
+                        <div id="input__card__month__err">
+                            Mjesec istjecanja kreditne kartice nije valjanog formata, mora sadržavati 2 broja odnosno nalaziti se u padajućem izborniku.
+                        </div>
+                        <br>
+                        <span class="deleteicon">
+                            <div class="autocomplete">
+                                <input class="input__text" name="expiry" 
+                                    maxlength="4" 
+                                    placeholder="Godina istjecanja kreditne kartice" required
+                                    id="input__card__year" type="text" name="myCountry"
+                                    placeholder="Year">
+                            </div>
+                            <span id="delete__card__year">x</span>
+                        </span>
+                        <br>
+                        <div id="input__card__year__err">
+                            Godina istjecanja kreditne kartice nije valjanog formata, mora sadržavati 4 broja. 
+                        </div>
+                        <br>
+                        <span class="deleteicon">
+                        <input type="password" class="input__text" id="input__password" 
+                            placeholder="Lozinka" required 
+                            />
+                        <span id="delete__password">x</span>
+                        </span>
+                        <br>
+                        <div id="input__password__err">
+                        </div>
+                        <br>
+                        <span class="deleteicon">
+                        <input type="password" class="input__text" id="input__password_repeat" placeholder="Ponovni upis lozinke" required/>
+                        <span id="delete__password_repeat">x</span>
+                        </span>
+                        <br>
+                        <div id="input__password_repeat__err">
+                            Ponovno upisana lozinka se ne podudara s prvotno upisanom lozinkom. 
+                        </div>
+                        <br>
+                        <span class="deleteicon" >
+                            <input type="submit" class="input__text" 
+                                value="Registriraj me" style="padding-top: 10px;
+                                padding-bottom: 32px;"
+                                />
+                            <!-- style="padding-bottom: 35px;" -->
+                        </span>
+                        <br>
+                    </div>
+                </form>
+            </div>
+            <script src="../scripts/login_form/validate_signup.js"></script>
+        </main>
+    </body>
+</html>
+

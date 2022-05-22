@@ -1,0 +1,175 @@
+@model PetCareAppMVC.Features.Signup.SignupViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+            @*<link rel="stylesheet" href="../styles/signup.css">*@
+      <link asp-append-version="true" rel="stylesheet" href="~/styles/signup.css" />
+
+        <main>
+            <section>
+                <div class="center__container" style="border: 2px solid black;">
+                    <div>
+                        <div class="navbar">
+                            <div class="header__logo">
+                                <div class="split__left_20"></div>
+                                <div class="split__right_80">
+                                    <a href="/home" style="padding: unset">
+
+                                        <img style="width: 100%" class="header__logo__img" src="../resources/logo_horizontal.png" alt="">
+                                
+                                    </a>
+                            </div>
+                            </div>
+                            <div class="header__empty">
+                            </div>
+                            <div>
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <h1 class="center__title center">
+                REGISTRACIJA
+            </h1>
+      
+            <br>
+            <div id="empty_click"></div>
+            <div class="center">
+
+
+                
+                <form id="registerFormU" name="registrationForm" asp-action="SignupCheck" method="post">
+                    <div>
+                        <span class="deleteicon">
+                        <input asp-for="UserName" type="text" class="input__text" id="input__username" placeholder="Korisničko ime" required/>
+                        <span id="delete__username">x</span>
+                        </span>
+                        <br>
+                        <div id="input__username__err">
+                            Korisničko ime ne može biti prazno.
+                        </div>
+                        <br>
+                        <span class="deleteicon">
+                        <input type="text" class="input__text" id="input__OIB" placeholder="OIB" required />
+                        <span id="delete__OIB">x</span>
+                        </span>
+                        <br>
+                        <div id="input__OIB__err">
+                            OIB nije valjanog formata, mora sadržavati 11 brojeva.
+                        </div>
+                        <br>
+                        <span class="deleteicon">
+                        <input asp-for="PersonFirstName" input type="text" class="input__text" id="input__firstname" placeholder="Ime" required />
+                        <span id="delete__firstname">x</span>
+                        </span>
+                        <br>
+                        <div id="input__firstname__err">
+                            Ime ne može biti prazno.
+                        </div>
+                        <br>
+                        <span class="deleteicon">
+                        <input asp-for="PersonLastName" input type="text" class="input__text" id="input__lastname" placeholder="Prezime" required />
+                        <span id="delete__lastname">x</span>
+                        </span>
+                        <br>
+                        <div id="input__lastname__err">
+                            Prezime ne može biti prazno.
+                        </div>
+                        <br>
+                        <span class="deleteicon">
+                        <input asp-for="PersonEmail" input type="text" class="input__text" id="input__email" placeholder="Adresa e-pošte" required/>
+                        <span id="delete__email">x</span>
+                        </span>
+                        <br>
+                        <div id="input__email__err">
+                            Adresa e-pošte nije valjanog formata.
+                        </div>
+                        <br>
+                        <span class="deleteicon">
+                        <input asp-for="Oib"input type="text" class="input__text" id="input__cardnumber" placeholder="Broj kreditne kartice" required/>
+                        <span id="delete__cardnumber">x</span>
+                        </span>
+                        <br>
+                        <div id="input__cardnumber__err">
+                            Broj kreditne kartice nije valjanog formata.
+                        </div>
+                        <br>
+                        <span class="deleteicon">
+                        <input type="text" class="input__text" id="input__cardtype" placeholder="Tip kreditne kartice"/>
+                        <span id="delete__cardtype">x</span>
+                        </span>
+                        <br>
+                        <div id="input__cardtype__err">
+                            <!-- Tip kreditne kartice ne postoji. -->
+                        </div>
+                        <br>
+                        <span class="deleteicon">
+                            <div class="autocomplete">
+                                <input class="input__text" name="expiry" 
+                                    placeholder="Mjesec istjecanja kreditne kartice" required
+                                    id="input__card__month" 
+                                    type="text" name="myCountry">
+                            </div>
+                            <span id="delete__card__month">x</span>
+                        </span>
+                        <br>
+                        <div id="input__card__month__err">
+                            Mjesec istjecanja kreditne kartice nije valjanog formata, mora sadržavati 2 broja odnosno nalaziti se u padajućem izborniku.
+                        </div>
+                        <br>
+                        <span class="deleteicon">
+                            <div class="autocomplete">
+                                <input class="input__text" name="expiry" 
+                                    maxlength="4" 
+                                    placeholder="Godina istjecanja kreditne kartice" required
+                                    id="input__card__year" type="text" name="myCountry"
+                                    placeholder="Year">
+                            </div>
+                            <span id="delete__card__year">x</span>
+                        </span>
+                        <br>
+                        <div id="input__card__year__err">
+                            Godina istjecanja kreditne kartice nije valjanog formata, mora sadržavati 4 broja. 
+                        </div>
+                        <br>
+                        <span class="deleteicon">
+                        <input asp-for="Password" type="password" class="input__text" id="input__password" 
+                            placeholder="Lozinka" required 
+                            />
+                        <span id="delete__password">x</span>
+                        </span>
+                        <br>
+                        <div id="input__password__err">
+                        </div>
+                        <br>
+                        <span class="deleteicon">
+                        <input type="password" class="input__text" id="input__password_repeat" placeholder="Ponovni upis lozinke" required/>
+                        <span id="delete__password_repeat">x</span>
+                        </span>
+                        <br>
+                        <div id="input__password_repeat__err">
+                            Ponovno upisana lozinka se ne podudara s prvotno upisanom lozinkom. 
+                        </div>
+                        <br>
+
+                        <span class="deleteicon" >
+                            <input type="submit" class="input__text" 
+                                value="Registriraj me" style="padding-top: 10px;
+                                padding-bottom: 32px;"
+                                />
+                            <!-- style="padding-bottom: 35px;" -->
+                        </span>
+                        <br>
+                    </div>
+                </form>
+            </div>
+            <script src="~/scripts/login_form/validate_signup.js"></script>
+        </main>
+
+</div>
+
+

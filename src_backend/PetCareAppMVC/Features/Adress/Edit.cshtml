@@ -1,0 +1,40 @@
+﻿@model PetCareAppMVC.Features.Adress.AdressViewModel
+
+<h2>@Model.Adress1</h2>
+
+<form method="post">
+  <input type="hidden" asp-for=AdressId />
+  <div asp-validation-summary="All"></div>
+  <div class="form-floating mb-3">
+    <label asp-for=Adress1 ></label>
+    <input asp-for=Adress1 class="form-control">
+    
+  </div>
+  <div class="form-floating mb-3">
+    <label asp-for=City ></label>
+    <input asp-for=City class="form-control">
+    <div class="form-floating mb-3">
+    <label asp-for=PostalCode></label>
+    <input asp-for=PostalCode class="form-control">
+  </div>
+   <div class="form-floating mb-3">
+    <label asp-for=Country ></label>
+    <input asp-for=Country class="form-control">
+    
+  </div>
+  <div class="form-floating mb-3">
+    <label asp-for=IsHouse ></label>
+    <input asp-for=IsHouse class="form-control">
+  </div>
+
+   <div class="form-floating mb-3">
+    <label asp-for=Floor ></label>
+    <input asp-for=Floor class="form-control"> 
+  </div>
+
+
+  <div>
+    <button type="submit" class="btn btn-sm btn-primary">Save <i class="fas fa-save ms-1"></i></button>
+  </div>
+</form>
+

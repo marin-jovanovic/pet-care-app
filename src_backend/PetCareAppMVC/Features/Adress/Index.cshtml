@@ -1,0 +1,50 @@
+﻿@model IList<Domain.Adress>
+@{
+  ViewBag.Title = "Adress";
+}
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Adress</th>
+        <th scope="col">City</th>
+        <th>Postal Code</th>
+        <th>Country</th>
+        <th>IsHouse</th>
+        <th>Floor</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var item in Model)
+      {
+        <tr>
+         @*<td><a asp-action="Details" asp-route-id="@item.AdressId ">@item.AdressId</a></td>*@ 
+            
+            <td>@item.Adress1 </td>
+            <td>@item.City </td>
+            <td>@item.PostalCode </td>
+            <td>@item.Country </td>
+            <td>@item.IsHouse </td>
+            <td>@item.Floor </td>
+            
+
+          <td>
+            <form method="post" asp-action="Delete" asp-route-id="@item.AdressId">
+                <button type="submit" class="btn btn-danger confirm-delete">Delete <i class="fas fa-trash-alt ms-1"></i></button>
+            </form>
+          </td>
+          <td>
+            <form method="get" asp-action="Edit" asp-route-id="@item.AdressId">
+                <button type="submit" class="btn btn-danger confirm-delete">Edit <i class="fas fa-trash-alt ms-1"></i></button>
+            </form>
+          </td>
+        </tr>
+      }
+      
+      </tbody>
+  </table>
+</div>
+<p>
+  <a asp-action="Create" class="btn btn-sm btn-primary">Add Adress</a>
+</p>
