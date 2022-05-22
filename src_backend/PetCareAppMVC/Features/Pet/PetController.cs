@@ -33,9 +33,17 @@ namespace PetCareAppMVC.Features.Pet
 
         [HttpGet]
 
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(string sessionId,string UserName, int adListingId)
         {
-            var PetQuery = new DomainServices.Pet.Queries.GetPetQuery(id);
+            //sessionId = '+
+            //    sessionid +
+            //    '&UserName=' +
+            //    username +
+            //    '&adListingId
+
+            Console.WriteLine("edit", adListingId);
+
+            var PetQuery = new DomainServices.Pet.Queries.GetPetQuery(adListingId);
             var Pet = await mediator.Send(PetQuery);
             if (Pet == null)
             {
@@ -46,6 +54,34 @@ namespace PetCareAppMVC.Features.Pet
                 PetViewModel model = mapper.Map<PetViewModel>(Pet);
                 return View(model);
             }
+        }
+
+
+        [HttpGet]
+        public async Task<ActionResult> Delete(string sessionId, string UserName, int adListingId)
+        {
+            
+            //var command = new DeletePet(adListingId);
+            //await mediator.Send(command);
+            try
+            {
+                var command = new DeletePet(adListingId);
+                await mediator.Send(command);
+
+                ViewBag.SessionId = "brisanje je uspjelo";
+
+                //TempData.Put(Constants.ActionStatus, new ActionStatus(true, "Pet deleted"));
+            }
+            catch (Exception ex)
+            {
+                ViewBag.SessionId = "brisanje nije uspjelo";
+                //TempData.Put(Constants.ActionStatus, new ActionStatus(false, ex.CompleteExceptionMessage()));
+            }
+
+            //return RedirectToAction("Index", "Pet");
+            return View();
+
+            //return RedirectToAction(nameof(Index));
         }
 
         [HttpPost]

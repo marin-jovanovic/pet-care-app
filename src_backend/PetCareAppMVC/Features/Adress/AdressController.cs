@@ -32,9 +32,11 @@ namespace PetCareAppMVC.Features.Adress
 
         [HttpGet]
 
-        public async Task<IActionResult> Edit(int id)
+        //public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(string sessionId, string UserName, int adListingId)
         {
-            var adressQuery = new DomainServices.Adress.Queries.GetOneAdressQuery(id);
+            Console.WriteLine("edit");
+            var adressQuery = new DomainServices.Adress.Queries.GetOneAdressQuery(adListingId);
             var adress = await mediator.Send(adressQuery);
             if (adress == null)
             {
@@ -43,9 +45,18 @@ namespace PetCareAppMVC.Features.Adress
             else
             {
                 AdressViewModel model = mapper.Map<AdressViewModel>(adress);
+                return RedirectToAction("Index", "Pet");
+                
                 return View(model);
+
+
             }
         }
+
+
+
+
+
 
         [HttpPost]
         public async Task<IActionResult> Edit(AdressViewModel model)
@@ -70,21 +81,35 @@ namespace PetCareAppMVC.Features.Adress
             }
         }
 
-        [HttpPost]
-        public async Task<ActionResult> Delete(int id)
+        [HttpGet]
+        //public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> Delete(string sessionId, string UserName, int adListingId)
         {
             try
             {
-                var command = new DeleteAdressCommand(id);
+                var command = new DeleteAdressCommand(adListingId);
                 await mediator.Send(command);
-                TempData.Put(Constants.ActionStatus, new ActionStatus(true, "Person deleted"));
+                ViewBag.SessionId = "brisanje je uspjelo";
+
+                //TempData.Put(Constants.ActionStatus, new ActionStatus(true, "Person deleted"));
             }
             catch (Exception ex)
             {
-                TempData.Put(Constants.ActionStatus, new ActionStatus(false, ex.CompleteExceptionMessage()));
+                ViewBag.SessionId = "brisanje nije uspjelo";
+                //TempData.Put(Constants.ActionStatus, new ActionStatus(false, ex.CompleteExceptionMessage()));
             }
-            return RedirectToAction(nameof(Index));
+            //return RedirectToAction(nameof(Index));
+
+
+
+            return View();
+
         }
+
+
+
+
+
 
         public async Task<IActionResult> Create(AdressViewModel model)
         {

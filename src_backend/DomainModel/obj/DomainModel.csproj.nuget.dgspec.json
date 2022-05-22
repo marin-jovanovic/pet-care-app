@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mataj\\OneDrive\\Documents\\IS_final\\pet-care-app\\src_backend\\DomainModel\\DomainModel.csproj": {}
+    "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\DomainModel\\DomainModel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mataj\\OneDrive\\Documents\\IS_final\\pet-care-app\\src_backend\\DomainModel\\DomainModel.csproj": {
+    "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\DomainModel\\DomainModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mataj\\OneDrive\\Documents\\IS_final\\pet-care-app\\src_backend\\DomainModel\\DomainModel.csproj",
+        "projectUniqueName": "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\DomainModel\\DomainModel.csproj",
         "projectName": "DomainModel",
-        "projectPath": "C:\\Users\\mataj\\OneDrive\\Documents\\IS_final\\pet-care-app\\src_backend\\DomainModel\\DomainModel.csproj",
-        "packagesPath": "C:\\Users\\mataj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mataj\\OneDrive\\Documents\\IS_final\\pet-care-app\\src_backend\\DomainModel\\obj\\",
+        "projectPath": "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\DomainModel\\DomainModel.csproj",
+        "packagesPath": "C:\\Users\\Marin\\.nuget\\packages\\",
+        "outputPath": "C:\\git\\marin-jovanovic\\pet-care-app\\src_backend\\DomainModel\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\mataj\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Marin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

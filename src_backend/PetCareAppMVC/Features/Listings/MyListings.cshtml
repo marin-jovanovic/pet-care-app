@@ -79,14 +79,17 @@ let objJson = [];
 objJson.push({
     adName: {
         "adlisting id": "@item.AdlistingId",
-        "start date": " @item.StartDate  ",
-        "end date": " @item.EndDate ",
-        "id adr": "@item.IdAdress",
-        "adlisting descr": "@item.AdlistingDescription",
-        "isactive": "@item.IsActiv",
-        "price": "@item.Price",
+        @*"start date": " @item.StartDate  ",*@
+        @*"end date": " @item.EndDate ",*@
+        @*"id adr": "@item.IdAdress",*@
+        @*"adlisting descr": "@item.AdlistingDescription",*@
+        @*"isactive": "@item.IsActiv",*@
+        @*"price": "@item.Price",*@
         "title": "@item.Title",
-        "petid": "@item.PetId"
+        "petid": "@item.PetId",
+        "petname": "placeholder_pet_name",
+        "adress": "placeholder_adress",
+        "adress_id": "1"
     }
 })
 
@@ -102,23 +105,7 @@ console.log(objJson);
     let username = "@ViewBag.UserName";
                         
                 
-
-//    function load() {
-//        console.log("session",  sessionid )
-//console.log(username)
-
-//document.getElementById("uredi_0").onclick = function() {
-//    console.log("clicked")
-//                window.open('/abc/def?sessionId=' +sessionid+ 'UserName=' + username  )
-
-//    }
-//                    window.onload = () => {
-//                        console.log("on load ---------")
-//                    };
-
-            
-//}
-                      
+      
                         
                         </script>
 
@@ -165,30 +152,84 @@ console.log(objJson);
 
                    console.log(objJson[i])
 
-                    for (const key in objJson[i].adName) {
-                        console.log(key)
-                        // listing_table.innerHTML +="---" + objJson[i].adName + "<br>"; 
-                        listing_table.innerHTML += key + ": "+ objJson[i].adName[key] + "<hr/>"; 
-                     
-                    }
-  
+                          
+                   
+               listing_table.innerHTML += "oglas:" + ": "+ objJson[i].adName["title"] + ""; 
+                    //for (const key in objJson[i].adName) {
+                    //    console.log(key)
+                    //    // listing_table.innerHTML +="---" + objJson[i].adName + "<br>"; 
+                    //    listing_table.innerHTML += key + ": "+ objJson[i].adName[key] + "<hr/>";                      
+                    //}
                 //listing_table.innerHTML +=      '<input type="button" onclick="alert()" value="Uredi" id="uredi_'+String(i)+'"/>'
-                listing_table.innerHTML +=      '<input type="button" onclick="window.open(\'/Listings/Manage?sessionId='+
+                listing_table.innerHTML +=      
+                '<input type="button" onclick="window.open(\'/Listings/ManageListing?sessionId='+
                 sessionid+
                 '&UserName='+
                 username+
                 '&adListingId='+ String(objJson[i].adName["adlisting id"])+
                 '\')" value="Uredi" id="uredi_'+String(i)+'"/>'
-
-                listing_table.innerHTML +=      '<input type="button" onclick="window.open(\'/Listings/Delete?sessionId='+
+                listing_table.innerHTML +=      
+                '<input type="button" onclick="window.open(\'/Listings/DeleteListing?sessionId='+
                 sessionid+
                 '&UserName='+
                 username+
                 '&adListingId='+ String(objJson[i].adName["adlisting id"])+
                 '\')" value="Izbrisi" id="izbrisi_'+String(i)+'"/>'
+                listing_table.innerHTML += "<br/>"
+                listing_table.innerHTML += "<br/>"
+                
+
+                listing_table.innerHTML += "zivotinja:" + ": "+ objJson[i].adName["petname"] + ""; 
+                    //for (const key in objJson[i].adName) {
+                    //    console.log(key)
+                    //    // listing_table.innerHTML +="---" + objJson[i].adName + "<br>"; 
+                    //    listing_table.innerHTML += key + ": "+ objJson[i].adName[key] + "<hr/>";                      
+                    //}
+                //listing_table.innerHTML +=      '<input type="button" onclick="alert()" value="Uredi" id="uredi_'+String(i)+'"/>'
+                listing_table.innerHTML +=      
+                '<input type="button" onclick="window.open(\'/Pet/Edit?sessionId='+
+                sessionid+
+                '&UserName='+
+                username+
+                '&adListingId='+ String(objJson[i].adName["petid"])+
+                '\')" value="Uredi" id="uredi_'+String(i)+'"/>'
+                
+                listing_table.innerHTML +=      
+                '<input type="button" onclick="window.open(\'/Pet/Delete?sessionId='+
+                sessionid+
+                '&UserName='+
+                username+
+                '&adListingId='+ String(objJson[i].adName["petid"])+
+                '\')" value="Izbrisi" id="izbrisi_'+String(i)+'"/>'
+                listing_table.innerHTML += "<br/>"
+                listing_table.innerHTML += "<br/>"
 
 
-                    
+
+                listing_table.innerHTML += "adresa:" + ": "+ objJson[i].adName["adress"] + ""; 
+                    //for (const key in objJson[i].adName) {
+                    //    console.log(key)
+                    //    // listing_table.innerHTML +="---" + objJson[i].adName + "<br>"; 
+                    //    listing_table.innerHTML += key + ": "+ objJson[i].adName[key] + "<hr/>";                      
+                    //}
+                //listing_table.innerHTML +=      '<input type="button" onclick="alert()" value="Uredi" id="uredi_'+String(i)+'"/>'
+                listing_table.innerHTML +=      
+                '<input type="button" onclick="window.open(\'/Adress/Edit?sessionId='+
+                sessionid+
+                '&UserName='+
+                username+
+                '&adListingId='+ String(objJson[i].adName["adress_id"])+
+                '\')" value="Uredi" id="uredi_'+String(i)+'"/>'
+                listing_table.innerHTML +=      
+                '<input type="button" onclick="window.open(\'/Adress/Delete?sessionId='+
+                sessionid+
+                '&UserName='+
+                username+
+                '&adListingId='+ String(objJson[i].adName["adress_id"])+
+                '\')" value="Izbrisi" id="izbrisi_'+String(i)+'"/>'
+                listing_table.innerHTML += "<br/>"
+                listing_table.innerHTML += "<br/>"
+
                         listing_table.innerHTML += "<hr/>" 
                         
 }
