@@ -1389,6 +1389,7 @@
           "AutoMapper": "11.0.1",
           "DomainModel": "1.0.0",
           "DomainServices": "1.0.0",
+          "DomainServices.Validation": "1.0.0",
           "MediatR": "10.0.1",
           "Microsoft.EntityFrameworkCore": "6.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.3",

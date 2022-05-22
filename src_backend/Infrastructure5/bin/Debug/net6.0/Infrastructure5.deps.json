@@ -11,6 +11,7 @@
           "AutoMapper": "11.0.1",
           "DomainModel": "1.0.0",
           "DomainServices": "1.0.0",
+          "DomainServices.Validation": "1.0.0",
           "MediatR": "10.0.1",
           "Microsoft.EntityFrameworkCore": "6.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.3",
@@ -529,6 +530,17 @@
         "runtime": {
           "DomainServices.dll": {}
         }
+      },
+      "DomainServices.Validation/1.0.0": {
+        "dependencies": {
+          "DomainServices": "1.0.0",
+          "FluentValidation": "10.4.0",
+          "MediatR": "10.0.1",
+          "Sieve": "2.5.5"
+        },
+        "runtime": {
+          "DomainServices.Validation.dll": {}
+        }
       }
     }
   },
@@ -866,6 +878,11 @@
       "sha512": ""
     },
     "DomainServices/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DomainServices.Validation/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

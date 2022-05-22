@@ -6,6 +6,8 @@ using PetCareAppMVC.Features.Signup;
 using Domain;
 using PetCareAppMVC.Features.Adress;
 using static DomainServices.Adress.Commands;
+using PetCareAppMVC.Features.Pet;
+using static DomainServices.Pet.Commands;
 
 namespace PetCareAppMVC;
 
@@ -44,7 +46,21 @@ public class MappingProfile : Profile
         CreateMap< AdressViewModel, AddAdressCommand>();
         CreateMap<DomainServices.Adress.Commands, AdressViewModel>();
         CreateMap<AdressViewModel, DomainServices.Adress.Commands>();
-        //Missing type map configuration or unsupported mapping.Mapping types: AdressViewModel->AddAdressCommand
-        //PetCareAppMVC.Features.Adress.AdressViewModel->DomainServices.Adress.Commands + AddAdressCommand
+
+        CreateMap<DomainServices.Pet.Commands, PetViewModel>();
+        CreateMap<AdressViewModel, UpdatePet>();
+        CreateMap<Infrastructure5.EFModel.Adress, UpdatePet>();
+        CreateMap<UpdatePet, Infrastructure5.EFModel.Adress>();
+        CreateMap<DomainServices.Pet.Commands, PetCareAppMVC.Features.Pet.PetViewModel>();
+
+        CreateMap< PetViewModel, DomainServices.Pet.Commands.CreatePet>();
+        CreateMap<PetViewModel, DomainServices.Adress.Commands>();
+        CreateMap<DomainServices.Pet.Commands.CreatePet, PetViewModel>();
+        CreateMap<Infrastructure5.EFModel.Pet, DomainServices.Pet.Commands>();
+
+        CreateMap< PetViewModel, DomainServices.Pet.Commands.UpdatePet>();
+
+        CreateMap<PetViewModel, Domain.Pet>();
+        CreateMap<Domain.Pet, PetViewModel>();
     }
 }

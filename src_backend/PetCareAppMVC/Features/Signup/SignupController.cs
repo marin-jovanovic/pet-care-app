@@ -61,22 +61,25 @@ namespace PetCareAppMVC.Features.Signup
     [HttpPost]
         public async Task<ActionResult> SignupCheck(SignupViewModel model)
         {
-           
-                var query = new DomainServices.People.Queries.GetPeopleQuery();
-                var data = await mediator.Send(query);
-                foreach (var item in data)
-                {
-                  //if (!item.UserName.Equals(model.UserName))
-                  
-                //{
-                    var command = mapper.Map<AddPersonCommand>(model);
+
+            //var query = new DomainServices.People.Queries.GetPeopleQuery();
+            //var data = await mediator.Send(query);
+            //foreach (var item in data)
+
+            //if (!item.UserName.Equals(model.UserName))
+
+            //{
+            var adrQuery = new DomainServices.People.Queries.GetPeopleQuery();
+            var adr = await mediator.Send(adrQuery);
+            model.PersonId = adr.LastOrDefault().PersonId + 1;
+            var command = mapper.Map<AddPersonCommand>(model);
                     int id = await mediator.Send(command);
 
                     //}
                 //}
 
                 Console.WriteLine("model je validan");
-            }
+            
 
             ViewData["error"] = true;
             return View("./index");

@@ -61,7 +61,7 @@ namespace PetCareAppMVC.Features.Pet
                 }
                 catch (Exception ex)
                 {
-                    //ModelState.AddModelError(string.Empty, ex.CompleteExceptionMessage());
+                    TempData.Put(Constants.ActionStatus, new ActionStatus(false, ex.CompleteExceptionMessage()));
                     return View(model);
                 }
             }

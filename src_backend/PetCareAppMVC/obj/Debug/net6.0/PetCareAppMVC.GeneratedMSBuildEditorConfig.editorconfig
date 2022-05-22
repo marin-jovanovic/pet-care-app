@@ -8,113 +8,113 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PetCareAppMVC
 build_property.RootNamespace = PetCareAppMVC
-build_property.ProjectDir = C:\git\marin-jovanovic\pet-care-app\src_backend\PetCareAppMVC\
+build_property.ProjectDir = C:\Users\mataj\OneDrive\Documents\IS_final\pet-care-app\src_backend\PetCareAppMVC\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\git\marin-jovanovic\pet-care-app\src_backend\PetCareAppMVC
+build_property.MSBuildProjectDirectory = C:\Users\mataj\OneDrive\Documents\IS_final\pet-care-app\src_backend\PetCareAppMVC
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/Adlisting/Create.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Adlisting/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcQWRsaXN0aW5nXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/Adlisting/Index.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Adlisting/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcQWRsaXN0aW5nXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/Adress/Create.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Adress/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcQWRyZXNzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/Adress/Edit.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Adress/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcQWRyZXNzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/Adress/Index.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Adress/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcQWRyZXNzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/Home/Index.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/Listings/Edit.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Listings/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcTGlzdGluZ3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/Listings/Index.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Listings/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcTGlzdGluZ3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/Listings/Manage.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Listings/Manage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcTGlzdGluZ3NcTWFuYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/Listings/MyListings.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Listings/MyListings.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcTGlzdGluZ3NcTXlMaXN0aW5ncy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/Login/Index.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/Logout/Index.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Logout/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcTG9nb3V0XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/People/Create.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/People/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcUGVvcGxlXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/People/Details.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/People/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcUGVvcGxlXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/People/Edit.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/People/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcUGVvcGxlXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/People/Index.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/People/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcUGVvcGxlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/Pet/Create.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Pet/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcUGV0XENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/Pet/Edit.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Pet/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcUGV0XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/Pet/Index.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Pet/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcUGV0XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/Shared/Navigation.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Shared/Navigation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcU2hhcmVkXE5hdmlnYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/Shared/ShowMessage.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Shared/ShowMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcU2hhcmVkXFNob3dNZXNzYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/Signup/Index.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Signup/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcU2lnbnVwXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/_ViewImports.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/_ViewStart.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/git/marin-jovanovic/pet-care-app/src_backend/PetCareAppMVC/Features/Shared/_Layout.cshtml]
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-3zgpsq1oy0
