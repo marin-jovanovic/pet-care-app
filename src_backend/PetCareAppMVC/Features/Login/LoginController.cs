@@ -68,7 +68,6 @@ namespace PetCareAppMVC.Features.Login
             Console.WriteLine("tu login username " + model.UserName + " password " + model.Password);
 
             
-                Console.WriteLine("login check: model is valid");
                 var query = new DomainServices.People.Queries.GetPeopleQuery();
                 var data = await mediator.Send(query);
                 foreach (var item in data)
@@ -93,6 +92,7 @@ namespace PetCareAppMVC.Features.Login
 
                     var retModel = new SessionViewModel();
                     retModel.sessionId = model.SessionId;
+                    retModel.UserName = model.UserName;
 
                     return RedirectToAction("Index", "Listings", retModel);
                     //return RedirectToRoute("listings", "index", new { sessionid = model.SessionId });

@@ -10,4 +10,7 @@ public class SessionViewModel
     //}
 
     public string sessionId { get; set; }
+    public string UserName { get; set; }
+
+
 }

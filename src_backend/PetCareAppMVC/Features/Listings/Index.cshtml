@@ -5,23 +5,11 @@
 
 @{
     ViewData["Title"] = "oglasi";
+
 }
 
 
  
-
-
-<div>
-
-
-    @*
-        @Model.sessionId
-        ViewData["SessionId"]
-    *@
-
-
-    session id = @ViewData["SessionId"] 
-</div>
 
 
 
@@ -43,8 +31,15 @@
           <div class="header__empty">
           </div>
           <div>
-            <a href="#home">Objavi oglas Pretraži</a>
-              <a href="#news">Odjava</a>
+
+
+
+     <input type="button" value="Moji oglasi" onclick="window.open('@Url.Action("MyListings", "Listings", new {sessionId = @ViewBag.SessionId,  UserName = @ViewBag.UserName})')"/>
+
+    <input type="button" value="Odjava" onclick="window.open('@Url.Action("Index", "Logout", new {sessionId = @ViewBag.SessionId, UserName = @ViewBag.UserName} )')"/>
+
+ 
+
             <div class="dropdown">
               <!-- <button class="dropbtn">todo ime korisnika  -->
               <i class="fa fa-caret-down"></i>
@@ -115,7 +110,7 @@
                                             naslov: @item.Title
                                           </td>
                                         </tr>
-                                        <tr>
+                                     @*   <tr>
                                           <td>
                                             PetId: @item.PetId
                                           </td>
@@ -124,7 +119,7 @@
                                           <td>
                                             IdAdress: @item.IdAdress
                                           </td>
-                                        </tr>
+                                        </tr>*@
                     
                                     </table>                       
 

@@ -13,6 +13,7 @@ namespace Domain
         public string Title { get; set; }
         public int PetId { get; set; }
         public bool? IsActiv { get; set; }
+        //public string sessionId { get; set; }
 
     }
 }

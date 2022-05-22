@@ -30,8 +30,13 @@ namespace PetCareAppMVC.Features.Listings
             //return View("../listings/index", data2);
 
             Console.WriteLine("session id", model.sessionId);
+            Console.WriteLine("session username", model.UserName);
+
+            // obrisi kasnije
             ViewData["SessionId"] = model.sessionId;
 
+            ViewBag.SessionId = model.sessionId;
+            ViewBag.UserName = model.UserName;
 
             var query1 = new DomainServices.Adlisting.Queries.GetAdlistingQuery();
             var data2 = await mediator.Send(query1);
@@ -47,6 +52,23 @@ namespace PetCareAppMVC.Features.Listings
             this.mediator = mediator;
         }
 
+        public async Task<IActionResult> MyListings(string sessionId, string UserName)
+        {
+
+            // pseudokod:
+            // if (sessionId != [select person.sessionId from person where person.username = username])
+            //          return RedirectToAction("Index", "Home");
+
+
+            // ovdje to mora bit filtrirano po ID-u usernamea
+            ViewBag.SessionId = sessionId;
+            ViewBag.UserName = UserName;
+            var query1 = new DomainServices.Adlisting.Queries.GetAdlistingQuery();
+            var data2 = await mediator.Send(query1);
+            return View(data2);
+
+
+        }
 
     }
 
