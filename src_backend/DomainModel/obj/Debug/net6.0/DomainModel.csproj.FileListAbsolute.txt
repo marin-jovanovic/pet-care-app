@@ -46,3 +46,15 @@ C:\Users\mataj\OneDrive\Documents\IS5\pet-care-app\src_backend\DomainModel\obj\D
 C:\Users\mataj\OneDrive\Documents\IS5\pet-care-app\src_backend\DomainModel\obj\Debug\net6.0\refint\DomainModel.dll
 C:\Users\mataj\OneDrive\Documents\IS5\pet-care-app\src_backend\DomainModel\obj\Debug\net6.0\DomainModel.pdb
 C:\Users\mataj\OneDrive\Documents\IS5\pet-care-app\src_backend\DomainModel\obj\Debug\net6.0\ref\DomainModel.dll
+C:\Users\mataj\OneDrive\Documents\IS_final\pet-care-app\src_backend\DomainModel\bin\Debug\net6.0\DomainModel.deps.json
+C:\Users\mataj\OneDrive\Documents\IS_final\pet-care-app\src_backend\DomainModel\bin\Debug\net6.0\DomainModel.dll
+C:\Users\mataj\OneDrive\Documents\IS_final\pet-care-app\src_backend\DomainModel\bin\Debug\net6.0\DomainModel.pdb
+C:\Users\mataj\OneDrive\Documents\IS_final\pet-care-app\src_backend\DomainModel\obj\Debug\net6.0\DomainModel.csproj.AssemblyReference.cache
+C:\Users\mataj\OneDrive\Documents\IS_final\pet-care-app\src_backend\DomainModel\obj\Debug\net6.0\DomainModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mataj\OneDrive\Documents\IS_final\pet-care-app\src_backend\DomainModel\obj\Debug\net6.0\DomainModel.AssemblyInfoInputs.cache
+C:\Users\mataj\OneDrive\Documents\IS_final\pet-care-app\src_backend\DomainModel\obj\Debug\net6.0\DomainModel.AssemblyInfo.cs
+C:\Users\mataj\OneDrive\Documents\IS_final\pet-care-app\src_backend\DomainModel\obj\Debug\net6.0\DomainModel.csproj.CoreCompileInputs.cache
+C:\Users\mataj\OneDrive\Documents\IS_final\pet-care-app\src_backend\DomainModel\obj\Debug\net6.0\DomainModel.dll
+C:\Users\mataj\OneDrive\Documents\IS_final\pet-care-app\src_backend\DomainModel\obj\Debug\net6.0\refint\DomainModel.dll
+C:\Users\mataj\OneDrive\Documents\IS_final\pet-care-app\src_backend\DomainModel\obj\Debug\net6.0\DomainModel.pdb
+C:\Users\mataj\OneDrive\Documents\IS_final\pet-care-app\src_backend\DomainModel\obj\Debug\net6.0\ref\DomainModel.dll

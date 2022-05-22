@@ -55,7 +55,16 @@ namespace PetCareAppMVC.Features.Listings
         public async Task<IActionResult> MyListings(string sessionId, string UserName)
         {
 
-            // pseudokod:
+
+            var query = new DomainServices.People.GetPersonByUserNameQuery(UserName, IncludeProjects:false);
+            var data = await mediator.Send(query);
+            if(data != null)
+            {
+                if (!(sessionId.Equals(data.SessionId)))
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
             // if (sessionId != [select person.sessionId from person where person.username = username])
             //          return RedirectToAction("Index", "Home");
 

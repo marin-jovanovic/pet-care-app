@@ -83,7 +83,8 @@ namespace PetCareAppMVC.Features.Login
                     model.PersonEmail= item.PersonEmail;    
                     model.PersonId=item.PersonId;   
                     model.SessionId = GetUniqueKey(20);
-                    mapper.Map<UpdatePersonCommand>(model);
+                    var command =mapper.Map<UpdatePersonCommand>(model);
+                    await mediator.Send(command);
 
                     //var query1 = new DomainServices.Adlisting.Queries.GetAdlistingQuery();
                     //var data2 = await mediator.Send(query1);

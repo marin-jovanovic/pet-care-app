@@ -7,11 +7,12 @@ using Sieve.Services;
 using Infrastructure5.EFModel;
 using static DomainServices.People.Queries;
 using static DomainServices.People.Commands;
+using DomainServices.People;
 
 namespace Infrastructure5.Features.People;
 public class PeopleQueryHandler :
 IRequestHandler<GetPeopleQuery, IList<Domain.People.Person>>,
-    IRequestHandler<GetPersonQuery, Domain.People.Person>
+    IRequestHandler<GetPersonQuery, Domain.People.Person>, IRequestHandler<GetPersonByUserNameQuery, Domain.People.Person>
 {
     private readonly PetCareApp2Context ctx;
     private readonly ISieveProcessor sieveProcessor;
@@ -31,11 +32,11 @@ IRequestHandler<GetPeopleQuery, IList<Domain.People.Person>>,
         var query = ctx.Person
                        .Where(p => p.PersonId == request.idPerson);
         var projectedQuery = mapper.ProjectTo<Domain.People.Person>(query);
-        var ad = await projectedQuery.FirstOrDefaultAsync();
+        var person = await projectedQuery.FirstOrDefaultAsync();
       
         
 
-        return ad;
+        return person;
     }
 
     public async Task<IList<Domain.People.Person>> Handle(GetPeopleQuery request, CancellationToken cancellationToken)
@@ -50,7 +51,17 @@ IRequestHandler<GetPeopleQuery, IList<Domain.People.Person>>,
       return data;
     }
 
- 
+    public  async Task<Domain.People.Person> Handle(GetPersonByUserNameQuery request, CancellationToken cancellationToken)
+    {
+        var query = ctx.Person
+                       .Where(p => p.UserName== request.userName);
+        var projectedQuery = mapper.ProjectTo<Domain.People.Person>(query);
+        var person = await projectedQuery.FirstOrDefaultAsync();
+
+
+
+        return person;
+    }
 }
 
 

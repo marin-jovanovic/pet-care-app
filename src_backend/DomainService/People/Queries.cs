@@ -17,4 +17,6 @@ namespace DomainServices.People
 
     public record GetPersonQuery(int idPerson, bool IncludeProjects) : IRequest<Person>;
     }
+    public record GetPersonByUserNameQuery(string userName, bool IncludeProjects) : IRequest<Person>;
+
 }

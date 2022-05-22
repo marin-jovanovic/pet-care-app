@@ -12,6 +12,8 @@ public class MappingProfile : Profile
       .ForMember(person => person.UserName, opt => opt.MapFrom(command => command.UserName));
         CreateMap<UpdatePersonCommand, EFModel.Person>();
         CreateMap <EFModel.Person,UpdatePersonCommand > ();
+        CreateMap<Infrastructure5.EFModel.Person, Domain.People.Person>();
+
         /*
     CreateMap<UpdatePersonCommand, EFModel.Person>()
       .ForMember(person => person.PersonalIdentificationNumber, opt => opt.MapFrom(command => command.PIN));
