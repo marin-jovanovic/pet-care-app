@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using static DomainServices.Adress.Commands;
 using static DomainServices.People.Commands;
 
 
@@ -13,7 +14,19 @@ public class MappingProfile : Profile
         CreateMap<UpdatePersonCommand, EFModel.Person>();
         CreateMap <EFModel.Person,UpdatePersonCommand > ();
         CreateMap<Infrastructure5.EFModel.Person, Domain.People.Person>();
+        CreateMap<Domain.Adress, Infrastructure5.EFModel.Adress>();
+        CreateMap<Infrastructure5.EFModel.Adress, Domain.Adress>();
 
+        CreateMap<Domain.Adress, Infrastructure5.EFModel.Adress>();
+        CreateMap<Infrastructure5.EFModel.Adress, Domain.Adress>();
+        CreateMap<Infrastructure5.EFModel.Adress, UpdateAdressCommand>();
+        CreateMap<UpdateAdressCommand, Infrastructure5.EFModel.Adress>();
+        //AdressViewModel->AddAdressCommand PetCareAppMVC.Features.Adress.AdressViewModel->DomainServices.Adress.Commands + AddAdressCommand
+
+        CreateMap<AddAdressCommand, Infrastructure5.EFModel.Adress>();
+        CreateMap<DomainServices.Adress.Commands, Infrastructure5.EFModel.Adress>();
+        CreateMap<Infrastructure5.EFModel.Adress, DomainServices.Adress.Commands.AddAdressCommand>();
+        CreateMap< AddAdressCommand, EFModel.Adress>();
         /*
     CreateMap<UpdatePersonCommand, EFModel.Person>()
       .ForMember(person => person.PersonalIdentificationNumber, opt => opt.MapFrom(command => command.PIN));
@@ -25,5 +38,5 @@ public class MappingProfile : Profile
         //CreateMap<EFModel.Person, Domain.People.Person>()
         //.ForMember(dest => dest.PersonFirstName, opt => opt.MapFrom(src => src.UserName));
 
-  }
+    }
 }

@@ -66,22 +66,11 @@ let objJson = [];
         //    { adName: {"a": "b", "c": "d"}},
         //]; 
 
-let sessionid;
-let username;
             //let sessionid = @ViewBag.sessionId;
             //let username = @ViewBag.UserName;
     </script>
 
-        @{
-
-                <script>
-                sessionid = @ViewBag.sessionId;
-                username = @ViewBag.UserName;
-                
-                </script>
-
-    }
-
+ 
                @foreach (var item in Model)
                                   {
 
@@ -105,6 +94,35 @@ console.log(objJson);
                                     </script>
                                        }
                     
+
+@{
+
+    <script>
+    let sessionid = "@ViewBag.sessionId";
+    let username = "@ViewBag.UserName";
+                        
+                
+
+//    function load() {
+//        console.log("session",  sessionid )
+//console.log(username)
+
+//document.getElementById("uredi_0").onclick = function() {
+//    console.log("clicked")
+//                window.open('/abc/def?sessionId=' +sessionid+ 'UserName=' + username  )
+
+//    }
+//                    window.onload = () => {
+//                        console.log("on load ---------")
+//                    };
+
+            
+//}
+                      
+                        
+                        </script>
+
+}
 
 
     <script>
@@ -144,9 +162,7 @@ console.log(objJson);
 
             listing_table.innerHTML += "<table>"
             for (var i = (page-1) * records_per_page; i < (page * records_per_page) && i < objJson.length; i++) {
-                // listing_table.innerHTML += "<tr>";
-                //     listing_table.innerHTML += "<td>";
-                   
+
                    console.log(objJson[i])
 
                     for (const key in objJson[i].adName) {
@@ -155,19 +171,26 @@ console.log(objJson);
                         listing_table.innerHTML += key + ": "+ objJson[i].adName[key] + "<hr/>"; 
                      
                     }
-                        //listing_table.innerHTML += "<button>uredi</button>" 
-                        //listing_table.innerHTML += "<button>izbrisi</button>" 
-                        
+  
+                //listing_table.innerHTML +=      '<input type="button" onclick="alert()" value="Uredi" id="uredi_'+String(i)+'"/>'
+                listing_table.innerHTML +=      '<input type="button" onclick="window.open(\'/Listings/Manage?sessionId='+
+                sessionid+
+                '&UserName='+
+                username+
+                '&adListingId='+ String(objJson[i].adName["adlisting id"])+
+                '\')" value="Uredi" id="uredi_'+String(i)+'"/>'
 
-listing_table.innerHTML +=      '<input type="button" value="Uredi" id="uredi_'+String(i)+'"/>'
-listing_table.innerHTML +=      '<input type="button" value="Izbrisi" id="izbrisi_'+String(i)+'" />'
+                listing_table.innerHTML +=      '<input type="button" onclick="window.open(\'/Listings/Delete?sessionId='+
+                sessionid+
+                '&UserName='+
+                username+
+                '&adListingId='+ String(objJson[i].adName["adlisting id"])+
+                '\')" value="Izbrisi" id="izbrisi_'+String(i)+'"/>'
+
 
                     
                         listing_table.innerHTML += "<hr/>" 
                         
-                //     listing_table.innerHTML += "</td>";
-
-                // listing_table.innerHTML += "</tr>";
 }
             page_span.innerHTML = page + "/" + numPages();
             listing_table.innerHTML += "</table>"
@@ -202,96 +225,24 @@ listing_table.innerHTML +=      '<input type="button" value="Izbrisi" id="izbris
             border:1px solid black;
             }
           </style>
-          @*        <table class="center__login__table" style="width: 100%;">
-            <tr>
-              <td>
-                  dodaj paginaciju
-                <table>
 
-                            <script>
+          <hr/>
 
-                                let stanje_oglasa = [];
-                            </script>
-                
-                                  @foreach (var item in Model)
-                                  {
+   
 
-                                    <script>
-
-                                        stanje_oglasa.push(
-                                            {
-                                                adName: 
-                                                    @item.AdlistingId
-                                                
-
-                                            }    
-                                        @item.AdlistingId);
-                                        console.log(stanje_oglasa);
-                                    </script>
-                                       }
-                         
-                    <td>
+          <script>
 
 
+          </script>
+@*
+     <input type="button" value="Uredi" onclick="window.open('@Url.Action("MyListings", "Listings", new {sessionId = @ViewBag.SessionId,  UserName = @ViewBag.UserName})')"/>
+
+    <input type="button" value="izbrisi" onclick="window.open('@Url.Action("Index", "Logout", new {sessionId = @ViewBag.SessionId, UserName = @ViewBag.UserName} )')"/>
+*@
+        <input type="button" value="Dodaj novi oglas" onclick="window.open('@Url.Action("Create", "Listings", new {sessionId = @ViewBag.SessionId, UserName = @ViewBag.UserName} )')"/>
 
 
-                                        <table id= @item.AdlistingId>
-                                            <tr>
-                                                <td>
-                                                datum pocetka: @item.StartDate
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                datum kraja: @item.EndDate  
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                opis: @item.AdlistingDescription
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                cijena: @item.Price
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                naslov: @item.Title
-                                                </td>
-                                            </tr>
-                                        </table>
-                    </td>
-                    
-                    <td>
-                        <input type="button" value="Uredi" onclick="window.open('@Url.Action("Edit", "Listings", new {sessionId = @ViewBag.SessionId, UserName = @ViewBag.UserName, AdlistingId = @item.AdlistingId } )')"/>
-                    </td>
-                    <td>
-                        <input type="button" value="Izbrisi" onclick="window.open('@Url.Action("Delete", "Listings", new {sessionId = @ViewBag.SessionId, UserName = @ViewBag.UserName, AdlistingId = @item.AdlistingId } )')"/>
-                    </td>
-                  
-                
-                </tr>
-                                    
-                                 
-                 
-                  <tr>
-                    <td>
-                      post
-                    </td>
-                    <td>
-                      uredi
-                    </td>
-                    <td>
-                      izbrisi
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-       
-          </table>*@
+      
         </div>
       </div>
     </div>

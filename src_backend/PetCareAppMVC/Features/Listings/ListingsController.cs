@@ -13,6 +13,7 @@ using static DomainServices.People.Commands;
 //using static DomainServices.People.Commands;
 
 using PetCareAppMVC.Features;
+using DomainServices.Adlisting;
 
 //using PetCareAppMVC.Features.Listings;
 //namespace PetCareAppMVC.Features.Login;
@@ -21,6 +22,15 @@ namespace PetCareAppMVC.Features.Listings
 {
     public class ListingsController : Controller
     {
+
+        private async Task PrepareListOfPet()
+        {
+            var petsQuery = new DomainServices.Pet.Queries.GetPetsQuery();
+            var pets = await mediator.Send(petsQuery);
+            ViewBag.ProjectTypes = new SelectList(pets,
+              dataValueField: nameof(Domain.Pet.PetId),
+              dataTextField: nameof(Domain.Pet.Breed));
+        }
 
         [HttpGet]
         public async Task<IActionResult> IndexAsync(SessionViewModel model)
@@ -78,6 +88,55 @@ namespace PetCareAppMVC.Features.Listings
 
 
         }
+
+
+        [HttpGet]
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            var adressQuery = new  Queries.GetAdlistQuery(id, CancellationToken.None);
+            var adress = await mediator.Send(adressQuery);
+            if (adress == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                ListingsViewModel model = mapper.Map<ListingsViewModel>(adress);
+                return View(model);
+            }
+        }
+
+        public async Task<IActionResult> Delete(string sessionId, string UserName, string adListingId)
+        {
+
+            //'&AdlistingId='+
+            //objJson[i].adName['adlisting id']+
+
+            return View();
+
+
+        }
+
+
+
+        public async Task<IActionResult> Manage(string sessionId, string UserName, string adListingId)
+        {
+
+            return View();
+
+
+        }
+
+        public async Task<IActionResult> Create(string sessionId, string UserName)
+        {
+
+            return View();
+
+
+        }
+
+
 
     }
 

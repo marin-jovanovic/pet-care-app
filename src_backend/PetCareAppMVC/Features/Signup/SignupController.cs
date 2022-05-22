@@ -61,37 +61,18 @@ namespace PetCareAppMVC.Features.Signup
     [HttpPost]
         public async Task<ActionResult> SignupCheck(SignupViewModel model)
         {
-            model.PersonId = 2;
-            model.PersonFirstName = "a";
-            model.PersonLastName = "a";
-            model.Oib = "a";
-            model.PersonEmail = "a";
-            model.PersonMobile = "a";
-            model.UserName = "a";
-            model.Password = "a";
-            model.SessionId = "a";
-
-            Console.WriteLine(model.PersonFirstName + " " +
-            model.PersonLastName + " " +
-            model.Oib + " " +
-            model.PersonEmail + " " +
-            model.PersonMobile + " " +
-            model.UserName + " " +
-            model.Password + " " +
-            model.SessionId);
-
-            if (ModelState.IsValid)
-            {
-                //Console.WriteLine("login check: model is valid");
-                //var query = new DomainServices.People.Queries.GetPeopleQuery();
-                //var data = await mediator.Send(query);
-                //foreach (var item in data)
+           
+                var query = new DomainServices.People.Queries.GetPeopleQuery();
+                var data = await mediator.Send(query);
+                foreach (var item in data)
+                {
+                  //if (!item.UserName.Equals(model.UserName))
+                  
                 //{
-                //    if (item.UserName.Equals(model.userName) && item.Password.Equals(model.password))
-                //    {
+                    var command = mapper.Map<AddPersonCommand>(model);
+                    int id = await mediator.Send(command);
 
-                //        return View("../listings/index", model);
-                //    }
+                    //}
                 //}
 
                 Console.WriteLine("model je validan");

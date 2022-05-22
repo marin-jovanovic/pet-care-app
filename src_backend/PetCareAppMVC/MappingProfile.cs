@@ -4,7 +4,8 @@ using PetCareAppMVC.Features.Adlisting;
 using PetCareAppMVC.Features.Login;
 using PetCareAppMVC.Features.Signup;
 using Domain;
-
+using PetCareAppMVC.Features.Adress;
+using static DomainServices.Adress.Commands;
 
 namespace PetCareAppMVC;
 
@@ -33,5 +34,17 @@ public class MappingProfile : Profile
         CreateMap<Domain.People.Person, SignupViewModel> ();
 
         CreateMap<SignupViewModel, DomainServices.People.Commands.AddPersonCommand>();
+        CreateMap<Domain.Adress, Infrastructure5.EFModel.Adress>();
+        CreateMap<Infrastructure5.EFModel.Adress, Domain.Adress>();
+        CreateMap<AdressViewModel, Domain.Adress >();
+        CreateMap<Domain.Adress, PetCareAppMVC.Features.Adress.AdressViewModel>();
+        CreateMap<AdressViewModel, UpdateAdressCommand>();
+        CreateMap<Infrastructure5.EFModel.Adress, UpdateAdressCommand>();
+        CreateMap<UpdateAdressCommand, Infrastructure5.EFModel.Adress>();
+        CreateMap< AdressViewModel, AddAdressCommand>();
+        CreateMap<DomainServices.Adress.Commands, AdressViewModel>();
+        CreateMap<AdressViewModel, DomainServices.Adress.Commands>();
+        //Missing type map configuration or unsupported mapping.Mapping types: AdressViewModel->AddAdressCommand
+        //PetCareAppMVC.Features.Adress.AdressViewModel->DomainServices.Adress.Commands + AddAdressCommand
     }
 }

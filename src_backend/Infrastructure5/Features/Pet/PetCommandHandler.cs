@@ -28,10 +28,10 @@ namespace Infrastructure5.Features.Pet
 
         public async Task<Unit> Handle(DeletePet request, CancellationToken cancellationToken)
         {
-            var entity = await ctx.Pet.FirstOrDefaultAsync(p => p.PetId == request.idPet);
+            var entity = await ctx.Pet.FindAsync(request.idPet);
             if (entity != null)
             {
-                mapper.Map(request, entity);
+                ctx.Remove(entity);
                 await ctx.SaveChangesAsync();
             }
             return Unit.Value;
@@ -39,13 +39,15 @@ namespace Infrastructure5.Features.Pet
 
         public async Task<Unit> Handle(UpdatePet request, CancellationToken cancellationToken)
         {
-            var entity = await ctx.Pet.FindAsync(request.PetId);
+
+            var entity = await ctx.Pet.FirstOrDefaultAsync(p => p.PetId == request.PetId);
             if (entity != null)
             {
-                ctx.Remove(entity);
+                mapper.Map(request, entity);
                 await ctx.SaveChangesAsync();
             }
             return Unit.Value;
+            
         }
     }
 }

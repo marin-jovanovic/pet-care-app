@@ -11,7 +11,7 @@ namespace ProjectMVC.Features.Home
 
 
         public IActionResult Index()
-    {
+   {
 
 
 

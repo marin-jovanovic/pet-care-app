@@ -26,9 +26,9 @@ namespace Infrastructure5.Features.Adress
             return entity.AdressId;
         }
 
-        public async Task<Unit> Handle(DeleteAdressCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UpdateAdressCommand request, CancellationToken cancellationToken)
         {
-            var entity = await ctx.Adress.FirstOrDefaultAsync(p => p.AdressId == request.adressId);
+            var entity = await ctx.Adress.FirstOrDefaultAsync(p => p.AdressId == request.AdressId);
             if (entity != null)
             {
                 mapper.Map(request, entity);
@@ -36,10 +36,11 @@ namespace Infrastructure5.Features.Adress
             }
             return Unit.Value;
         }
+       
 
-        public async Task<Unit> Handle(UpdateAdressCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(DeleteAdressCommand request, CancellationToken cancellationToken)
         {
-            var entity = await ctx.Adress.FindAsync(request.AdressId);
+            var entity = await ctx.Adress.FindAsync(request.adressId);
             if (entity != null)
             {
                 ctx.Remove(entity);

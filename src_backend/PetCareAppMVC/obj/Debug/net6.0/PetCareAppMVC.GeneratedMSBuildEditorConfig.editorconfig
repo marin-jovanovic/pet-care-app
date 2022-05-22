@@ -23,12 +23,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcQWRsaXN0aW5nXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Adress/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcQWRyZXNzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Adress/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcQWRyZXNzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Adress/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcQWRyZXNzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Listings/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcTGlzdGluZ3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Listings/Index.cshtml]
@@ -65,6 +77,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/People/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcUGVvcGxlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Pet/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcUGV0XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Pet/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcUGV0XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Pet/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcUGV0XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mataj/OneDrive/Documents/IS_final/pet-care-app/src_backend/PetCareAppMVC/Features/Shared/Navigation.cshtml]
