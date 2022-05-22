@@ -64,6 +64,16 @@ class TestMain(unittest.TestCase):
         self.assertTrue(True)
 
     def test_enter_my_listings(self):
+        driver = init()
+
+        home(driver, True)
+        login(
+            driver,
+            username=self.get_constants()["existing user username"],
+            password=self.get_constants()["existing user password"]
+        )
+
+
         self.assertTrue(True)
 
     def test_enter_edit_first_listing(self):
@@ -188,21 +198,16 @@ class TestMain(unittest.TestCase):
                )
 
         try:
-            driver.find_element(by=By.CSS_SELECTOR, value=get_selectors()["home"]["logout content"])
+            driver.find_element(by=By.CSS_SELECTOR, value=get_selectors()["home"]["user"])
 
-            self.assertTrue(False)
-
-        except selenium.common.exceptions.NoSuchElementException:
+            self.test_controller_delete_user()
             self.assertTrue(True)
 
+        except selenium.common.exceptions.NoSuchElementException:
+            self.test_controller_delete_user()
+            self.assertTrue(False)
 
-
-        input("dodan")
-
-        self.test_controller_delete_user()
-
-        input("obrisan")
-
+    def test_mylistings(self):
 
 
 if __name__ == "__main__":
