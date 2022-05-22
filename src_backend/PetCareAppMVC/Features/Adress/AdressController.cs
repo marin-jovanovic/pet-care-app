@@ -45,7 +45,6 @@ namespace PetCareAppMVC.Features.Adress
             else
             {
                 AdressViewModel model = mapper.Map<AdressViewModel>(adress);
-                return RedirectToAction("Index", "Pet");
                 
                 return View(model);
 
