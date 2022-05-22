@@ -1,0 +1,37 @@
+﻿@model Features.Pet.PetViewModel
+@{
+  ViewBag.Title = "Add new pet";
+}
+
+<h5>Add new person</h5>
+
+<form method="post">
+  <div asp-validation-summary="All"></div>
+  <div class="form-floating mb-3">
+    <label asp-for="PetName"></label>
+    <input asp-for="PetName" class="form-control">
+    
+  </div>
+  <div class="form-floating mb-3">
+     <label asp-for="Sex"></label>
+    <input asp-for="Sex" class="form-control">
+    
+  </div>
+    <div class="form-floating mb-3">
+     <label asp-for="Size"></label>
+    <input asp-for="Size" class="form-control">
+  </div>
+  <div class="form-floating mb-3">
+     <label asp-for="PetType"></label>
+    <input asp-for="PetType" class="form-control">
+  </div>
+  <div class="form-floating mb-3">
+     <label asp-for="Breed"></label>
+    <input asp-for="Breed" class="form-control">
+  </div>
+   
+  <div>
+    <button type="submit" class="btn btn-sm btn-primary">Save <i class="fas fa-save ms-1"></i></button>
+  </div>
+</form>
+

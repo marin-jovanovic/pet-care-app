@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ProjectMVC</title>
+            <link rel="icon" type="image/x-icon" href="~/resources/favicon.ico">
+
+            
+    @*<link asp-append-version="true" rel="stylesheet" href="~/styles/login.css" />*@
+</head>
+<body>
+
+ 
+          @*<partial name="Navigation" />*@
+     <div>
+
+          @RenderBody()
+
+     </div>
+
+         
+ 
+@*  <script>
+    window.applicationBaseUrl = '@Url.Content("~/")';
+  </script>
+*@
+    @*<script asp-append-version="true" src="~/lib/jquery/jquery.min.js"></script>*@
+  @*<script asp-append-version="true" src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>  *@
+  @*<script asp-append-version="true" src="~/lib/toastr.js/toastr.min.js"></script>  *@
+  @*<script src="~/js/site.js" asp-append-version="true"></script>*@
+  @*<partial name="ShowMessage"/>*@
+  @*@await RenderSectionAsync("Scripts", required: false)*@
+</body>
+</html>

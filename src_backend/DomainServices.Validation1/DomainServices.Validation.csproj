@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="10.4.0" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="Sieve" Version="2.5.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DomainService\DomainServices.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Adlisting\" />
+    <Folder Include="Location\" />
+    <Folder Include="Pettype\" />
+    <Folder Include="Pet\" />
+  </ItemGroup>
+
+</Project>
