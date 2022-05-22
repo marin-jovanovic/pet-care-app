@@ -79,7 +79,8 @@ namespace PetCareAppMVC.Features.Signup
                 //}
 
                 Console.WriteLine("model je validan");
-            
+
+            return RedirectToAction("Index", "Home");
 
             ViewData["error"] = true;
             return View("./index");

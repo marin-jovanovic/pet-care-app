@@ -64,19 +64,23 @@ def get_selectors():
             "password": "#input__password",
             "password repeat": "#input__password_repeat",
             "confirm": "#registerFormU > div > span:nth-child(45) > input"
+        },
+
+        "logout": {
+            "logout content": "body > div:nth-child(1) > div:nth-child(1)"
         }
 
     }
 
 def click(driver, css_selector):
     print("selector", css_selector)
-    time.sleep(1)
+    # time.sleep(1)
     elem = driver.find_element(by=By.CSS_SELECTOR, value=css_selector)
     elem.click()
 
 def type(driver, css_selector, content):
     print("selector", css_selector)
-    time.sleep(1)
+    # time.sleep(1)
     elem = driver.find_element(by=By.CSS_SELECTOR, value=css_selector)
     elem.send_keys(content)
 
@@ -116,6 +120,8 @@ def signup(driver, username, oib, firstname, lastname, email, card_number,
     type(driver, get_selectors()["signup"]["password"], password)
     type(driver, get_selectors()["signup"]["password repeat"], password_2)
     click(driver, get_selectors()["signup"]["confirm"])
+
+
 
 if __name__ == '__main__':
     driver = init()
