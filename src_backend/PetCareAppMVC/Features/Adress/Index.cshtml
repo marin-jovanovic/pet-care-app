@@ -30,15 +30,19 @@
             
 
           <td>
-            <form method="post" asp-action="Delete" asp-route-id="@item.AdressId">
+              <input type="button" onclick="window.open('/Adress/Delete?sessionId=admin&UserName=admin&adListingId=@item.AdressId')" value="Izbrisi" id="uredi_0">
+
+  @*          <form method="post" asp-action="Delete" asp-route-id="@item.AdressId">
                 <button type="submit" class="btn btn-danger confirm-delete">Delete <i class="fas fa-trash-alt ms-1"></i></button>
             </form>
-          </td>
+  *@        </td>
           <td>
-            <form method="get" asp-action="Edit" asp-route-id="@item.AdressId">
+              <input type="button" onclick="window.open('/Adress/Edit?sessionId=admin&UserName=admin&adListingId=@item.AdressId')" value="Uredi" id="uredi_0">
+
+@*            <form method="get" asp-action="Edit" asp-route-id="@item.AdressId">
                 <button type="submit" class="btn btn-danger confirm-delete">Edit <i class="fas fa-trash-alt ms-1"></i></button>
             </form>
-          </td>
+*@          </td>
         </tr>
       }
       

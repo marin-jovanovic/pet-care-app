@@ -1,4 +1,4 @@
-﻿@model IList<Domain.Pet>
+﻿@*@model IList<Domain.Pet>
 @{
   ViewBag.Title = "Adress";
 }
@@ -19,7 +19,6 @@
       @foreach (var item in Model)
       {
         <tr>
-         @*<td><a asp-action="Details" asp-route-id="@item.AdressId ">@item.AdressId</a></td>*@ 
             
             <td>@item.PetName </td>
             <td>@item.Sex </td>
@@ -38,6 +37,60 @@
             <form method="get" asp-action="Edit" asp-route-id="@item.PetId">
                 <button type="submit" class="btn btn-danger confirm-delete">Edit <i class="fas fa-trash-alt ms-1"></i></button>
             </form>
+          </td>
+        </tr>
+      }
+      
+      </tbody>
+  </table>
+</div>
+<p>
+  <a asp-action="Create" class="btn btn-sm btn-primary">Add pet</a>
+</p>*@
+
+                @model IList<Domain.Pet>
+@{
+  ViewBag.Title = "Adress";
+}
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">PetName </th>
+        <th scope="col">Sex</th>
+        <th>Size</th>
+        <th>PetType</th>
+        <th>Breed</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var item in Model)
+      {
+        <tr>
+            
+            <td>@item.PetName </td>
+            <td>@item.Sex </td>
+            <td>@item.Size </td>
+            <td>@item.PetType </td>
+            <td>@item.Breed </td>
+   
+            
+
+          <td>
+              <input type="button" onclick="window.open('/Pet/Delete?sessionId=admin&UserName=admin&adListingId=@item.PetId')" value="Izbrisi" id="uredi_0">
+@*            <form method="post" asp-action="Delete" asp-route-id="@item.PetId">
+                <button type="submit" class="btn btn-danger confirm-delete">Delete <i class="fas fa-trash-alt ms-1"></i></button>
+            </form>
+*@          </td>
+          <td>
+              <input type="button" onclick="window.open('/Pet/Edit?sessionId=admin&UserName=admin&adListingId=@item.PetId')" value="Uredi" id="uredi_0">
+
+ @*           <form method="get" asp-action="Edit" asp-route-id="@item.PetId">
+                <button type="submit" class="btn btn-danger confirm-delete">Edit <i class="fas fa-trash-alt ms-1"></i></button>
+            </form>
+ *@
           </td>
         </tr>
       }
