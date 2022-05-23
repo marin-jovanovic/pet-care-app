@@ -1,8 +1,6 @@
 ﻿@model Domain.Role
-  ViewBag.Title = $"Edit role {Model.RoleName}";
-}
 
-<h5>Edit role <i>@Model.RoleName</i></h5>
+<h5>Edit role: <i>@Model.RoleName</i></h5>
 
 <form method="post">
   <input type="hidden" asp-for="RoleId"/>

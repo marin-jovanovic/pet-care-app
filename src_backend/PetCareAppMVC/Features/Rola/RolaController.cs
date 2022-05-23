@@ -57,8 +57,6 @@ namespace ProjectMVC.Features.Rola
     {
       var query = new Queries.GetRoleQuery(id);
       var role = await mediator.Send(query);
-            Console.WriteLine("role",role,"kraj");
-
       if (role == null)
       {
         return NotFound();
@@ -78,7 +76,7 @@ namespace ProjectMVC.Features.Rola
         {
           var command = new Commands.UpdateRole
           {
-           
+            RoleId = model.RoleId,
             RoleName = model.RoleName
           };
           var data = await mediator.Send(command);
