@@ -34,7 +34,7 @@ public class AdlistingQueryHandler : IRequestHandler<GetAdlistingQuery, IList<Do
             PetId=p.PetId,
             AdlistingDescription=p.AdlistingDescription,
             EndDate=p.EndDate,
-            IdAdress=p.IdAdress,
+            IdAdress= p.IdAdress,
             IsActiv=p.IsActive,
             StartDate=p.StartDate,  
             Title=p.Title,  

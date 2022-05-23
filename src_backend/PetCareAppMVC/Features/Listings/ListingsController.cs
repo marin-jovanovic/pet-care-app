@@ -82,7 +82,7 @@ namespace PetCareAppMVC.Features.Listings
                 var queryProle = new DomainServices.PersonRole.Queries.GetPersonRolesQuery();
                 var datapr = await mediator.Send(queryProle);
                 var personRoles = datapr.ToArray();
-                IList<Domain.Adlisting> adlistings = new List<Domain.Adlisting>();
+                IList<Domain.Listings> adlistings = new List<Domain.Listings>();
 
                 var query5 = new DomainServices.Adlisting.Queries.GetAdlistingQuery();
                 var data5 = await mediator.Send(query5);
@@ -91,13 +91,30 @@ namespace PetCareAppMVC.Features.Listings
                 {
                     foreach (var adlisting in data5.ToArray())
                     {
+                        Domain.Listings dP=new Domain.Listings();   
                         if (data.PersonId == personRole.PersonId)
                         {
                             if (adlisting != null)
                             {
                                 if (personRole.AdlistingId == adlisting.AdlistingId)
                                 {
-                                    adlistings.Add(adlisting);
+                                    var petQ = new DomainServices.Pet.Queries.GetPetQuery(adlisting.PetId);
+                                    var petd = await mediator.Send(petQ);
+
+                                    var adrQ = new DomainServices.Adress.Queries.GetOneAdressQuery((int)   adlisting.IdAdress);
+                                    var adrd = await mediator.Send(adrQ);
+
+                                    dP.PetName=petd.PetName+" "+petd.Breed+" "+petd.PetType;
+                                    dP.IdAdress =(int) adlisting.IdAdress;
+                                    dP.PetId = adlisting.PetId;
+                                    dP.adress = adrd.Adress1 + " " + adrd.City;
+                                    dP.StartDate = dP.StartDate;
+                                    dP.Title=adlisting.Title;   
+                                    dP.EndDate = adlisting.EndDate;
+                                    dP.AdlistingDescription = adlisting.AdlistingDescription;
+                                    dP.Price= adlisting.Price;
+                                    dP.IsActiv=adlisting.IsActiv;
+                                    adlistings.Add(dP);
                                 }
                             }
                         }
@@ -131,6 +148,22 @@ namespace PetCareAppMVC.Features.Listings
         [HttpGet]
 
         public async Task<IActionResult> Edit(string sessionId, string UserName, string adListingId)
+        {
+            var adressQuery = new Queries.GetAdlistQuery(Int32.Parse(adListingId), CancellationToken.None);
+            var adress = await mediator.Send(adressQuery);
+            if (adress == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                //ListingsViewModel model = mapper.Map<ListingsViewModel>(adress);
+                return View(adress);
+            }
+        }
+        [HttpPost]
+
+        public async Task<IActionResult> Update(string sessionId, string UserName, string adListingId)
         {
             var adressQuery = new Queries.GetAdlistQuery(Int32.Parse(adListingId), CancellationToken.None);
             var adress = await mediator.Send(adressQuery);
