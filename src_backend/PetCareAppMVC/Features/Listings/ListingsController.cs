@@ -70,7 +70,7 @@ namespace PetCareAppMVC.Features.Listings
                 dP1.EndDate = ad.EndDate;
                 dP1.Price = ad.Price;
                 dP1.IsActiv = ad.IsActiv;
-
+                dP1.ListingId = ad.AdlistingId;
                 dP1.PetName=petd.PetName;
                 dP1.Size = petd.Size;
                 dP1.Sex = petd.Sex;
@@ -146,7 +146,7 @@ namespace PetCareAppMVC.Features.Listings
                                
                                     dP.IdAdress =(int) adlisting.IdAdress;
                                     dP.PetId = adlisting.PetId;
-                                    
+                                    dP.ListingId = adlisting.AdlistingId;
                                     dP.StartDate = dP.StartDate;
                                     dP.Title=adlisting.Title;   
                                     dP.EndDate = adlisting.EndDate;
@@ -203,7 +203,7 @@ namespace PetCareAppMVC.Features.Listings
 
                 var adrQ = new DomainServices.Adress.Queries.GetOneAdressQuery((int)ad.IdAdress);
                 var adrd = await mediator.Send(adrQ);
-
+                dP1.ListingId = ad.AdlistingId;
                 dP1.IdAdress = (int)ad.IdAdress;
                 dP1.PetId = ad.PetId;
                 dP1.StartDate = ad.StartDate;
