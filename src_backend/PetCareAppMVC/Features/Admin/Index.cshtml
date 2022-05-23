@@ -37,15 +37,15 @@
 @*     <input type="button" value="Moji oglasi" onclick="window.open('@Url.Action("MyListings", "Listings", new {sessionId = @ViewBag.SessionId,  UserName = @ViewBag.UserName})')"/>
 *@     
 
-<a type="button" href="/">Adlisting</a>
-<a type="button" href="/">address</a>
-<a type="button" href="/">home</a>
-<a type="button" href="/">listings</a>
-<a type="button" href="/">login</a>
-<a type="button" href="/">logout</a>
-<a type="button" href="/">people</a>
-<a type="button" href="/">pet</a>
-<a type="button" href="/">rola</a>
+@*<a type="button" href="/">Adlisting</a>*@
+<a type="button" href="../Adress">address</a>
+<a type="button" href="/Home">home</a>
+<a type="button" href="/Listings">listings</a>
+<a type="button" href="/Login">login</a>
+<a type="button" href="/People">people</a>
+<a type="button" href="/Pet">pet</a>
+<a type="button" href="/Rola">rola</a>
+<a type="button" href="/Logout">logout</a>
 
 
 <a type="button" href="/Listings/MyListings?sessionId=@ViewBag.SessionId&UserName=@ViewBag.UserName">Moji oglasi</a>

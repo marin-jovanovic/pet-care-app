@@ -50,7 +50,33 @@ namespace PetCareAppMVC.Features.Listings
 
             var query1 = new DomainServices.Adlisting.Queries.GetAdlistingQuery();
             var data2 = await mediator.Send(query1);
-            return View(data2);
+            Domain.Listings dP1 = new Domain.Listings();
+            IList<Domain.Listings> adlistings = new List<Domain.Listings>();
+            adlistings.Clear();
+            foreach (var ad in data2)
+            {
+
+                var petQ = new DomainServices.Pet.Queries.GetPetQuery(ad.PetId);
+                var petd = await mediator.Send(petQ);
+
+                var adrQ = new DomainServices.Adress.Queries.GetOneAdressQuery((int)ad.IdAdress);
+                var adrd = await mediator.Send(adrQ);
+
+                dP1.PetName = petd.PetName + " " + petd.Breed + " " + petd.PetType;
+                dP1.IdAdress = (int)ad.IdAdress;
+                dP1.PetId = ad.PetId;
+                dP1.adress = adrd.Adress1 + " " + adrd.City;
+                dP1.StartDate = ad.StartDate;
+                dP1.Title = ad.Title;
+                dP1.EndDate = ad.EndDate;
+                dP1.AdlistingDescription = ad.AdlistingDescription;
+                dP1.Price = ad.Price;
+                dP1.IsActiv = ad.IsActiv;
+                adlistings.Add(dP1);
+            }
+
+
+            return View(adlistings);
         }
 
         private readonly IMapper mapper;
@@ -68,6 +94,7 @@ namespace PetCareAppMVC.Features.Listings
 
             var query = new DomainServices.People.GetPersonByUserNameQuery(UserName, IncludeProjects: false);
             var data = await mediator.Send(query);
+            IList<Domain.Listings> adlistings = new List<Domain.Listings>();
             if (data != null)
             {
                 if (!(sessionId.Equals(data.SessionId)))
@@ -82,7 +109,7 @@ namespace PetCareAppMVC.Features.Listings
                 var queryProle = new DomainServices.PersonRole.Queries.GetPersonRolesQuery();
                 var datapr = await mediator.Send(queryProle);
                 var personRoles = datapr.ToArray();
-                IList<Domain.Listings> adlistings = new List<Domain.Listings>();
+                
 
                 var query5 = new DomainServices.Adlisting.Queries.GetAdlistingQuery();
                 var data5 = await mediator.Send(query5);
@@ -137,9 +164,33 @@ namespace PetCareAppMVC.Features.Listings
             // ovdje to mora bit filtrirano po ID-u usernamea
             ViewBag.SessionId = sessionId;
             ViewBag.UserName = UserName;
+
+
             var query1 = new DomainServices.Adlisting.Queries.GetAdlistingQuery();
             var data2 = await mediator.Send(query1);
-            return View(data2);
+            Domain.Listings dP1 = new Domain.Listings();
+            foreach (var ad in data2)
+            {
+               
+                var petQ = new DomainServices.Pet.Queries.GetPetQuery(ad.PetId);
+                var petd = await mediator.Send(petQ);
+
+                var adrQ = new DomainServices.Adress.Queries.GetOneAdressQuery((int)ad.IdAdress);
+                var adrd = await mediator.Send(adrQ);
+
+                dP1.PetName = petd.PetName + " " + petd.Breed + " " + petd.PetType;
+                dP1.IdAdress = (int)ad.IdAdress;
+                dP1.PetId = ad.PetId;
+                dP1.adress = adrd.Adress1 + " " + adrd.City;
+                dP1.StartDate = ad.StartDate;
+                dP1.Title = ad.Title;
+                dP1.EndDate = ad.EndDate;
+                dP1.AdlistingDescription = ad.AdlistingDescription;
+                dP1.Price = ad.Price;
+                dP1.IsActiv = ad.IsActiv;
+                adlistings.Add(dP1);
+            }
+            return View(adlistings);
 
 
         }
