@@ -22,7 +22,7 @@ namespace PetCareAppMVC.Features.Listings
 {
     public class AdminController : Controller
     {
-
+        
 
 
         [HttpGet]

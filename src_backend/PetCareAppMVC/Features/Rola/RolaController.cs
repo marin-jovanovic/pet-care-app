@@ -76,7 +76,7 @@ namespace ProjectMVC.Features.Rola
         {
           var command = new Commands.UpdateRole
           {
-            RoleId = model.RoleId,
+           
             RoleName = model.RoleName
           };
           var data = await mediator.Send(command);

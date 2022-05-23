@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainServices.Validation",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure5", "Infrastructure5\Infrastructure5.csproj", "{14F58EDF-9BC4-434A-908D-EC2E7BE92BF0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetCareAppMVCTests1", "PetCareAppMVCTests1\PetCareAppMVCTests1.csproj", "{A8B2143C-6725-4BD5-8F17-F96862681A52}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{14F58EDF-9BC4-434A-908D-EC2E7BE92BF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14F58EDF-9BC4-434A-908D-EC2E7BE92BF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14F58EDF-9BC4-434A-908D-EC2E7BE92BF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8B2143C-6725-4BD5-8F17-F96862681A52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8B2143C-6725-4BD5-8F17-F96862681A52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8B2143C-6725-4BD5-8F17-F96862681A52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8B2143C-6725-4BD5-8F17-F96862681A52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

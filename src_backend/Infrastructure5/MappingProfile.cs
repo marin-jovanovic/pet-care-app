@@ -50,6 +50,6 @@ public class MappingProfile : Profile
 
             CreateMap< Infrastructure5.EFModel.Role,Domain.Role>();
         CreateMap<Infrastructure5.EFModel.AdListing, Domain.Adlisting>();
-      
+        CreateMap<Infrastructure5.EFModel.Role, Domain.Role>();
     }
 }

@@ -34,11 +34,20 @@ namespace Domain
         public string sessionId { get; set; }
 
 
-        public string PetName { get; set; } 
-        public  string adress { get; set; }     
+       
+        public string PetName { get; set; }
+        public bool? Sex { get; set; }
+        public string Size { get; set; }
+        public string PetType { get; set; }
+        public string Breed { get; set; }
 
 
-
+        public string Adress1 { get; set; }
+        public string City { get; set; }
+        public string Country { get; set; }
+        public string PostalCode { get; set; }
+        public bool? IsHouse { get; set; }
+        public int? Floor { get; set; }
 
     }
 }

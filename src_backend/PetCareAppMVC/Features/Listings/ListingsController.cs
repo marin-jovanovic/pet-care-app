@@ -65,13 +65,25 @@ namespace PetCareAppMVC.Features.Listings
                 dP1.PetName = petd.PetName + " " + petd.Breed + " " + petd.PetType;
                 dP1.IdAdress = (int)ad.IdAdress;
                 dP1.PetId = ad.PetId;
-                dP1.adress = adrd.Adress1 + " " + adrd.City;
                 dP1.StartDate = ad.StartDate;
                 dP1.Title = ad.Title;
                 dP1.EndDate = ad.EndDate;
-                dP1.AdlistingDescription = ad.AdlistingDescription;
                 dP1.Price = ad.Price;
                 dP1.IsActiv = ad.IsActiv;
+
+                dP1.PetName=petd.PetName;
+                dP1.Size = petd.Size;
+                dP1.Sex = petd.Sex;
+                dP1.PetType = petd.PetType;
+                dP1.Breed=petd.Breed;
+
+                dP1.Adress1 = adrd.Adress1;
+                dP1.City= adrd.City;
+                dP1.Country = adrd.Country;
+                dP1.PostalCode=adrd.PostalCode;
+                dP1.IsHouse = adrd.IsHouse;
+                dP1.Floor=adrd.Floor;
+
                 adlistings.Add(dP1);
             }
 
@@ -131,16 +143,30 @@ namespace PetCareAppMVC.Features.Listings
                                     var adrQ = new DomainServices.Adress.Queries.GetOneAdressQuery((int)   adlisting.IdAdress);
                                     var adrd = await mediator.Send(adrQ);
 
-                                    dP.PetName=petd.PetName+" "+petd.Breed+" "+petd.PetType;
+                               
                                     dP.IdAdress =(int) adlisting.IdAdress;
                                     dP.PetId = adlisting.PetId;
-                                    dP.adress = adrd.Adress1 + " " + adrd.City;
+                                    
                                     dP.StartDate = dP.StartDate;
                                     dP.Title=adlisting.Title;   
                                     dP.EndDate = adlisting.EndDate;
                                     dP.AdlistingDescription = adlisting.AdlistingDescription;
                                     dP.Price= adlisting.Price;
                                     dP.IsActiv=adlisting.IsActiv;
+
+
+                                    dP.PetName = petd.PetName;
+                                    dP.Size = petd.Size;
+                                    dP.Sex = petd.Sex;
+                                    dP.PetType = petd.PetType;
+                                    dP.Breed = petd.Breed;
+
+                                    dP.Adress1 = adrd.Adress1;
+                                    dP.City = adrd.City;
+                                    dP.Country = adrd.Country;
+                                    dP.PostalCode = adrd.PostalCode;
+                                    dP.IsHouse = adrd.IsHouse;
+                                    dP.Floor = adrd.Floor;
                                     adlistings.Add(dP);
                                 }
                             }
@@ -178,16 +204,27 @@ namespace PetCareAppMVC.Features.Listings
                 var adrQ = new DomainServices.Adress.Queries.GetOneAdressQuery((int)ad.IdAdress);
                 var adrd = await mediator.Send(adrQ);
 
-                dP1.PetName = petd.PetName + " " + petd.Breed + " " + petd.PetType;
                 dP1.IdAdress = (int)ad.IdAdress;
                 dP1.PetId = ad.PetId;
-                dP1.adress = adrd.Adress1 + " " + adrd.City;
                 dP1.StartDate = ad.StartDate;
                 dP1.Title = ad.Title;
                 dP1.EndDate = ad.EndDate;
                 dP1.AdlistingDescription = ad.AdlistingDescription;
                 dP1.Price = ad.Price;
                 dP1.IsActiv = ad.IsActiv;
+                dP1.PetName = petd.PetName;
+                dP1.Size = petd.Size;
+                dP1.Sex = petd.Sex;
+                dP1.PetType = petd.PetType;
+                dP1.Breed = petd.Breed;
+
+                dP1.Adress1 = adrd.Adress1;
+                dP1.City = adrd.City;
+                dP1.Country = adrd.Country;
+                dP1.PostalCode = adrd.PostalCode;
+                dP1.IsHouse = adrd.IsHouse;
+                dP1.Floor = adrd.Floor;
+
                 adlistings.Add(dP1);
             }
             return View(adlistings);
