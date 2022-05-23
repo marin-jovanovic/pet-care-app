@@ -131,7 +131,7 @@ objJson.push({
         "title": "@item.Title",
         "petid": "@item.PetId",
         "petname": "@item.PetName",
-        "adress": "@item.adress",
+        "adress": "@item.Adress1",
         "adress_id": "@item.IdAdress"
     }
 })
@@ -141,12 +141,12 @@ l_1.push(
 )
 
 l_2.push(
-    `"petname": "@item.PetName" <hr/> sex ? <hr/> pet type ? <hr/> size ? <hr/> breed ? `
+    `"petname": "@item.PetName" <hr/>sex :" @item.Sex" <hr/>PetType :"@item.PetType"<hr/> size "@item.Size" <hr/> breed :"@item.Breed" `
 )
 
 l_3.push(
 
-`"adress": "@item.adress",<hr/> city: ?<hr/>postal code ?<hr/>country ? <hr/>ishouse ? <hr/> floor?<hr/> `
+`"adress": "@item.Adress1",<hr/> city: "@item.Adress1"<hr/>postal code "@item.PostalCode"<hr/>country "@item.Country" <hr/>ishouse "@item.IsHouse" <hr/> floor "@item.Floor"<hr/> `
 )
 
 console.log(objJson);
@@ -157,13 +157,13 @@ console.log(objJson);
 @{
 
 
-                                                        <script>
-                                                        let sessionid = "@ViewBag.sessionId";
-                                                        let username = "@ViewBag.UserName";
-                                       
-                                                        
-                                                                    
-                                                             </script>
+                                                                <script>
+                                                                let sessionid = "@ViewBag.sessionId";
+                                                                let username = "@ViewBag.UserName";
+                                               
+                                                                
+                                                                            
+                                                                     </script>
 
 }
 
