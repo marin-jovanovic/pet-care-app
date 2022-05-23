@@ -1,27 +1,11 @@
 @*@model PetCareAppMVC.Features.Login.LoginViewModel*@
-@model IList<Domain.Adlisting>
+@model IList<Domain.Listings>
 
 @{
     ViewData["Title"] = "oglasi";
 }
 
-<div>
-
-
-    @*
-        @Model.sessionId
-
-    *@
-
-</div>
-
-
-
-
-
-
 <link asp-append-version="true" rel="stylesheet" href="~/styles/listings.css" />
-
 
  <div class="center__container" >
       <div>
@@ -35,6 +19,10 @@
           <div class="header__empty">
           </div>
           <div>
+            <a href="#home">person</a>
+            <a href="#home">listing</a>
+            <a href="#home">itd</a>
+            <a href="#home">itd</a>
             <a href="#home">Pretraži</a>
               <a href="#news">Odjava</a>
             <div class="dropdown">
@@ -50,24 +38,68 @@
         </div>
         <div>
 
-            <div id="listingTable"></div>
+  @*          <table>
+                <tr>
+                    <td  class="split__left_20">
+        l
+                    </td>
+                    <td class="split__right_80">
+                        d
+                    </td>
+                </tr>
+
+            </table>*@
+
+
+
+            </div>
+
+
+            <style>
+
+                .float-container {
+    border: 3px solid #fff;
+    padding: 20px;
+}
+
+.float-child {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    border: 2px solid red;
+}  
+            </style>
+
+      <div class="float-container">
+
+  <div class="float-child">
+    <div class="green">
+
+            <div id="listingTable" style="background-color: lightblue;"></div>
     <a href="javascript:prevPage()" id="btn_prev">Prev</a>
     <a href="javascript:nextPage()" id="btn_next">Next</a>
     page: <span id="page"></span>
 
 
-    <script>
-let objJson = [];
-        //       let objJson = [
-        //    { adName: {"a": "b", "c": "d"}},
-        //    { adName: {"a": "b", "c": "d"}},
-        //    { adName: {"a": "b", "c": "d"}},
-        //    { adName: {"a": "b", "c": "d"}},
-        //    { adName: {"a": "b", "c": "d"}},
-        //]; 
+    </div>
+  </div>
+  
+  <div class="float-child">
+    <div id="det" class="blue">
+        <html>
+            <body>
+                <a href="google.com">bbbb</a>
+            </body>
+        </html>
+        Float Column 2</div>
+  </div>
+  
+</div>
 
-            //let sessionid = @ViewBag.sessionId;
-            //let username = @ViewBag.UserName;
+
+
+    <script>
+        let objJson = [];
     </script>
 
  
@@ -78,17 +110,17 @@ let objJson = [];
 
 objJson.push({
     adName: {
-        "adlisting id": "@item.AdlistingId",
-        @*"start date": " @item.StartDate  ",*@
-        @*"end date": " @item.EndDate ",*@
-        @*"id adr": "@item.IdAdress",*@
-        @*"adlisting descr": "@item.AdlistingDescription",*@
-        @*"isactive": "@item.IsActiv",*@
-        @*"price": "@item.Price",*@
+        "adlisting id": "@item. ListingId",
+        @"start date": " @item.StartDate  ",@
+        @"end date": " @item.EndDate ",@
+        @"id adr": "@item.IdAdress",@
+        @"adlisting descr": "@item.AdlistingDescription",@
+        @"isactive": "@item.IsActiv",@
+        @"price": "@item.Price",@
         "title": "@item.Title",
         "petid": "@item.PetId",
-        "petname": "placeholder_pet_name",
-        "adress": "placeholder_adress",
+        "petname": "@item.PetName",
+        "adress": "@item.adress",
         "adress_id": @item.IdAdress
     }
 })
@@ -100,14 +132,14 @@ console.log(objJson);
 
 @{
 
-    <script>
-    let sessionid = "@ViewBag.sessionId";
-    let username = "@ViewBag.UserName";
+            <script>
+            let sessionid = "@ViewBag.sessionId";
+            let username = "@ViewBag.UserName";
+                                
                         
-                
-      
-                        
-                        </script>
+              
+                                
+                 </script>
 
 }
 
@@ -146,95 +178,95 @@ console.log(objJson);
             if (page > numPages()) page = numPages();
 
             listing_table.innerHTML = "";
+                  if (objJson[i] !== 'undefined') {
 
-            listing_table.innerHTML += "<table>"
+                        listing_table.innerHTML += "<table>"
+
+
+                } 
             for (var i = (page-1) * records_per_page; i < (page * records_per_page) && i < objJson.length; i++) {
 
-                   console.log(objJson[i])
+                 
 
+                if (objJson[i] !== undefined) {
+                      console.log(objJson[i])
+
+
+                     listing_table.innerHTML += "oglas:" + ": "+ objJson[i].adName["title"] + ""; 
+                    listing_table.innerHTML +=      
+                    '<input type="button" onclick="window.open(\'/Listings/Edit?sessionId='+
+                    sessionid+
+                    '&UserName='+
+                    username+
+                    '&adListingId='+ String(objJson[i].adName["adlisting id"])+
+                    '\')" value="Uredi" id="uredi_'+String(i)+'"/>'
+                    listing_table.innerHTML +=      
+                    '<input type="button" onclick="window.open(\'/Listings/DeleteListing?sessionId='+
+                    sessionid+
+                    '&UserName='+
+                    username+
+                    '&adListingId='+ String(objJson[i].adName["adlisting id"])+
+                    '\')" value="Izbrisi" id="izbrisi_'+String(i)+'"/>'
+                    listing_table.innerHTML += "<br/>"
+                    listing_table.innerHTML += "<br/>"
+                
+
+                    listing_table.innerHTML += "zivotinja:" + ": "+ objJson[i].adName["petname"] + ""; 
+                    listing_table.innerHTML +=      
+                    '<input type="button" onclick="window.open(\'/Pet/Edit?sessionId='+
+                    sessionid+
+                    '&UserName='+
+                    username+
+                    '&adListingId='+ String(objJson[i].adName["petid"])+
+                    '\')" value="Uredi" id="uredi_'+String(i)+'"/>'                
+                    listing_table.innerHTML +=      
+                    '<input type="button" onclick="window.open(\'/Pet/Delete?sessionId='+
+                    sessionid+
+                    '&UserName='+
+                    username+
+                    '&adListingId='+ String(objJson[i].adName["petid"])+
+                    '\')" value="Izbrisi" id="izbrisi_'+String(i)+'"/>'
+                    listing_table.innerHTML += "<br/>"
+                    listing_table.innerHTML += "<br/>"
+
+
+    
+                    
+                    listing_table.innerHTML += "adresa:" + ": "+ objJson[i].adName["adress"] + ""; 
+
+       
+                    listing_table.innerHTML +=      
+                    '<input type="button" onclick="window.open(\'/Adress/Edit?sessionId='+
+                    sessionid+
+                    '&UserName='+
+                    username+
+                    '&adListingId='+ String(objJson[i].adName["adress_id"])+
+                    '\')" value="Uredi" id="uredi_'+String(i)+'"/>'
+                    listing_table.innerHTML +=      
+                    '<input type="button" onclick="window.open(\'/Adress/Delete?sessionId='+
+                    sessionid+
+                    '&UserName='+
+                    username+
+                    '&adListingId='+ String(objJson[i].adName["adress_id"])+
+                    '\')" value="Izbrisi" id="izbrisi_'+String(i)+'"/>'
+                    listing_table.innerHTML += "<br/>"
+                    listing_table.innerHTML += "<br/>"
+
+                            listing_table.innerHTML += "<hr/>" 
+                        
+
+
+                }
                           
                    
-               listing_table.innerHTML += "oglas:" + ": "+ objJson[i].adName["title"] + ""; 
-                    //for (const key in objJson[i].adName) {
-                    //    console.log(key)
-                    //    // listing_table.innerHTML +="---" + objJson[i].adName + "<br>"; 
-                    //    listing_table.innerHTML += key + ": "+ objJson[i].adName[key] + "<hr/>";                      
-                    //}
-                //listing_table.innerHTML +=      '<input type="button" onclick="alert()" value="Uredi" id="uredi_'+String(i)+'"/>'
-                listing_table.innerHTML +=      
-                '<input type="button" onclick="window.open(\'/Listings/Edit?sessionId='+
-                sessionid+
-                '&UserName='+
-                username+
-                '&adListingId='+ String(objJson[i].adName["adlisting id"])+
-                '\')" value="Uredi" id="uredi_'+String(i)+'"/>'
-                listing_table.innerHTML +=      
-                '<input type="button" onclick="window.open(\'/Listings/DeleteListing?sessionId='+
-                sessionid+
-                '&UserName='+
-                username+
-                '&adListingId='+ String(objJson[i].adName["adlisting id"])+
-                '\')" value="Izbrisi" id="izbrisi_'+String(i)+'"/>'
-                listing_table.innerHTML += "<br/>"
-                listing_table.innerHTML += "<br/>"
-                
-
-                listing_table.innerHTML += "zivotinja:" + ": "+ objJson[i].adName["petname"] + ""; 
-                    //for (const key in objJson[i].adName) {
-                    //    console.log(key)
-                    //    // listing_table.innerHTML +="---" + objJson[i].adName + "<br>"; 
-                    //    listing_table.innerHTML += key + ": "+ objJson[i].adName[key] + "<hr/>";                      
-                    //}
-                //listing_table.innerHTML +=      '<input type="button" onclick="alert()" value="Uredi" id="uredi_'+String(i)+'"/>'
-                listing_table.innerHTML +=      
-                '<input type="button" onclick="window.open(\'/Pet/Edit?sessionId='+
-                sessionid+
-                '&UserName='+
-                username+
-                '&adListingId='+ String(objJson[i].adName["petid"])+
-                '\')" value="Uredi" id="uredi_'+String(i)+'"/>'
-                
-                listing_table.innerHTML +=      
-                '<input type="button" onclick="window.open(\'/Pet/Delete?sessionId='+
-                sessionid+
-                '&UserName='+
-                username+
-                '&adListingId='+ String(objJson[i].adName["petid"])+
-                '\')" value="Izbrisi" id="izbrisi_'+String(i)+'"/>'
-                listing_table.innerHTML += "<br/>"
-                listing_table.innerHTML += "<br/>"
+               if (objJson[i] !== 'undefined') {
 
 
-
-                listing_table.innerHTML += "adresa:" + ": "+ objJson[i].adName["adress"] + ""; 
-                    //for (const key in objJson[i].adName) {
-                    //    console.log(key)
-                    //    // listing_table.innerHTML +="---" + objJson[i].adName + "<br>"; 
-                    //    listing_table.innerHTML += key + ": "+ objJson[i].adName[key] + "<hr/>";                      
-                    //}
-                //listing_table.innerHTML +=      '<input type="button" onclick="alert()" value="Uredi" id="uredi_'+String(i)+'"/>'
-                listing_table.innerHTML +=      
-                '<input type="button" onclick="window.open(\'/Adress/Edit?sessionId='+
-                sessionid+
-                '&UserName='+
-                username+
-                '&adListingId='+ String(objJson[i].adName["adress_id"])+
-                '\')" value="Uredi" id="uredi_'+String(i)+'"/>'
-                listing_table.innerHTML +=      
-                '<input type="button" onclick="window.open(\'/Adress/Delete?sessionId='+
-                sessionid+
-                '&UserName='+
-                username+
-                '&adListingId='+ String(objJson[i].adName["adress_id"])+
-                '\')" value="Izbrisi" id="izbrisi_'+String(i)+'"/>'
-                listing_table.innerHTML += "<br/>"
-                listing_table.innerHTML += "<br/>"
-
-                        listing_table.innerHTML += "<hr/>" 
-                        
-}
-            page_span.innerHTML = page + "/" + numPages();
             listing_table.innerHTML += "</table>"
+
+                } 
+}            page_span.innerHTML = page + "/" + numPages();
+
 
             if (page == 1) {
                 btn_prev.style.visibility = "hidden";
@@ -269,17 +301,8 @@ console.log(objJson);
 
           <hr/>
 
-   
-
-          <script>
 
 
-          </script>
-@*
-     <input type="button" value="Uredi" onclick="window.open('@Url.Action("MyListings", "Listings", new {sessionId = @ViewBag.SessionId,  UserName = @ViewBag.UserName})')"/>
-
-    <input type="button" value="izbrisi" onclick="window.open('@Url.Action("Index", "Logout", new {sessionId = @ViewBag.SessionId, UserName = @ViewBag.UserName} )')"/>
-*@
         <input type="button" value="Dodaj novi oglas" onclick="window.open('@Url.Action("Create", "Listings", new {sessionId = @ViewBag.SessionId, UserName = @ViewBag.UserName} )')"/>
 
 
@@ -287,3 +310,8 @@ console.log(objJson);
         </div>
       </div>
     </div>
+
+
+            <div>
+
+            </div>
