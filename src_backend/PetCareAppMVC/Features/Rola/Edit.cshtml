@@ -1,0 +1,21 @@
+﻿@model Domain.Role
+  ViewBag.Title = $"Edit role {Model.RoleName}";
+}
+
+<h5>Edit role <i>@Model.RoleName</i></h5>
+
+<form method="post">
+  <input type="hidden" asp-for="RoleId"/>
+  <div asp-validation-summary="All"></div>
+  <div class="form-floating mb-3">
+    <input asp-for="RoleName" class="form-control" id="floatingInput">
+    <label asp-for="RoleName"></label>
+  </div>
+  <div>
+    <button type="submit" class="btn btn-sm btn-primary">Save <i class="fas fa-save ms-1"></i></button>
+  </div>
+</form>
+
+@section Scripts{
+  <partial name="_ValidationScriptsPartial"/>
+}

@@ -4,9 +4,9 @@ using Infrastructure5.EFModel;
 using static DomainServices.Role.Commands;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure5.Features.Role
+namespace Infrastructure5.Features.Rola
 {
-    internal class RoleCommandHandler : IRequestHandler<CreateRole, int>,
+    internal class RoleCommandHandler : IRequestHandler<CreateRoleCommand, int>,
         IRequestHandler<UpdateRole>,IRequestHandler<DeleteRole>   
     {
         private readonly PetCareApp2Context ctx;
@@ -18,9 +18,9 @@ namespace Infrastructure5.Features.Role
             this.mapper = mapper;
         }
 
-        public async Task<int> Handle(CreateRole request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateRoleCommand request, CancellationToken cancellationToken)
         {
-            var entity = mapper.Map<Infrastructure5.EFModel.Role>(request);
+            var entity = mapper.Map<Infrastructure5.EFModel.Role>(request.RoleName);
             ctx.Add(entity);
             await ctx.SaveChangesAsync();
             return entity.RoleId;

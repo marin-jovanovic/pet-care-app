@@ -7,12 +7,7 @@ namespace DomainServices.Role
         public record DeleteRole(int IdRole) : IRequest;
 
 
-        public class CreateRole : IRequest<int>
-        {
-            public int RoleId { get; set; }
-            public string RoleName { get; set; }
-
-        }
+        public record CreateRoleCommand(string RoleName) : IRequest<int>;
 
         public class UpdateRole : IRequest
         {

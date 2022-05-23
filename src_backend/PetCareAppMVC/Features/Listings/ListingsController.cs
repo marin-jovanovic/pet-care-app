@@ -130,9 +130,9 @@ namespace PetCareAppMVC.Features.Listings
 
         [HttpGet]
 
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(string sessionId, string UserName, string adListingId)
         {
-            var adressQuery = new Queries.GetAdlistQuery(id, CancellationToken.None);
+            var adressQuery = new Queries.GetAdlistQuery(Int32.Parse(adListingId), CancellationToken.None);
             var adress = await mediator.Send(adressQuery);
             if (adress == null)
             {
@@ -140,8 +140,8 @@ namespace PetCareAppMVC.Features.Listings
             }
             else
             {
-                ListingsViewModel model = mapper.Map<ListingsViewModel>(adress);
-                return View(model);
+                //ListingsViewModel model = mapper.Map<ListingsViewModel>(adress);
+                return View(adress);
             }
         }
 
@@ -160,10 +160,12 @@ namespace PetCareAppMVC.Features.Listings
 
         public async Task<IActionResult> Manage(string sessionId, string UserName, string adListingId)
         {
-            var query = new DomainServices.Adlisting.Commands.AddAdlisting();
+            var query = new DomainServices.Adlisting.Queries.GetAdlistQuery(Int32.Parse(adListingId), new CancellationToken(false));
             var data = await mediator.Send(query);
 
-            return View();
+
+
+            return  RedirectToPage(nameof(Edit), data);
 
 
         }

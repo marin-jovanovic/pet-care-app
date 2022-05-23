@@ -48,5 +48,8 @@ public class MappingProfile : Profile
         CreateMap<EFModel.Person, Domain.People.Person>()
          .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.UserName));
 
+            CreateMap< Infrastructure5.EFModel.Role,Domain.Role>();
+        CreateMap<Infrastructure5.EFModel.AdListing, Domain.Adlisting>();
+      
     }
 }

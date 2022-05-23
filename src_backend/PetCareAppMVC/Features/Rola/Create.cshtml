@@ -1,0 +1,21 @@
+﻿@model Domain.Role
+@{
+  ViewBag.Title = "Add new role";
+}
+
+<h5>Add new role</h5>
+
+<form method="post">
+  <div asp-validation-summary="All"></div>
+  <div class="form-floating mb-3">
+    <input asp-for="RoleName" class="form-control" id="floatingInput">
+    <label asp-for="RoleName"></label>
+  </div>
+  <div>
+    <button type="submit" class="btn btn-sm btn-primary">Save <i class="fas fa-save ms-1"></i></button>
+  </div>
+</form>
+
+@section Scripts{
+  <partial name="_ValidationScriptsPartial"/>
+}

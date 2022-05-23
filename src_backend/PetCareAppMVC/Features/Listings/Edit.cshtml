@@ -1,9 +1,9 @@
-﻿@model PetCareAppMVC.Features.Listings.ListingsViewModel;
+﻿@model Domain.Adlisting;
 
 <h2>@Model.Title</h2>
 
 <form method="post">
-  <input type="hidden" asp-for=ListingId />
+  <input type="hidden" asp-for=AdlistingId />
   <div asp-validation-summary="All"></div>
   <div class="form-floating mb-3">
     <input asp-for="StartDate" class="form-control">
