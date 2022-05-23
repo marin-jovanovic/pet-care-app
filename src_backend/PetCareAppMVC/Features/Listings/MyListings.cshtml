@@ -86,12 +86,16 @@
   
   <div class="float-child">
     <div id="det" class="blue">
-        <html>
-            <body>
-                <a href="google.com">bbbb</a>
-            </body>
-        </html>
-        Float Column 2</div>
+
+
+                  @*<partial name="Edit" data="" />*@
+                  @*<partial name="/Pet/Edit?sessionId=aSG5dXcjCag9KR4HiAWh&UserName=us&adListingId=1" />*@
+
+                  
+
+        Float Column 2
+    
+    </div>
   </div>
   
 </div>
@@ -100,6 +104,13 @@
 
     <script>
         let objJson = [];
+
+let l_1 = [];
+let l_2 = [];
+let l_3 = [];
+
+
+
     </script>
 
  
@@ -110,20 +121,33 @@
 
 objJson.push({
     adName: {
-        "adlisting id": "@item. ListingId",
-        @"start date": " @item.StartDate  ",@
-        @"end date": " @item.EndDate ",@
-        @"id adr": "@item.IdAdress",@
-        @"adlisting descr": "@item.AdlistingDescription",@
-        @"isactive": "@item.IsActiv",@
-        @"price": "@item.Price",@
+        "adlisting id": "@item.ListingId",
+        "start date": " @item.StartDate  ",
+        "end date": " @item.EndDate ",
+        "id adr": "@item.IdAdress",
+        "adlisting descr": "@item.AdlistingDescription",
+        "isactive": "@item.IsActiv",
+        "price": "@item.Price",
         "title": "@item.Title",
         "petid": "@item.PetId",
         "petname": "@item.PetName",
         "adress": "@item.adress",
-        "adress_id": @item.IdAdress
+        "adress_id": "@item.IdAdress"
     }
 })
+
+l_1.push(
+ `start date:  " @item.StartDate  " <hr/> end date " @item.EndDate "<hr/>  adlisting description   "@item.AdlistingDescription"<hr/> title "@item.Title"<hr/>  is active "@item.IsActiv" <hr/> petid  "@item.PetId",`
+)
+
+l_2.push(
+    `"petname": "@item.PetName" <hr/> sex ? <hr/> pet type ? <hr/> size ? <hr/> breed ? `
+)
+
+l_3.push(
+
+`"adress": "@item.adress",<hr/> city: ?<hr/>postal code ?<hr/>country ? <hr/>ishouse ? <hr/> floor?<hr/> `
+)
 
 console.log(objJson);
                                     </script>
@@ -132,14 +156,14 @@ console.log(objJson);
 
 @{
 
-            <script>
-            let sessionid = "@ViewBag.sessionId";
-            let username = "@ViewBag.UserName";
-                                
-                        
-              
-                                
-                 </script>
+
+                                                        <script>
+                                                        let sessionid = "@ViewBag.sessionId";
+                                                        let username = "@ViewBag.UserName";
+                                       
+                                                        
+                                                                    
+                                                             </script>
 
 }
 
@@ -199,7 +223,7 @@ console.log(objJson);
                     '&UserName='+
                     username+
                     '&adListingId='+ String(objJson[i].adName["adlisting id"])+
-                    '\')" value="Uredi" id="uredi_'+String(i)+'"/>'
+                    '\');show('+i +',' +0 +')" value="Uredi" id="uredi_'+String(i)+'"/>'
                     listing_table.innerHTML +=      
                     '<input type="button" onclick="window.open(\'/Listings/DeleteListing?sessionId='+
                     sessionid+
@@ -218,7 +242,7 @@ console.log(objJson);
                     '&UserName='+
                     username+
                     '&adListingId='+ String(objJson[i].adName["petid"])+
-                    '\')" value="Uredi" id="uredi_'+String(i)+'"/>'                
+                    '\');show('+i +',' +1 +')" value="Uredi" id="uredi_'+String(i)+'"/>'                
                     listing_table.innerHTML +=      
                     '<input type="button" onclick="window.open(\'/Pet/Delete?sessionId='+
                     sessionid+
@@ -241,7 +265,7 @@ console.log(objJson);
                     '&UserName='+
                     username+
                     '&adListingId='+ String(objJson[i].adName["adress_id"])+
-                    '\')" value="Uredi" id="uredi_'+String(i)+'"/>'
+                    '\');show('+i +',' +2 +')" value="Uredi" id="uredi_'+String(i)+'"/>'
                     listing_table.innerHTML +=      
                     '<input type="button" onclick="window.open(\'/Adress/Delete?sessionId='+
                     sessionid+
@@ -310,7 +334,47 @@ console.log(objJson);
         </div>
       </div>
     </div>
+    
 
+        <div id="tmpdiv"></div>
+
+
+    <script>
+
+function show(id, c) {
+
+    if (c == 0) {
+        document.getElementById("det").innerHTML = "<div style='background-color:lightblue'>" + l_1[id] + "</div><hr/>"
+
+    } else {
+               document.getElementById("det").innerHTML = "<div>" + l_1[id] + "</div><hr/>"
+
+    }
+    
+        if (c == 1) {
+        document.getElementById("det").innerHTML += "<div style='background-color:lightblue'>" + l_2[id] + "</div><hr/>"
+
+    } else {
+               document.getElementById("det").innerHTML += "<div>" + l_2[id] + "</div><hr/>"
+
+    }
+    
+        if (c == 2) {
+        document.getElementById("det").innerHTML += "<div style='background-color:lightblue'>" + l_3[id] + "</div><hr/>"
+
+    } else {
+               document.getElementById("det").innerHTML += "<div>" + l_3[id] + "</div><hr/>"
+
+    }
+    
+
+       // document.getElementById("det").innerHTML += l_2[id]
+        //document.getElementById("det").innerHTML += l_3[id]
+
+}
+
+
+    </script>
 
             <div>
 

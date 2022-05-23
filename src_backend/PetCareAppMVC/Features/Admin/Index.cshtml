@@ -1,0 +1,79 @@
+@*@model PetCareAppMVC.Features.Login.LoginViewModel*@
+@*@model PetCareAppMVC.Features.Listings.SessionViewModel*@
+
+@model IList<Domain.Adlisting>
+
+@{
+    ViewData["Title"] = "oglasi";
+
+}
+
+
+ 
+
+
+
+
+
+
+<link asp-append-version="true" rel="stylesheet" href="~/styles/listings.css" />
+
+
+ <div class="center__container" >
+      <div>
+        <div class="navbar">
+          <div class="header__logo">
+            <div class="split__left_20"></div>
+            <div class="split__right_80">
+              <img class="header__logo__img" src="~/resources/logo_horizontal.png" alt="">
+            </div>
+          </div>
+@*          <div class="header__empty">
+          </div>
+*@          <div>
+
+
+
+@*     <input type="button" value="Moji oglasi" onclick="window.open('@Url.Action("MyListings", "Listings", new {sessionId = @ViewBag.SessionId,  UserName = @ViewBag.UserName})')"/>
+*@     
+
+<a type="button" href="/">Adlisting</a>
+<a type="button" href="/">address</a>
+<a type="button" href="/">home</a>
+<a type="button" href="/">listings</a>
+<a type="button" href="/">login</a>
+<a type="button" href="/">logout</a>
+<a type="button" href="/">people</a>
+<a type="button" href="/">pet</a>
+<a type="button" href="/">rola</a>
+
+
+<a type="button" href="/Listings/MyListings?sessionId=@ViewBag.SessionId&UserName=@ViewBag.UserName">Moji oglasi</a>
+<a type="button" href="/Logout/Index?sessionId=@ViewBag.SessionId&UserName=@ViewBag.UserName">Odjava</a>
+
+    @*<input type="button" value="Odjava" onclick="window.open('@Url.Action("Index", "Logout", new {sessionId = @ViewBag.SessionId, UserName = @ViewBag.UserName} )')"/>*@
+
+ 
+
+            <div class="dropdown">
+              <!-- <button class="dropbtn">todo ime korisnika  -->
+              <i class="fa fa-caret-down"></i>
+              </button>
+              <!-- <div class="dropdown-content">
+                <a href="#login">Moji oglasi</a>
+                <a href="#signup">Moj profil</a>
+                </div> -->
+            </div>
+          </div>
+        </div>
+        <div>
+          <style>
+            table, th, td {
+            border:1px solid black;
+            }
+          </style>
+            
+          helo admin
+        </div>
+      </div>
+    </div>

@@ -36,6 +36,7 @@
 
 @*     <input type="button" value="Moji oglasi" onclick="window.open('@Url.Action("MyListings", "Listings", new {sessionId = @ViewBag.SessionId,  UserName = @ViewBag.UserName})')"/>
 *@     
+
 <a type="button" href="/Listings/MyListings?sessionId=@ViewBag.SessionId&UserName=@ViewBag.UserName">Moji oglasi</a>
 <a type="button" href="/Logout/Index?sessionId=@ViewBag.SessionId&UserName=@ViewBag.UserName">Odjava</a>
 
