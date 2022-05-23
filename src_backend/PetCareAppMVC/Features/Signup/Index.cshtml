@@ -136,6 +136,23 @@
                             Godina istjecanja kreditne kartice nije valjanog formata, mora sadržavati 4 broja. 
                         </div>
                         <br>
+
+                       <span class="deleteicon">
+                            <div class="autocomplete">
+                                <input class="input__text" name="role" 
+                                    placeholder="Uloga" required
+                                    id="input__role" type="text" name="role"
+                                    placeholder="Uloga">
+                            </div>
+                            <span id="delete__role">x</span>
+                        </span>
+                        <br>
+                        <div id="input__role__err">
+                            fffUloga nije valjanog formata, uloga je administrator ili korisnik.
+                        </div>
+                        <br>
+
+
                         <span class="deleteicon">
                         <input asp-for="Password" type="password" class="input__text" id="input__password" 
                             placeholder="Lozinka" required 

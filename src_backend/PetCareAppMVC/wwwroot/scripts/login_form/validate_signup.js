@@ -4,6 +4,9 @@ window.onload = (event) => {
 
   autocomplete(document.getElementById("input__card__month"), get_months());  
 
+    autocomplete(document.getElementById("input__role"), get_roles());  
+
+
   delete_init();
 
   change_listeners_init();
@@ -23,7 +26,8 @@ function change_listeners_init() {
     "input__card__month__err",
     "input__card__year__err",
     "input__password__err",
-    "input__password_repeat__err",
+      "input__password_repeat__err",
+    "input__role__err"
   ].forEach(element => {
     show_element(element, false);
 
@@ -40,7 +44,7 @@ function change_listeners_init() {
   init_card_year_listeners();
   init_password_listeners();
   init_password_repeat_listeners();
-  
+    init_role_listeners();
 }
 
 function empty_msg_mapper() {
@@ -55,7 +59,8 @@ function empty_msg_mapper() {
     "input__card__month" : "Mjesec istjecanja kreditne kartice ne može biti prazan.",
     "input__card__year" : "Godina istjecanja kreditne kartice ne može biti prazna.",
     "input__password" : "Lozinka ne može biti prazna",
-    "input__password_repeat" : "Ponovno upisana lozinka ne može biti prazna."
+      "input__password_repeat": "Ponovno upisana lozinka ne može biti prazna.",
+      "input__role": "Uloga ne može biti prazna"
   }
 }
 
@@ -117,6 +122,31 @@ function init_generic_listeners(id_selector, id_selector_err, additional_control
 
   }
   
+}
+
+
+
+function init_role_listeners() {
+
+    let id_selector = "input__role"
+    let id_selector_err = "input__role__err"
+
+    init_generic_listeners(id_selector, id_selector_err, (value) => {
+
+        if (!is_role_valid(value)) {
+            show_element(id_selector_err, true);
+
+            document.getElementById(id_selector_err).innerText =
+                "Uloga nije valjanog formata, ona je administrator ili korisnik."
+            return false;
+        } else {
+            show_element(id_selector_err, false);
+            return true;
+        }
+
+    })
+
+
 }
 
 function init_username_listeners() {
@@ -464,6 +494,13 @@ function isAlphaNumeric(str) {
   return true;
 };
 
+function is_role_valid(value) {
+    let roles = get_roles();
+    const lowercased = roles.map(name => name.toLowerCase());
+
+    return lowercased.includes(value.toLowerCase());
+}
+
 function is_year_valid(value) {
   let years = get_years();
  
@@ -599,7 +636,11 @@ function delete_init() {
     input.focus();
   }
   
-
+    document.getElementById("delete__role").onclick = () => {
+        var input = document.getElementById("input__role");
+        input.value = '';
+        input.focus();
+    }  
 }
 
 function autocomplete(inp, arr) {
@@ -703,6 +744,11 @@ function get_months() {
   let months = "1 2 3 4 5 6 7 8 9 10 11 12 01 02 03 04 05 06 07 08 09".split(" ")
 
   return months_descr.concat(months).concat(months_hrv);
+}
+
+function get_roles() {
+    return "admin administrator korisnik user".split(" ")
+
 }
 
 function val_cc () {          
