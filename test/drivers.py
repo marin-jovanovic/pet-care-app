@@ -74,13 +74,13 @@ def get_selectors():
 
 def click(driver, css_selector):
     print("selector", css_selector)
-    # time.sleep(1)
+    time.sleep(1)
     elem = driver.find_element(by=By.CSS_SELECTOR, value=css_selector)
     elem.click()
 
 def type(driver, css_selector, content):
     print("selector", css_selector)
-    # time.sleep(1)
+    time.sleep(1)
     elem = driver.find_element(by=By.CSS_SELECTOR, value=css_selector)
     elem.send_keys(content)
 

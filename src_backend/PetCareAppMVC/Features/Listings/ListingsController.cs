@@ -50,12 +50,12 @@ namespace PetCareAppMVC.Features.Listings
 
             var query1 = new DomainServices.Adlisting.Queries.GetAdlistingQuery();
             var data2 = await mediator.Send(query1);
-            Domain.Listings dP1 = new Domain.Listings();
+            
             IList<Domain.Listings> adlistings = new List<Domain.Listings>();
             adlistings.Clear();
             foreach (var ad in data2)
             {
-
+                Domain.Listings dP1 = new Domain.Listings();
                 var petQ = new DomainServices.Pet.Queries.GetPetQuery(ad.PetId);
                 var petd = await mediator.Send(petQ);
 

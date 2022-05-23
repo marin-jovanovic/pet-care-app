@@ -14,8 +14,8 @@ class TestMain(unittest.TestCase):
 
     def get_constants(self):
         return {
-            "existing user username": "us",
-            "existing user password": "p",
+            "existing user username": "mata",
+            "existing user password": "ma",
 
             "non existing user username": "fff",
             "non existing user password": "fff",
@@ -178,7 +178,7 @@ class TestMain(unittest.TestCase):
         self.assertTrue(True)
 
 
-    def test_signup(self):
+    def test_failed_signup(self):
         driver = init()
         home(driver, False)
 
@@ -201,13 +201,13 @@ class TestMain(unittest.TestCase):
             driver.find_element(by=By.CSS_SELECTOR, value=get_selectors()["home"]["user"])
 
             self.test_controller_delete_user()
-            self.assertTrue(True)
+            self.assertTrue(False)
 
         except selenium.common.exceptions.NoSuchElementException:
             self.test_controller_delete_user()
-            self.assertTrue(False)
+            self.assertTrue(True)
 
-    def test_mylistings(self):
+
 
 
 if __name__ == "__main__":
