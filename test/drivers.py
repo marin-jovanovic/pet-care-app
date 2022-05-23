@@ -39,12 +39,13 @@ def get_selectors():
         "login": {
             "username": "#input__username",
             "password": "#input__password",
-            "confirm": "#loginForm > table > tbody > tr:nth-child(3) > td > input"
+            "confirm": "#loginForm > table > tbody > tr:nth-child(3) > td > input",
+            "error msg": ".center__err"
         },
 
         "listings": {
             "my_listings": "body > div > div > div > div.navbar > div:nth-child(3) > input[type=button]:nth-child(1)",
-            "logout": "body > div > div > div > div.navbar > div:nth-child(3) > input[type=button]:nth-child(2)"
+            "logout": ".navbar > div:nth-child(3) > a:nth-child(2)"
         },
 
         "my_listings": {
@@ -63,24 +64,27 @@ def get_selectors():
             "card year": "#input__card__year",
             "password": "#input__password",
             "password repeat": "#input__password_repeat",
-            "confirm": "#registerFormU > div > span:nth-child(45) > input"
+            "confirm": "#registerFormU > div > span:nth-child(49) > input",
+            "role": "#input__role"
         },
 
         "logout": {
-            "logout content": "body > div:nth-child(1) > div:nth-child(1)"
-        }
+            "logout content": ".navbar > div:nth-child(3) > a:nth-child(2)"
+        },
+
+        "wrong user pass combo text": "Netočna kombinacija korisnika i lozinke"
 
     }
 
 def click(driver, css_selector):
     print("selector", css_selector)
-    time.sleep(1)
+    # time.sleep(1)
     elem = driver.find_element(by=By.CSS_SELECTOR, value=css_selector)
     elem.click()
 
 def type(driver, css_selector, content):
     print("selector", css_selector)
-    time.sleep(1)
+    # time.sleep(1)
     elem = driver.find_element(by=By.CSS_SELECTOR, value=css_selector)
     elem.send_keys(content)
 
@@ -107,20 +111,26 @@ def listings(driver, my_listings_or_logout):
         click(driver, get_selectors()["listings"]["logout"])
 
 def signup(driver, username, oib, firstname, lastname, email, card_number,
-           card_type, card_month, card_year, password, password_2):
+           card_type, card_month, card_year, password, password_2, role=None):
     type(driver, get_selectors()["signup"]["username"], username)
     type(driver, get_selectors()["signup"]["oib"], oib)
     type(driver, get_selectors()["signup"]["firstname"], firstname)
     type(driver, get_selectors()["signup"]["lastname"], lastname)
     type(driver, get_selectors()["signup"]["email"], email)
     type(driver, get_selectors()["signup"]["card number"],card_number)
-    # type(driver, get_selectors()["signup"]["card type"],card_type)
+    type(driver, get_selectors()["signup"]["card type"],"fff")
     type(driver, get_selectors()["signup"]["card month"],card_month)
     type(driver, get_selectors()["signup"]["card year"],card_year)
     type(driver, get_selectors()["signup"]["password"], password)
     type(driver, get_selectors()["signup"]["password repeat"], password_2)
+
+    if role:
+        type(driver, get_selectors()["signup"]["role"],  role)
+
     click(driver, get_selectors()["signup"]["confirm"])
 
+    # time.sleep(4)
+    # input()
 
 
 if __name__ == '__main__':

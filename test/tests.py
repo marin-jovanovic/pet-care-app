@@ -8,14 +8,17 @@ import requests
 import selenium.common.exceptions
 from selenium.webdriver.common.by import By
 
-from drivers import init, home, login, get_selectors, listings, signup
+from drivers import init, home, login, get_selectors, listings, signup, click
+
 
 class TestMain(unittest.TestCase):
 
     def get_constants(self):
         return {
-            "existing user username": "mata",
-            "existing user password": "ma",
+            # "existing user username": "mata",
+            # "existing user password": "ma",
+            "existing user username": "us",
+            "existing user password": "p",
 
             "non existing user username": "fff",
             "non existing user password": "fff",
@@ -207,6 +210,46 @@ class TestMain(unittest.TestCase):
             self.test_controller_delete_user()
             self.assertTrue(True)
 
+    def test_signup(self):
+        driver = init()
+        home(driver, False)
+
+        print(driver.title)
+
+        signup(driver,
+
+               self.get_constants()["signup_username"],
+               self.get_constants()["signup_oib"],
+               self.get_constants()["signup_firstname"],
+               self.get_constants()["signup_lastname"],
+               self.get_constants()["signup_email"],
+               self.get_constants()["signup_card_number"],
+               self.get_constants()["signup_card_type"],
+            self.get_constants()["signup_card_month"],
+            self.get_constants()["signup_card_year"],
+            self.get_constants()["signup_password"],
+            self.get_constants()["signup_password_2"],
+               role="user"
+
+               )
+
+
+
+        try:
+            # click(driver, get_selectors()["signup"]["confirm"])
+
+            print(driver.title)
+            # input()
+
+            driver.find_element(by=By.CSS_SELECTOR, value=get_selectors()["home"]["login"])
+            # driver.find_element(by=By.CSS_SELECTOR, value=get_selectors()["home"]["user"])
+
+            self.test_controller_delete_user()
+            self.assertTrue(True)
+
+        except selenium.common.exceptions.NoSuchElementException:
+            self.test_controller_delete_user()
+            self.assertTrue(False)
 
 
 
