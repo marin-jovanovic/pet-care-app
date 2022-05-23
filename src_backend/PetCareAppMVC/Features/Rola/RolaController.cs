@@ -57,6 +57,8 @@ namespace ProjectMVC.Features.Rola
     {
       var query = new Queries.GetRoleQuery(id);
       var role = await mediator.Send(query);
+            Console.WriteLine("role",role,"kraj");
+
       if (role == null)
       {
         return NotFound();
