@@ -15,10 +15,10 @@ class TestMain(unittest.TestCase):
 
     def get_constants(self):
         return {
-            # "existing user username": "mata",
-            # "existing user password": "ma",
-            "existing user username": "us",
-            "existing user password": "p",
+            "existing user username": "mata",
+            "existing user password": "ma",
+            #"existing user username": "us",
+            #"existing user password": "p",
 
             "non existing user username": "fff",
             "non existing user password": "fff",

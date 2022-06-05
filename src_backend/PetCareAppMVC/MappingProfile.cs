@@ -8,6 +8,8 @@ using PetCareAppMVC.Features.Adress;
 using static DomainServices.Adress.Commands;
 using PetCareAppMVC.Features.Pet;
 using static DomainServices.Pet.Commands;
+using DomainModel;
+using DomainModel.Camunda;
 
 namespace PetCareAppMVC;
 
@@ -63,6 +65,6 @@ public class MappingProfile : Profile
         CreateMap<PetViewModel, Domain.Pet>();
         CreateMap<Domain.Pet, PetViewModel>();
 
-
+       
     }
 }

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DomainModel.Camunda.TaskInfo>
+
+<table class="table-striped table-bordered dashboard">
+  <caption>My tasks</caption>
+  <thead>
+    <tr>
+      <th scope="col">PID</th>
+      <th scope="col">Task Id</th>
+      <th scope="col">Task Name</th>
+      <th scope="col">Question</th>
+      <th scope="col">Author</th>
+      <th scope="col">Started</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var info in Model)
+    {
+      <tr>
+        <td>@info.PID</td>
+        <td>@info.TID</td>
+        <td>@info.TaskName</td>
+
+        <td>@info.QuestionId</td>
+        <td>@info.QuestionAuthor</td>
+        <td>@info.StartTime</td>
+        @switch (info.TaskKey)
+        {
+          case "Task_AssignReviewer":
+          case "Task_CreateReview":
+           <partial name="@info.TaskKey" model="info" />
+            break;
+          default:
+            <td>
+              <form asp-action="@nameof(PetCareAppMVC .Features.Camunda.Camunda.CamundaController.FinishTask)" method="post">
+                <input type="hidden" name="taskId" value="@info.TID" />
+                <input type="submit" class="btn btn-primary btn-sm" value="Finish task" />
+              </form>
+            </td>
+            break;
+        }
+      </tr>
+    }
+  </tbody>
+</table>

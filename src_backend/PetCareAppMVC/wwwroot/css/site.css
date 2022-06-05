@@ -1,19 +1,31 @@
-/*html {
-  font-size: 14px;
+html, body, #canvas {
+    height: 100%;
+    padding: 0px 20px 20px 10px;
+    margin: 0;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+#canvas {
+    height: 500px;
 }
 
-html {
-  position: relative; 
-  min-height: 100%;
+.diagram-note {
+    background-color: rgba(66, 180, 21, 0.7);
+    color: White;
+    border-radius: 5px;
+    font-family: Arial;
+    font-size: 12px;
+    padding: 5px;
+    min-height: 16px;
+    width: 50px;
+    text-align: center;
 }
 
-body {
-  margin-bottom: 60px;
-  color:aqua
-}*/
+.needs-discussion:not(.djs-connection) .djs-visual > :nth-child(1) {
+    stroke: rgba(66, 180, 21, 0.7) !important; /* color elements as red */
+}
+
+.dashboard caption {
+    caption-side: top;
+    font-variant: small-caps;
+    font-weight: bold;
+}

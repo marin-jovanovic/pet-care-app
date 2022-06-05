@@ -1,0 +1,38 @@
+﻿@model IEnumerable<DomainModel.Camunda.ReviewInfo>
+
+<table class="table-striped table-bordered dashboard">
+  <caption>Active reviews</caption>
+  <thead>
+    <tr>
+      <th scope="col">PID</th>
+      <th scope="col">Question</th>
+      <th scope="col">Author</th>
+      <th scope="col">Started</th>
+      <th scope="col">Reviewer</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var info in Model)
+    {
+      <tr>
+        <td>@info.PID</td>
+        <td>@info.QuestionId</td>
+        <td>@info.Author</td>
+        <td>@info.StartTime</td>
+        <td>
+          @if (info.CanApplyForReview)
+          {
+            <form asp-action="@nameof(PetCareAppMVC .Features.Camunda.Camunda.CamundaController.ApplyForReview)" method="post">
+              <input type="hidden" name="pid" value="@info.PID" />
+              <input type="submit" class="btn btn-primary btn-sm" value="Apply" />
+            </form>
+          }
+          else
+          {
+            @info.Reviewer
+          }
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
