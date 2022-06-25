@@ -1,4 +1,5 @@
 import json
+import time
 
 import requests
 
@@ -8,51 +9,75 @@ def create_process():
 
     url = "http://localhost:8080/engine-rest/process-definition/key/Process_1bqcsp9/start"
 
-    # url = f"http://localhost:8080/engine-rest/process-definition/default/{k}/start"
-    # myobj = {'somekey': 'somevalue'}
-    myobj = {}
-    # x = requests.post(url, data = myobj)
+    p = {}
+    # p = {
+    #   "variables": {
+    #   #   "amount": {
+    #   #   "value": 30,
+    #   #   "type": "Double"
+    #   #   },
+    #   #   "creditor": {
+    #   #   "value": "Niall",
+    #   #   "type": "String"
+    #   #   },
+    #   # "invoiceCategory": {
+    #   #   "value": "Travel Expenses",
+    #   #   "type": "String"
+    #   #   },
+    #   # "invoiceNumber": {
+    #   #   "value": "BER-00001",
+    #   #   "type": "String"
+    #   #   },
+    #
+    #     # "Admin": "admin1"
+    #   },
+    #   # "businessKey": "Doom1",
+    #   # "withVariablesInReturn": True
+    # }
+
+    p = {
+        "variables": {
+            "Admin": {
+                "value": None,
+                # "value": "admin2",
+                "type": "String"
+            },
+            "RevievNeeded": {
+                "value": None,
+                "type": "Boolean"
+            },
+            "advertisement": {
+                "value": None,
+                "type": "Integer"
+            }
+        }
+    }
+
+    p = json.dumps(p)
 
     headers = {'Content-type': 'application/json'}
-    x = requests.post(url, headers=headers)
-    # print(x.text)
+    x = requests.post(url, headers=headers, data=p)
     parsed = json.loads(x.text)
     print(json.dumps(parsed, indent=4, sort_keys=True))
 
-    # import subprocess
-    #
-    # result = subprocess.run(
-    #     ['curl -H "Content-Type: application/json" -X POST http://localhost:8080/engine-rest/process-definition/key/Process_1bqcsp9/start'],
-    #     capture_output=True,
-    #     text=True
-    # )
-    #
-    # lines = result.stdout.split("\n")
-    #
-    # print(lines)
 
     return parsed["id"]
 
 def get_tasks(processInstanceIdIn):
-    new_id = "7b800189-e63e-11ec-84d0-0242ac110002"
 
     url = f"http://localhost:8080/engine-rest/task"
-    # url = f"http://localhost:8080/engine-rest/task?processInstanceIdIn={processInstanceIdIn}&withoutTenantId=false&includeAssignedTasks=false&assigned=false&unassigned=false&withoutDueDate=false&withCandidateGroups=false&withoutCandidateGroups=false&withCandidateUsers=false&withoutCandidateUsers=false&active=false&suspended=false&variableNamesIgnoreCase=false&variableValuesIgnoreCase=false"
 
-    data = {"processInstanceIdIn": processInstanceIdIn}
-    # url = "http://localhost:8080/engine-rest/task"
+    data = {"processInstanceId": processInstanceIdIn}
+    data = json.dumps(data)
 
     headers = {'Content-type': 'application/json'}
-    x = requests.post(url, headers=headers)
-    # print(x.text)
+    x = requests.post(url, headers=headers, data=data)
     parsed = json.loads(x.text)
     # print(json.dumps(parsed, indent=4, sort_keys=True))
 
     user_task_id = []
     for i in parsed:
         user_task_id.append((i["id"], i["name"]))
-    # print(user_task_id)
-    [print(i) for i in user_task_id]
 
     return user_task_id
 
@@ -77,126 +102,110 @@ def get_processes():
     # print()
     return user_task_id
 
-def complete_task(task_id):
+def user_report_ad_listing(task_id):
 
     url = f"http://localhost:8080/engine-rest/task/{task_id}/complete"
-          # f"processInstanceIdIn={processInstanceIdIn}&withoutTenantId=false&includeAssignedTasks=false&assigned=false&unassigned=false&withoutDueDate=false&withCandidateGroups=false&withoutCandidateGroups=false&withCandidateUsers=false&withoutCandidateUsers=false&active=false&suspended=false&variableNamesIgnoreCase=false&variableValuesIgnoreCase=false"
 
     headers = {'Content-type': 'application/json'}
     x = requests.post(url, headers=headers)
-    # parsed = json.loads(x.text)
-    # print(json.dumps(parsed, indent=4, sort_keys=True))
-    #
-    # user_task_id = []
-    # for i in parsed:
-    #     user_task_id.append(i["id"])
-    # # print(user_task_id)
-    # [print(i) for i in user_task_id]
+    print(x.text)
+
+def admin_review_ad_listing(t, task_id):
+    if t == "yes":
+        data = {
+            "variables": {
+                "RevievNeeded": {
+                    "value": False,
+                    "type": "Boolean"
+                },
+                "advertisement": {
+                    "value": 0,
+                    "type": "Integer"
+                }
+            }
+
+        }
+    else:
+        data = {
+            "variables": {
+                "RevievNeeded": {
+                    "value": True,
+                    "type": "Boolean"
+                },
+                "advertisement": {
+                    "value": 1,
+                    "type": "Integer"
+                }
+            }
+        }
+
+    data = json.dumps(data)
+
+    url = f"http://localhost:8080/engine-rest/task/{task_id}/complete"
+    headers = {'Content-type': 'application/json'}
+    x = requests.post(url, headers=headers, data=data)
+    print(x.text)
 
 
 def main():
-    # p = get_processes()
-    p_selected = "8bfb216f-e63c-11ec-84d0-0242ac110002"
+    p = "73bc7184-e67e-11ec-8364-0242ac110002"
+    p = None
+    if not p:
+        p = create_process()
+        print(f"created process {p}")
 
-    tasks = get_tasks(p_selected)
+    print(f"using {p} as process\n")
 
-    # t = tasks
+    # tasks = get_tasks(p)
+    task = get_tasks(p)[-1][0]
+    print("task")
+    print(task)
+    print()
 
-    task_id = tasks[-1][0]
-    print(task_id)
+    print("USER: report")
+    user_report_ad_listing(task)
 
-    complete_task(task_id)
+    print("ADMIN: review")
+    admin_accept_review(p)
 
+    task = get_tasks(p)
+    print("task")
+    print(task)
+    print()
+    time.sleep(1)
+    task = task[-1][0]
 
-        #
-    # url = f"http://localhost:8080/engine-rest/task/{task_id}/complete"
-    #
-    # data = {"variables": {}}
-    # # data = {
-    # #   "ReviewAdlisting": "f"
-    # # }
-    # headers = {'Content-type': 'application/json'}
-    # x = requests.post(url, headers=headers, data=data)
-    # print(x.text)
-
-    # parsed = json.loads(x.text)
-    # # print(json.dumps(parsed, indent=4, sort_keys=True))
-    #
-    # user_task_id = []
-    # for i in parsed:
-    #     user_task_id.append(i["id"])
-    # # print(user_task_id)
-    # [print(i) for i in user_task_id]
+    t = input("ADMIN: do you want to delete ad listing?")
+    admin_review_ad_listing(t, task)
 
 
-    # new_id = init()
-    # new_id = "7b800189-e63e-11ec-84d0-0242ac110002"
-    #
-    # get_tasks(new_id)
 
-    # complete_task("fab08abc-e63d-11ec-84d0-0242ac110002")
+def admin_accept_review(processInstanceId):
 
-
-if __name__ == '__main__':
-    # main()
-
-    task_id = "77e575a8-e63e-11ec-84d0-0242ac110002"
-    #
-    # url = f"http://localhost:8080/engine-rest/task/{task_id}/complete"
-    # data = {"variables": {}}
-    # headers = {'Content-type': 'application/json'}
-    # x = requests.post(url, headers=headers, data=data)
-    # print(x.text)
-    #
-    #
     url = f"http://localhost:8080/engine-rest/message"
-    #       # f"processInstanceIdIn={processInstanceIdIn}&withoutTenantId=false&includeAssignedTasks=false&assigned=false&unassigned=false&withoutDueDate=false&withCandidateGroups=false&withoutCandidateGroups=false&withCandidateUsers=false&withoutCandidateUsers=false&active=false&suspended=false&variableNamesIgnoreCase=false&variableValuesIgnoreCase=false"
-    #
+
     data = {
+        # "variables": {
+        #     "Admin": "admin1"
+        # },
+
+        "variables": {
+            "Admin": {
+                # "value": None,
+                "value": "admin1",
+                "type": "String"
+            }
+        },
+
         "messageName": "ReviewAdlisting",
-        "processInstanceId": "8bfb216f-e63c-11ec-84d0-0242ac110002"
+        "processInstanceId": processInstanceId
     }
 
     data = json.dumps(data)
-    # data = "ReviewAdlisting"
-    # data = {"messageName" : "ReviewAdlisting",
-    #     "businessKey" : "aBusinessKey",
-    #     "correlationKeys" : {
-    #         "aVariable" : {"value" : "aValue", "type": "String"}
-    #     },
-    #     "processVariables" : {
-    #         "aVariable" : {"value" : "aNewValue", "type": "String"},
-    #         "anotherVariable" : {"value" : True, "type": "Boolean"}
-    #     }
-    # }
 
     headers = {'Content-type': 'application/json'}
     x = requests.post(url, headers=headers, data=data)
     print(x.text)
-    # parsed = json.loads(x.text)
-    # # print(json.dumps(parsed, indent=4, sort_keys=True))
-    #
-    # user_task_id = []
-    # for i in parsed:
-    #     user_task_id.append(i["id"])
-    # # print(user_task_id)
-    # [print(i) for i in user_task_id]
 
-
-
-
-
-
-    # import pycamunda.processinst
-    #
-    # url = 'http://localhost:8080/engine-rest'
-    #
-    # get_instances = pycamunda.processinst.GetList(url,
-    #                                               process_definition_key='Process_1bqcsp9')
-    # instances = get_instances()
-    #
-    # for instance in instances:
-    #     print('Process instance id:', instance.id_)
-    #
-    #     tasks = pycamunda.GetList()
-    #     print(tasks)
+if __name__ == '__main__':
+    main()
